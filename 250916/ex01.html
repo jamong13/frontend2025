@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main-title{
+            background-color: yellow;
+            color: blue;
+        }
+
+        .intro{
+            color: green;
+            border: 1px solid black;
+        }
+        .menu li{
+            background-color: #f0f0f0;
+        }
+        .menu li.active{
+            background-color: red;
+            color: white;
+        }
+        .content .highlight{
+            background-color: skyblue;
+            border: 2px dotted purple;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-title">웹 연습 페이지</h1>
+
+    <p class="intro">이 문장은 소개 문단입니다.</p>
+
+    <ul class="menu">
+        <li>홈</li>
+        <li class="active">소개</li>
+        <li>서비스</li>
+        <li>문의</li>
+    </ul>
+
+    <div class="content">
+        <p>본문 내용 1</p>
+        <p class="highlight">중요한 본문 내용</p>
+    </div>
+</body>
+</html>

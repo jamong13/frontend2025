@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 50%;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        h1{
+            /* background-color: red; */
+            /* width: 50%; */
+            /* margin-left: auto;
+            margin-right: auto; */
+            text-align: center;
+            /* 글자 중앙정렬 */
+        }
+        .cen{
+            text-align: center;
+        }
+        /* .back{
+            background-color: #333; color: white;
+        } */
+        th{
+            background-color: #333; color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>일정표</h1>
+    <table>
+        <tr class="back">
+            <!-- td를 th 바꾸면 중앙정렬 글자 진해짐 -->
+            <th>날짜</th>
+            <th>시간</th>
+            <th>내용</th>   
+        </tr>
+        <tr>
+            <td rowspan="3" class="cen">5/11(토요일)</td>
+            <td>18:00</td>
+            <td>저녁식사</td>
+        </tr>
+        <tr>
+            <td>19:00</td>
+            <td>분과별 토의 주제 발표</td>
+        </tr>
+        <tr>
+            <td>20:30</td>
+            <td>휴식 및 자유토론</td>    
+        </tr>
+        <tr>
+            <td rowspan="3" class="cen">5/12(일요일)</td>
+            <td>07:00</td>
+            <td>분임 토의 결과발표</td>
+        </tr>
+        <tr>
+            <td>08:00</td>
+            <td>아침식사</td>
+        </tr>
+        <tr>
+            <td>09:30</td>
+            <td>추진계획 기예산 보고</td>
+        </tr>
+    </table>
+</body>
+</html>

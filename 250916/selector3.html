@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul, li{
+            list-style: none;
+        }
+        /* 블릿이 제거됨 */
+        nav ul li{
+            float: left;
+        }
+        /* 옆으로 나열 */
+        nav ul li a{
+            color: black;
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+        nav ul li a:hover{
+            background-color: blueviolet;
+            color: #fff;
+        }
+        /* :hover 마우스를 올렸을 때 배경색은 블루바이올렛, 글자색은 흰색으로 변경*/
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">MainMenu1</a></li>
+            <li><a href="#">MainMenu2</a></li>
+            <li><a href="#">MainMenu3</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

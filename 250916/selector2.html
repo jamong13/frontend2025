@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 로고는 빨강 nav ul li a 메뉴는 검정 */
+        header h1 a{
+            color: red;
+        }
+        /* 자손선택자, 후손선택자 */
+        .logo a{
+            color: red;
+        }
+        nav ul li a{
+            color: black;
+        }
+        nav a{
+            color: black;
+        }
+        nav ul a{color: black;}
+        nav li a{color: black;}
+        /* 한칸 띄워서 선택하는 것은 자식선택자 */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo"><a href="#">Logo</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Menu1</a></li>
+                    <li><a href="#">Menu2</a></li>
+                    <li><a href="#">Menu3</a></li>
+                    <li><a href="#">Menu4</a></li>
+                    <li><a href="#">Menu5</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+</body>
+</html>

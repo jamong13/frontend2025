@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul li{list-style: none;}
+        /* nav ul li{
+            float: left;
+        } */
+        /* 전체 li 나열 */
+        nav>ul>li{
+            float: left;
+        }
+        /* 자식선택자 > */
+        /* mainmenu li 나열*/
+        /* nav ul li{border: 1px solid#333;} */
+        /* nav ul li a{color: black;} */
+        nav > ul > li > a{color: black;}
+        nav ul li ul{
+            display: none;
+        }
+        nav ul li:hover ul{display: block;}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">MainMenu1</a>
+                <ul>
+                    <li><a href="#">submenu1</a></li>
+                    <li><a href="#">submenu2</a></li>
+                    <li><a href="#">submenu3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">MainMenu2</a>
+                <ul>
+                    <li><a href="#">submenu1</a></li>
+                    <li><a href="#">submenu2</a></li>
+                    <li><a href="#">submenu3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">MainMenu3</a>
+                <ul>
+                    <li><a href="#">submenu1</a></li>
+                    <li><a href="#">submenu2</a></li>
+                    <li><a href="#">submenu3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

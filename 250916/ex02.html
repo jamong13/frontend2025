@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS 가상 선택자 연습</title>
+  <style>
+    .menu li:first-child{
+        color: blue;
+    }
+    .menu li:nth-child(odd){
+        background-color: #f0f0f0;
+    }
+    .menu li:nth-child(3){
+        color: red;
+        font-size: 20px;
+    }
+    .info::before{
+        content: "※";
+        color: red;
+        font-weight: bold;
+    }
+    .info::after{
+        content: " - 끝.";
+        color: gray;
+    }
+  </style>
+</head>
+<body>
+  <h1>메뉴 리스트</h1>
+
+  <ul class="menu">
+    <li>홈</li>
+    <li>소개</li>
+    <li>서비스</li>
+    <li>문의</li>
+    <li>공지사항</li>
+  </ul>
+
+  <p class="info">이 문장은 안내 문구입니다.</p>
+</body>
+</html>
