@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. [속성] : 속성이 있는 요소 선택 */
+        a[target]{color: red;}
+
+        /* 2. [속성|="값"] : 값이 정확히 같거나 또는 값- 으로 시작 */
+        /* en이거나 en으로 시작 */
+        p[lang|="en"]{
+            background-color: lightyellow;
+        }
+
+        /* 3. [속성~="값"] : 공백으로 구분된 값 목록 중 포함 */
+        /* box글씨가 포함 */
+        div[class~="box"]{
+            border: 2px solid blue;
+        }
+
+        /* 4. [속성*="값"] : 속성 값에 "값"이 포함 */
+        input[type*="text"]{
+            background-color: lightpink;
+        }
+
+        /* 5. [속성$="값"] : 속성 값이 "값"으로 끝남 */
+        img[src$=".png"]{
+            border: 3px solid green;
+        }
+
+        /* 6. [속성^="값"] : 속성 값이 "값"으로 시작 */
+        img[src^="icon"]{
+            border: 3px dashed orange;
+        }
+
+        img[alt="강아지1"]{
+            border: 3px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <h2>속성 선택자 예제</h2>
+
+    <!-- [속성] -->
+    <a href="http://example.com" target="_blank">target 속성 있음</a>  
+    <a href="http://example.com">target 속성 없음</a>
+
+    <hr>
+
+    <!-- [속성|="값"] -->
+    <p lang="en">English Paragraph</p>
+    <p lang="en-US">American English Paragraph</p>
+    <p lang="fr">French Paragraph</p>
+
+    <hr>
+
+    <!-- [속성~="값"] -->
+    <div class="content box">box 포함</div>
+    <div class="content">box 없음</div>
+
+    <hr>
+
+    <!-- [속성*="값"] -->
+    <input type="text" placeholder="일반 텍스트">
+    <input type="password" placeholder="비밀번호">
+
+    <hr>
+
+    <!-- [속성$="값"], [속성^="값"] -->
+    <img src="icon-home.png" alt="홈 아이콘" width="100">
+    <img src="photo.png" alt="사진 아이콘" width="100">
+    <img src="icon-user.png" alt="사용자 아이콘" width="100">
+
+
+    <img src="images/dog1.jpg" alt="강아지1" width="200px">
+</body>
+</html>

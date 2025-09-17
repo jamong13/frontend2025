@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{margin: 0; padding: 0;}
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    ul li{
+        list-style: none;
+    }
+    .container{
+        width: 900px;
+        margin: 0 auto;
+    }
+    header{
+        width: 100%;
+        /* 생략가능 */
+        height: 200px;
+        background-color: pink;
+    }
+    header .logo{
+        float: left;
+        margin-left: 50px;
+        margin-top: 60px;
+    }
+    header nav{
+        float: right;
+        margin-top: 70px;
+        margin-right: 20px;
+    }
+    header nav ul li{
+        float: left;
+    }
+    header nav ul li a{
+        display: block;
+        /* a는 인라인 요소라 넓이, 높이를 적용할 수 없다.
+        display:block;을 주면 인라인 욧를 블록요소로 바꿀 수 있다. */
+        padding: 15px;
+        background-color: yellow;
+    }
+    header nav ul li a:hover{
+        background-color: #000;
+        color: #fff;
+    }
+    .main{
+        height: 550px;
+        background-color: #ccc;
+    }
+    section{
+        width: 650px;
+        height: 550px;
+        background-color: yellowgreen;
+        float: left;
+    }
+    aside{
+        width: 250px;
+        height: 550px;
+        background-color: aqua;
+        float: right;
+    }
+    footer{
+        width: 100%;
+        height: 70px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        /* footer 안에서 중앙정렬 */
+        /* padding-top: 20px; */
+        
+        /* 높이가 70px 한줄로 된 글씨를 세로 중앙정렬하려면 line-height를 높이값과 똑같이 70을 주면 세로 중앙정렬*/
+        line-height: 70px;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo"><a href="#">Thejoeun</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Menu1</a></li>
+                    <li><a href="#">Menu2</a></li>
+                    <li><a href="#">Menu3</a></li>
+                    <li><a href="#">Menu4</a></li>
+                    <li><a href="#">Menu5</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="main">
+            <section></section>
+            <aside></aside>
+        </div>
+        <footer>
+            2025 &copy; Copyright Design By Heesoo
+        </footer>
+    </div>
+</body>
+</html>

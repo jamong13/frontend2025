@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{
+            list-style: none;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .container{
+            width: 1200px;
+            height: 700px;
+            background-color: #ccc;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: lightcoral;
+        }
+        .logo{
+            width: 200px;
+            height: 100%;
+            float: left;
+            padding: 30px 0 0 20px;
+            box-sizing: border-box;
+            background-color: lightseagreen;
+        }
+        header .menu > ul{
+            float: right;
+            background-color: blueviolet;
+            margin: 30px 20px 0 0;
+        }
+        header .menu > ul > li{
+            float: left;
+        }
+        header .menu > ul > li > p > a{
+            display: block;
+            padding: 10px 20px;
+        }
+        header .menu > ul > li > p:hover > a{
+            background-color: black;
+            color: white;
+        }
+        header .menu > ul > li > ul{
+            display: none;
+        }
+        header .menu > ul > li > p:hover + ul{
+            display: block;
+        }
+        header .menu > ul > li > ul > li > a{
+            display: block;
+            text-align: center;
+        }
+
+        .imgslide{
+            height: 300px;
+            background-color: lightblue;
+        }
+        .main{
+            height: 200px;
+            background-color: lightgreen;
+        }
+        section, aside{
+            width: 400px;
+            height: 100%;
+        }
+        .main section{
+            float: left;
+        }
+        .main aside{
+            float: right;
+        }
+        .main .notice{
+            background-color: lightsalmon;
+        }
+        .main .banner{
+            background-color: yellowgreen;
+        }
+        .main aside{
+            background-color: aquamarine;
+        }
+        footer{
+            height: 100px;
+            background-color: blueviolet;
+        }
+        footer .logo{
+            padding-left: 30px;
+        }
+        footer .copyright{
+            width: 800px;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+        footer .sns{
+            width: 200px;
+            height: 100%;
+            float: right;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2 class="logo">Logo</h2>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <p><a href="#">Menu-1</a></p>
+                        <ul>
+                            <li><a href="#">Submenu-1</a></li>
+                            <li><a href="#">Submenu-2</a></li>
+                            <li><a href="#">Submenu-3</a></li>
+                            <li><a href="#">Submenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><a href="#">Menu-2</a></p>
+                        <ul>
+                            <li><a href="#">Submenu-1</a></li>
+                            <li><a href="#">Submenu-2</a></li>
+                            <li><a href="#">Submenu-3</a></li>
+                            <li><a href="#">Submenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><a href="#">Menu-3</a></p>
+                        <ul>
+                            <li><a href="#">Submenu-1</a></li>
+                            <li><a href="#">Submenu-2</a></li>
+                            <li><a href="#">Submenu-3</a></li>
+                            <li><a href="#">Submenu-4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><a href="#">Menu-4</a></p>
+                        <ul>
+                            <li><a href="#">Submenu-1</a></li>
+                            <li><a href="#">Submenu-2</a></li>
+                            <li><a href="#">Submenu-3</a></li>
+                            <li><a href="#">Submenu-4</a></li>
+                        </ul>
+                    </li>  
+                </ul>
+            </div>
+        </header>
+        <div class="imgslide">이미지 슬라이드</div>
+        <div class="main">
+            <section class="notice">공지사항 / 갤러리</section>
+            <section class="banner">배너 </section>
+            <aside>바로가기</aside>
+        </div>
+        <footer>
+            <h2 class="logo">Logo</h2>
+            <div class="copyright">Copyright</div>
+            <div class="sns">sns</div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            border: 1px solid #333;
+            float: left;
+        }
+        .box1{
+            background-color: aqua;
+        }
+        .box2{
+            background-color: rgb(252, 190, 186);
+        }
+        .box3{
+            background-color: rgb(204, 178, 253);
+            /* float: center; 는 없음*/
+        }
+        .box4{
+            background-color: rgb(203, 243, 165);
+            float: right;
+        }
+        /* box3이랑 box4에 float:right;를 주면 box3이 먼저 오른쪽으로 감 */
+    </style>
+</head>
+<body>
+    <div class="box box1">박스1</div>
+    <div class="box box2">박스2</div>
+    <div class="box box3">박스3</div>
+    <div class="box box4">박스4</div>
+</body>
+</html>

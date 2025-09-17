@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 1200px;
+            height: 300px;
+            border: 1px solid #333;
+            background-color: pink;
+            margin: 100px auto;
+            background-image: url(images/ca1_1.jpg);
+            /* 이미지가 작을 경우 가로세로 반복해서 나타남 */
+            background-repeat: no-repeat;
+            /* 이미지가 한개만 나타남 - 반복안됨 */
+            background-repeat: repeat-x;
+            /* 이미지가 x축으로만 반복됨 */
+        }
+        .box2{
+            width: 1200px;
+            height: 300px;
+            border: 1px solid #333;
+            background-color: pink;
+            margin: 100px auto;
+            background-image: url(images/ca1_1.jpg);
+            background-repeat: no-repeat;
+            /* background-position: 50% 50%; */
+            /* 배경위치 가로 50% 세로 50% 정중앙 */
+            /* background-position: right center; */
+            background-position: 200px 100px;
+        }
+        .box3{
+            width: 1200px;
+            height: 300px;
+            border: 1px solid #333;
+            background-color: pink;
+            margin: 100px auto;
+            background-image: url(images/ca1_1.jpg);
+            background-repeat: no-repeat;
+            /* background-size: contain; */
+            /* 화면에 가까운 쪽으로 꽉 차게,
+            비율대로 늘리다가 가로세로 중 짧은 길이에 도달하면 멈춤 */
+            /* background-size: cover; */
+            /* 화면에 먼쪽으로 꽉차게 늘림,
+            비율대로 늘리다가 가로세로 중 가장 긴 길이에 도달하면 멈춤 */
+            background-size: 200px 200px;
+        }
+        .box4{
+            width: 1200px;
+            height: 300px;
+            border: 1px solid #333;
+            background-color: pink;
+            margin: 100px auto;
+            background: pink url(images/ca1_1.jpg) no-repeat 50% 50% / 200px 200px;
+            /* 배경 : 배경색 이미지파일위치 반복여부 이미지화면위치 / 이미지 크기 */
+            /* background 쓰고 background-color 등 써도 가능하나
+            반대로 background-color 등을 쓰고 background를 쓰면 적용이 되지 않음 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        배경
+    </div>
+    <div class="box2">
+        배경
+    </div>
+    <div class="box3">
+        배경
+    </div>
+    <div class="box4">
+        배경
+    </div>
+</body>
+</html>

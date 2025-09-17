@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ul li:hover{
+            background-color: red;
+        }
+        ul li:visited{
+            background-color: yellow;
+        } */
+        /* a태그는 대부분 링크 용도로 쓰기 때문에 별도의 스타일을 주기 전까지 파란색에 밑줄이 생김 */
+
+        ul, li{list-style: none;}
+        /* 블릿 숨기기 */
+        ul li{float: left;}
+        /* 왼쪽부터 나란히 배열 */
+        ul li a{
+            color: black;
+            text-decoration: none;
+            /* 밑줄 제거 */
+        }
+        ul li:hover a{
+            background-color: yellow;
+            text-decoration: underline;
+        }
+        ul li a:active{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+    </ul>
+</body>
+</html>
