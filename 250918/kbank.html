@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        /* 불릿 제거 */
+        a{text-decoration: none; color: black;}
+        section{
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #333;
+        }
+        .section1{
+            height: 300px;
+            padding: 30px 0;
+        }
+        .section1 .bigbox li{
+            float: left;
+            width: 300px;
+            height: 200px;
+            padding: 20px 30px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            margin-right: 50px;
+        }
+        .section1 .bigbox li:last-child{
+            margin-right: 0;
+        }
+        .txt1 span{
+            display: inline-block;
+            /* inline-block은 줄바뀜없이 그림처럼 너비, 높이를 줄 수 있음 */
+            padding: 7px;
+            background-color: cadetblue;
+            color: #fff;
+        }
+        .section2{
+            height: 200px;
+        }
+        .section2 > div{
+            float: left;
+        }
+        .section2 .shortcut{
+            width: 100px;
+        }
+        .section2 .menu{
+            width: 800px;
+        }
+        .section2 .menu ul li{
+            float: left;
+        }
+        .section2 .menu ul li .menu_icons_1{
+            background-image: url(images/icon1.png);
+        }
+        .section2 .menu ul li a{
+            display: block;
+            width: 90px;
+            height: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <section class="section1">
+        <ul class="bigbox">
+            <li>
+                <div>
+                    <p class="txt1"><span>추천상품</span></p>
+                    <h3 class="txt2">건강한 자산관리 KB마이데이터</h3>
+                    <p class="txt3">높은 이율! 수수료 혜택!<br/>목적별 자금관리를 통장 하나로!</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p class="txt1"><span>서비스</span></p>
+                    <h3 class="txt2">KB마이핏통장</h3>
+                    <p class="txt3">각 기관에 흩어진 나의 자산을<br/>한 곳에 모아서 관리해보세요</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p class="txt1"><span>서비스</span></p>
+                    <h3 class="txt2">이동통신사서비스 Liiv M</h3>
+                    <p class="txt3">KB국민은행의 혁신금융서비스로<br/>금융권 최초로 제공하는 이동통신서비스</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="section2">
+        <div class="shortcut">
+            <h3>금융상품</h3>
+            <p><a href="#">바로가기></a></p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">
+                        <div class="menu_icons_1 menu_icons"></div>
+                        <div class="menu_name">예금</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_2 menu_icons"></div>
+                        <div class="menu_name">펀드</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_3 menu_icons"></div>
+                        <div class="menu_name">대출</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_4 menu_icons"></div>
+                        <div class="menu_name">신탁</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_5 menu_icons"></div>
+                        <div class="menu_name">ISA</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_6 menu_icons"></div>
+                        <div class="menu_name">보험/공제</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_7 menu_icons"></div>
+                        <div class="menu_name">골드</div>
+                    </a>
+                </li>
+                <li><a href="#">
+                        <div class="menu_icons_8 menu_icons"></div>
+                        <div class="menu_name">외화예금</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

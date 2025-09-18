@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none; color: #333;}
+        #wrap{
+            width: 1000px;
+            height: 650px;
+        }
+        #wrap > div{float: left;}
+        .left{
+            width: 190px;
+            height: 650px;
+            background-color: lavender;
+            padding: 0 5px;
+            box-sizing: border-box;
+        }
+        .left .logo{
+            text-align: center;
+            padding: 20px 0;
+        }
+        .left .menu > ul{
+            border: 1px solid #333;
+        }
+        .left .menu ul li a{
+            display: block;
+            text-align: center;
+            padding: 15px 0;
+        }
+        .right{
+            width: 810px;
+            height: 650px;
+            background-color: lightblue;
+        }
+        .right .slider{
+            height: 350px;
+            background-color: aquamarine;
+        }
+        .right .content{
+            height: 200px;
+        }
+        .right .content > div{
+            float: left;
+            width: 270px;
+            height: 200px;
+        }
+        .right .notice{
+            background-color: #ccc;
+        }
+        .right .banner{
+            background-color: #aaa;
+        }
+        .right .shortcut{
+            background-color: #888;
+        }
+        .right footer{
+            height: 100px;
+            background-color: salmon;
+        }
+        .footer > div{
+            float: left;
+        }
+        .footer .f_logo{
+            width: 150px;
+            height: 100px;
+            background-color: #aaa;
+        }
+        .footer .f_right{
+            width: 660px;
+            height: 100px;
+        }
+        .footer .f_right > div{
+            height: 50px;
+        }
+        .footer .f_menu{
+            background-color: #555;
+        }
+        .footer .f_copy{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="left">
+            <h2 class="logo">LOGO</h2>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">MENU-1</a></li>
+                    <li><a href="#">MENU-2</a></li>
+                    <li><a href="#">MENU-3</a></li>
+                    <li><a href="#">MENU-4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="slider"></div>
+            <div class="content">
+                <div class="notice"></div>
+                <div class="banner"></div>
+                <div class="shortcut"></div>
+            </div>
+            <div class="footer">
+                <div class="f_logo"></div>
+                <div class="f_right">
+                    <div class="f_menu"></div>
+                    <div class="f_copy"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

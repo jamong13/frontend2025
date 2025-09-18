@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .menubox{
+            width: 1600px;
+            /* background-color: lightyellow; */
+            border: 1px solid #333;
+            overflow: hidden;
+            padding-bottom: 10px;
+            margin: 100px auto 0;
+        }
+        .menubox h1{
+            text-align: center;
+            margin: 10px 0 20px;
+        }
+        /* .menu_list{
+            overflow: hidden;
+        } */
+        .menu{
+            float: left;
+            width: 480px;
+            height: 200px;
+            border: 1px solid salmon;
+            /* background-color: #f0f0f0; */
+            padding: 10px;
+            margin-left: 23px;
+            margin-bottom: 10px;
+        }
+        .menu .menu_left{
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+        }
+        .menu .menu_img1{
+            background: url(coffee1.jpg) no-repeat 50% 50% / cover;
+        }
+        .menu .menu_img2{
+            background: url(coffee2.jpg) no-repeat 50% 50% / cover;
+        }
+        .menu .menu_img3{
+            background: url(coffee3.jpg) no-repeat 50% 50% / cover;
+        }
+        .menu .menu_right{
+            float: left;
+            width: 260px;
+            height: 100%;
+        }
+        .menu .menu_right h3{
+            padding-bottom: 10px;
+            /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+        }
+        .menu .menu_right .bar{
+            background-image: url(images/bar1.png);
+        }
+        .menu .menu_right p{
+            margin: 10px 0;
+        }
+        .menu .menu_right .coffee_name{
+            color: #555;
+            font-size: 12px;
+        }
+        .menu .menu_right .coffee_text{
+            overflow: auto;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="menubox">
+        <h1>커피의 종류</h1>
+        <div class="menu_list">
+            <div class="menu menu1">
+                <div class="menu_left menu_img1"></div>
+                <div class="menu_right menu_text1">
+                    <h3>왕메가헛개리카노</h3>
+                    <div class="bar"></div>
+                    <p class="coffee_name">BIG MEGA Oriental Raisin-Tea Americano</p>
+                    <p class="coffee_text">국내산 헛개수와 아메리카노를 블렌딩해 고소한 맛이 더욱 커진 왕메가사이즈 커피</p>
+                </div>
+            </div>
+            <div class="menu menu2">
+                <div class="menu_left menu_img2"></div>
+                <div class="menu_right menu_text2">
+                    <h3>할메가미숫커피</h3>
+                    <p class="coffee_name">MEGA MGC Mix Coffee Blend with Grain Powder</p>
+                    <p class="coffee_text">곡물의 향이 고소한 미숫가루와 달달한 믹스커피의 황금비율 조합</p>
+                </div>
+            </div>
+            <div class="menu menu3">
+                <div class="menu_left menu_img3"></div>
+                <div class="menu_right menu_text3">
+                    <h3>라이트 바닐라 아몬드라떼</h3>
+                    <p class="coffee_name">Light vanilla almond latte</p>
+                    <p class="coffee_text">비건 음료 아몬드브리즈와 칼로리를 낮춘 라이트 바닐라 시럽이 만나 가볍지만 부드~러워진 라떼</p>
+                </div>
+            </div>
+        </div>      
+    </div>
+</body>
+</html>
