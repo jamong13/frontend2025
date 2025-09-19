@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            border: 1px solid #333;
+        }
+        .box2{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(252, 190, 186);
+            border: 1px solid #333;
+        }
+        .bigbox{
+            width: 500px;
+            height: 400px;
+            border: 1px solid #333;
+            margin: 0 auto;
+            position: relative;
+        }
+        .box3{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(204, 178, 253);
+            border: 1px solid #333;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            /* 부모에게 position: relative;를 안 주면 브라우저 기준으로 움직임 */
+            /* 인터렉티브한 것들을 구현하는데에 유용함 */
+        }
+        .box4{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(203, 243, 165);
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="bigbox">
+        <div class="box3">박스3</div>
+        <div class="box4">박스4</div>
+    </div>
+</body>
+</html>

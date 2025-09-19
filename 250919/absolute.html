@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        .box1{
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            border: 1px solid #333;
+        }
+        .box2{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(252, 190, 186);
+            border: 1px solid #333;
+        }
+        .box3{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(204, 178, 253);
+            border: 1px solid #333;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            /* bottom: 50px;
+            right: 50px; */
+            /* 위치를 지정 안 해주면 공중에 뜸(숨어 있음) */
+            /* absolute 자릿값이 없음, box4가 나중에 만들어졌어도 box3의 위치에 box4가 오게 됨 */
+            /* absolute는 기준 위치가 브라우저, 또는 relative로 정한 상자(부모) */
+            /* 지금은 부모를 정하지 않아서 화면 제일 왼쪽 상단을 기준으로 움직임 */
+        }
+        .box4{
+            width: 250px;
+            height: 250px;
+            background-color: rgb(203, 243, 165);
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+    <div class="box4">박스4</div>
+</body>
+</html>

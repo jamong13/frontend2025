@@ -1,0 +1,111 @@
+*{margin: 0; padding: 0;}
+.bigbox{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 1px dotted #333;
+    margin: 50px auto;
+}
+.face{
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    /* 바닥을 기준으로 박스 사이즈를 조정 */
+    border: 10px solid #333;
+    background-color: #d59729;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.ear{
+    height: 150px;
+    width: 150px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    background-color: #d59729;
+}
+.ear.left{
+    left: 40px;
+    /* z-index: 1; 순서를 정함 */
+}
+.ear.right{
+    right: 40px;
+}
+.eyebrow{
+    width: 100px;
+    height: 20px;
+    border: 1px solid #333;
+    position: absolute;
+    top: 120px;
+    background-color: #000;
+    border-radius: 7px;
+    /* 부모가 position: absolute; 여도 부모 기준으로 적용됨 */
+}
+.eyebrow.left{
+    left: 100px;
+}
+.eyebrow.right{
+    right: 100px;
+}
+.eyeball{
+    width: 25px;
+    height: 25px;
+    border: 1px solid #333;
+    position: absolute;
+    top: 200px;
+    background-color: #000;
+    border-radius: 50%;
+}
+.eyeball.left{
+    left: 135px;
+}
+.eyeball.right{
+    right: 135px;
+}
+.nose{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    /* 좌측 기준으로 움직여서 중앙보다 오른쪽으로 쏠려 있음
+    margin-left로 너비의 절반만큼 - 이동*/
+    bottom: 160px;
+    background-color: #000;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+.mouth{
+    width: 80px;
+    height: 74px;
+    border: 10px solid #000;
+    position: absolute;
+    top: 240px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.mouth.left{
+    left: 175px;
+}
+.mouth.right{
+    right: 175px;
+}
+.mouth_cover{
+    position: absolute;
+    width: 37px;
+    height: 40px;
+    background-color: #fff;
+    top: 2px;
+    transform: rotate(45deg);
+}
+.mouth_cover.left{
+    left: 42px;
+}
+.mouth_cover.right{
+    right: 42px;
+}

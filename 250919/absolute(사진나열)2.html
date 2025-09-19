@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .wrap{
+            position: relative;
+            width: 830px;
+            height: 310px;
+            border: 1px solid red;
+            margin: 100px auto 0;
+        }
+        .box{
+            width: 200px;
+            height: 150px;
+            position: absolute;
+        }
+        .box img{
+            display: block;
+            width: 100%;
+        }
+        .box1{
+            left: 0;
+            top: 0;
+        }
+        .box2{
+            left: 0;
+            top: 160px;
+        }
+        .box3{
+            height: 310px;
+            left: 210px;
+        }
+        .box4{
+            left: 420px;
+        }
+        .box5{
+            right: 0;
+        }
+        .box6{
+            width: 410px;
+            right: 0;
+            bottom: 0;
+        }
+        .box::after{
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 255, 0.5);
+            transition: all 0.4s;
+        }
+        .box:hover::after{
+            width: 100%;
+        }
+        .box p{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+            padding-top: 30px;
+            padding-left: 10px;
+            text-align: center;
+            z-index: 10;
+            color: #fff;
+            transition: all 0.4s;
+            opacity: 0;
+            /* 불투명도 0 안 보임 */
+            background: url(images/more.png) no-repeat 50% 80%;
+        }
+        .box:hover p{
+            opacity: 1;
+            /* 보임 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box box1">
+            <img src="images/women1.jpg" alt="">
+            <p>국내유일 청정대나무<br/>참이슬fresh</p>
+        </div>
+        <div class="box box2">
+            <img src="images/women2.jpg" alt="">
+            <p>국내유일 청정대나무<br/>참이슬fresh</p>
+        </div>
+        <div class="box box3">
+            <img src="images/aaa1.jpg" alt="">
+        </div>
+        <div class="box box4">
+            <img src="images/women3.jpg" alt="">
+        </div>
+        <div class="box box5">
+            <img src="images/women4.jpg" alt="">
+        </div>
+        <div class="box box6">
+            <img src="images/bbb1.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

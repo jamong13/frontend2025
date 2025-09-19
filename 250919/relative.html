@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 150px;
+            height: 150px;
+            background-color: skyblue;
+            border: 1px solid #333;
+        }
+        .box2{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(252, 190, 186);
+            border: 1px solid #333;
+        }
+        .box3{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(204, 178, 253);
+            border: 1px solid #333;
+            position: relative;
+            top: 20px;
+            left: 20px;
+            /* box4를 밀어내지 않고 겹침 
+            relative : left top 이동 가능하고, 겹칠 수 있음, 자릿값이 있음, 원래 있던 자리 기준으로 움직임*/
+        }
+        .box4{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(203, 243, 165);
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+    <div class="box4">박스4</div>
+</body>
+</html>
