@@ -1,0 +1,111 @@
+*{margin: 0; padding: 0;}
+.cf::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.bigbox{
+    width: 1000px;
+    border: 5px solid tan;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.bigbox h2{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bigbox .box{
+    float: left;
+    border: 5px solid lime;
+    margin-left: 32px;
+    margin-top: 30px;
+    width: 200px;
+}
+.box1{
+    overflow: hidden;
+}
+.bigbox img{
+    display: block;
+    width: 100%;
+    transition: all 0.3s;
+}
+.box1:hover img{
+    transform: scale(1.2, 1.2);
+}
+.box2 img{
+    transform-origin: left top;
+}
+.box2:hover img{
+    transform: rotate(360deg);
+}
+.box3{
+    perspective: 200px;
+    /* 원근감 */
+}
+.box3:hover img{
+    transform: rotateY(360deg);
+}
+.box4 img{
+    transform-origin: left center;
+    /* 중심축 */
+}
+.box4:hover img{
+    transform: rotateY(360deg);
+}
+
+.abigbox{
+  width:1000px;
+  border:5px solid tan;
+  margin: 0 auto; 
+  padding-bottom: 30px;
+}
+.abigbox h2{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.abigbox .abox{
+  float:left;
+  border: 5px solid lime;
+  margin-left: 32px;
+  margin-top: 30px;
+  width:200px;
+  height:150px;
+  position: relative;
+}
+.abox1{
+    background: url(../images/women1.jpg) no-repeat 50% 50% / 100%;
+    transition: all 0.3s;
+}
+.abox1:hover{
+    background: url(../images/women1.jpg) no-repeat 50% 50% / 120%;
+}
+.abox2{
+    overflow: hidden;
+}
+
+.txt1{
+    position: absolute;
+    bottom: -40px;
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    transition: all 0.3s;
+}
+.abox2:hover .txt1{
+    bottom: 0;
+}
+.abox3 img{
+    transition: all0.35s;
+}
+.abox3:hover img{
+    opacity: 0.7;
+}
+.abox4{
+    background: url(../images/women4.jpg) no-repeat 50% 50%;
+}

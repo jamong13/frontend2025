@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @keyframes myani{
+        0%{left: 10px;}
+        100%{left: 500px;}
+        /* 3초 후의 상황 */
+    }
+    @keyframes myani2{
+        0%{left: 500px;}
+        100%{left: 10px;}
+        /* 3초 후의 상황 */
+    }
+        #myball{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            
+            animation: myani 3s 3s forwards;
+            /* 3s 진행시간 3s 지연시간*/
+        }
+        #myball2{
+            position: relative;
+            left: 500px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f2.png) no-repeat 50% 50%;
+            
+            animation: myani2 3s 3s forwards;
+            /* 애니메이션 끝부분 상태로 종료 */
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="myball"></div>
+    <div id="myball2"></div>
+</body>
+</html>

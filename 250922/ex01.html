@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball1{
+            position: relative;
+            width: 116px;
+            height: 160px;
+            top: 500px;
+            left: 30px;
+            background: url(img/bg-main1.png) no-repeat 50% 50%;
+            animation-name: ani1;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani1{
+            0%{top: 500px;}
+            100%{top: 20px;}
+        }
+        .ball2{
+            position: relative;
+            width: 116px;
+            height: 160px;
+            top: 600px;
+            left: 500px;
+            background: url(img/bg-main1.png) no-repeat 50% 50%;
+            animation-name: ani2;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes ani2{
+            0%{top: 600px;}
+            100%{top: 80px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="ball1"></div>
+    <div class="ball2"></div>
+</body>
+</html>

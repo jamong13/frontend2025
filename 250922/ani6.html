@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #myball1{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            
+            animation: myani1 3s forwards;
+        }
+        @keyframes myani1{
+            0%{left: 10px;}
+            100%{left: 500px;}
+            /* 3초 후의 상황 */
+        }
+        #myball2{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            
+            animation: myani1 3s forwards linear;
+        }
+        @keyframes myani2{
+            0%{left: 10px;}
+            100%{left: 500px;}
+            /* 3초 후의 상황 */
+        }
+        #myball3{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            
+            animation: myani1 3s forwards ease-out;
+        }
+        @keyframes myani3{
+            0%{left: 10px;}
+            100%{left: 500px;}
+            /* 3초 후의 상황 */
+        }
+        #myball4{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            
+            animation: myani1 3s forwards ease-in-out;
+        }
+        @keyframes myani4{
+            0%{left: 10px;}
+            100%{left: 500px;}
+            /* 3초 후의 상황 */
+        }
+    </style>
+</head>
+<body>
+    <div id="myball1"></div>
+    <div id="myball2"></div>
+    <div id="myball3"></div>
+    <div id="myball4"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myball{
+            position: relative;
+            left: 10px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            background: url(img/f1.png) no-repeat 50% 50%;
+            /* 애니메이션 이름 */
+            /* animation-name: myani;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            /* 무한반복 */
+            /* 반복횟수 */
+            /* animation-direction: alternate;
+            대조되는 움직임을 줘서 왕복하는 것처럼 나옴 */
+            animation: myani 3s infinite alternate;
+            /* 애니메이션 : 이름 진행시간 반복 왕복 */
+        }
+        @keyframes myani{
+            0%{left: 10px;}
+            40%{top: 50px; background: url(img/f2.png) no-repeat 50% 50%;}
+            /* 40% 시간에 위치 변경 및 배경 이미지 변경 */
+            100%{left: 500px;}
+            /* 3초 후의 상황 */
+        }
+    </style>
+</head>
+<body>
+    <div id="myball"></div>
+</body>
+</html>
