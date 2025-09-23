@@ -10,10 +10,12 @@ p{
     font-size: 30px;
     padding-bottom: 30px;
     cursor: pointer;
+    /* 가짜 손가락 */
 }
 .tra{
     background-color: #ae5329;
     transform: translate(-500px, 0);
+    /* 변형 : 이동(x,y) */
 
     transition: all 0.5s;
 }

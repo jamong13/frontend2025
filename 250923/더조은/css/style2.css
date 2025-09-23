@@ -1,0 +1,133 @@
+*{margin: 0; padding: 0;}
+ul, li{list-style: none;}
+a{text-decoration: none; color: #333;}
+.cf{
+    content: '';
+    display: block;
+    clear: both;
+}
+.header_out{
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+header{
+    width: 1600px;
+    height: 230px;
+    margin: 0 auto;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+header .sns{
+    float: left;
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+header .sns li{
+    float: left;
+    margin-right: 10px;
+}
+header .sns li a{
+    display: block;
+}
+header .lnb{
+    float: right;
+    width: 260px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.lnb li{
+    float: left;
+    padding: 0 10px;
+    background: url(../images/bar.png) no-repeat 100% 50%;
+}
+.lnb li:last-child{
+    background: none;
+}
+.lnb li a{
+    display: block;
+    line-height: 30px;
+    margin-left: 10px;
+}
+header .logo{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+header .logo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.main_menu{
+    position: absolute;
+    width: 100%;
+    top: 200px;
+    left: 0;
+    background-color: yellow;
+}
+.main_menu .gnb{
+    width: 1600px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+.main_menu .gnb > li{
+    float: left;
+    width: 320px;
+    height: 30px;
+    text-align: center;
+}
+.main_menu .gnb > li > a{
+    display: block;
+    line-height: 30px;
+    background-color: #333;
+    color:#fff;
+}
+.main_menu .gnb > li > ul{
+    background-color: #666;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+.main_menu .gnb:hover > li > ul{
+    display: block;
+    height: 90px;
+}
+.main_menu .gnb li ul li{
+    width: 320px;
+}
+.main_menu .gnb li ul li a{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color:#fff;
+}
+.shadow{
+    position: absolute;
+    top: 30PX;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 0px;
+    width: 100%;
+    transition: all 0.35s;
+}
+.main_menu .gnb:hover + .shadow{
+    height: 90px;
+    border-bottom: 1px solid #333;
+}
+section{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
