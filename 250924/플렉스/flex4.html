@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 100px;
+            margin: 0 auto 20px;
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+        }
+        #container div {
+            width: 100px;
+            height: 50px;
+            border: 2px solid black;
+            background: #ccc;
+        }
+        #box1{
+            flex: 1 1 0;
+        }
+        #box2{
+            flex: 2 2 0;
+        }
+        #box3{
+            flex: 3 3 0;
+        }
+        /* flex-grow : 컨테이너에 남는 공간을 얼마나 차지할지 (비율)
+        flex-shrink : 컨테이너에 공간이 부족할 때 얼마나 줄어들지 (비율)
+        flex-basis : 요소의 기본 크기 (px, %, auto, 0 등)*/
+        /* flex-basis: 0 -> 첨엔 모든 박스 크기를 0으로 두고, 남는 공간을 grow 비율에 따라 나눔
+        #box1 = 1/6
+        #box2 = 2/6
+        #box3 = 3/6
+        flex:1; -> flex: 1 1 0;과 같음*/
+    </style>
+</head>
+<body>
+     <div id="container">
+        <div id="box1"><p>1</p></div>
+        <div id="box2"><p>2</p></div>
+        <div id="box3"><p>3</p></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            width: 700px;
+            background-color: dodgerblue;
+            display: flex;
+            /* 강제로 크기 조절(너비)하여 700px 안에 넣음 
+            flex-wrap:nowrap; 이 생략되어 있다. 넘쳐도 한 줄로 표시*/
+            flex-wrap: wrap;
+            /* flex-wrap: wrap; 크기 조절 없이, 넘치면 줄바꿈 */
+            /* flex-wrap: wrap-reverse; */
+            /* flex-wrap: wrap-reverse; 거꾸로 표현 */
+
+            /* height: 300px; */
+            /* flex-wrap  -> 요소가 넘칠 경우 줄바꿈 여부 nowrap(기본), wrap, wrap-reverse */
+        }
+        .flex-container > div{
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+            /* float: left; */
+            /* 사용 시 배경 깨지고(높이가 사라짐), 정렬도 어려움 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexiable Boxes</h1>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+</html>

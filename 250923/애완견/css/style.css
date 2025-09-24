@@ -14,8 +14,8 @@ header{
 header h1{
     float: left;
     color: #fff;
-    line-height: 200px;
-    padding-left: 40px;
+    margin-left: 50px;
+    margin-top: 70px;
 }
 header .logo_p{
     float: right;

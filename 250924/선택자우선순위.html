@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ccc{
+            background-color: orange;
+        }
+        /* 클래스 선택자는 일반 선택자보다 우선한다 */
+        h1{
+            background-color: red;
+        }
+        /* h1{
+            background-color: aqua;
+        } */
+        /* 같은 선택자일 때는 밑의 선택자가 적용 */
+        #ddd{
+            background-color: slateblue;
+        }
+        p{
+            background-color: pink !important;
+        }
+        #tan{
+            background-color: tan;
+        }
+        div span{background-color: blueviolet;}
+        span{background-color: brown;}
+        /* 선택자를 부모부터 자세히 써주는 게 우선순위 */
+    </style>
+</head>
+<body>
+    <!-- 선택자 우선순위
+     0. 선택자에 !important를 붙여준다.
+     1. 아이디 선택자
+     2. 클래스 선택자
+     3. 일반 선택자 -->
+    <h1>빨간색</h1>
+    <h1 class="ccc">빨간색</h1>
+    <h1 id="ddd">빨간색</h1>
+    <h1>빨간색</h1>
+
+    <p>나는 핑크</p>
+    <p id="tan">나는 탄색깔</p>
+    
+    <div>요즈음은 <span>반응형 웹</span>이 대세이다.</div>
+</body>
+</html>

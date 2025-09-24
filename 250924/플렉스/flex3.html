@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            width: 1500px;
+            height: 200px;
+            background-color: dodgerblue;
+            display: flex;
+            justify-content: space-around;
+            /* align-items: center; */
+            /* 세로 중앙 정렬 */
+            align-items: flex-end;
+            /* stretch : 모든 아이템이 세로로 늘어나 컨테이너 높이를 채움.
+            flex-start : 아이템들이 위쪽에 붙음.
+            flex-end : 아이템들이 아래쪽에 붙음.
+            center : 아이템들이 세로 가운데 정렬됨.
+            baseline : 아이템들의 글자 바닥선이 맞춰짐. */
+            
+
+        }
+        .flex-container > div{
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexiable Boxes</h1>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+</html>

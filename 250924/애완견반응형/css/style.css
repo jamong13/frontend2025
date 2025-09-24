@@ -1,0 +1,314 @@
+*{margin: 0; padding: 0;}
+ul, li{list-style: none;}
+a{text-decoration: none; color: #000;}
+
+/* 스마트폰용 */
+@media screen and (max-width:600px) {
+    #wrapper{
+        width: 100%;
+        margin: auto;
+    }
+    header{
+        height: 120px;
+        background-color: #f46075;
+    }
+    header h1{
+        float: left;
+        color: #fff;
+        margin-left: 10px;
+        margin-top: 30px;
+        font-size: 24px;
+    }
+    header .logo_p{
+        float: right;
+        width: 120px;
+        margin-top: 10px;
+        margin-right: 20px;
+    }
+    header .logo_p img{
+        display: block;
+        width: 100%;
+        /* width: 120px; */
+    }
+    nav{
+        height: 120px;
+        background-color: #ccc;
+    }
+    nav ul li{
+        float: left;
+        /* margin-left: 50px; */
+        /* margin-top: 10px; */
+        width: 50%;
+        height: 60px;
+    }
+    nav ul li a{
+        display: block;
+        width: 50%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 10px auto 0;
+    }
+    nav ul li:hover a{
+        background-color: #f46075;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 20px;
+    }
+    .main{
+        width: 100%;
+    }
+    section{
+        width: 100%;
+        background-color: skyblue;
+        padding-bottom: 20px;
+    }
+    section h2{
+        text-align: center;
+        padding: 10px 0;
+    }
+    section article{
+        width: 80%;
+        height: 180px;
+        background-color: #fff;
+        /* float: left; 밑으로 배열할 것이므로 float 필요없음*/
+        border: 1px solid #333;
+        margin: 0 auto 15px;
+        /* article 크기 좌우 80% 좌우 auto (중앙정렬) 아래 15px*/
+        padding: 10px;
+        text-align: justify;
+        /* 양쪽정렬 */
+    }
+    section article h3{
+        padding-bottom: 10px;
+        padding-left: 30px;
+        background: url(../img/bg.png) no-repeat 0% 30%;
+    }
+    section article p{
+        font-size: 13px;
+    }
+    aside{
+        /* float: left; */
+        width: 100%;
+        height: auto;
+        background-color:#ffffcc;
+        text-align: center;
+    }
+    aside h2{
+        padding: 10px 0;
+    }
+    aside img{
+        width: 75%;
+        padding-bottom: 10px;
+        margin: 0 auto;
+    }
+    footer{
+        height: 50px;
+        background-color: #333;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+    }
+}
+/* 스마트패드용 */
+@media screen and (min-width:601px) and (max-width:1023px){
+    #wrapper{
+        width: 600px;
+        margin: auto;
+        /* 전체 900을 중앙정렬 */
+    }
+    header{
+        height: 200px;
+        background-color: #f46075;
+    }
+    header h1{
+        float: left;
+        color: #fff;
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+    header .logo_p{
+        float: right;
+        width: 160px;
+        margin-top: 15px;
+        margin-right: 10px;
+    }
+    header .logo_p img{
+        display: block;
+        width: 100%;
+    }
+    nav{
+        height: 60px;
+        background-color: #ccc;
+    }
+    nav ul li{
+        float: left;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+    nav ul li a{
+        display: block;
+        width: 130px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    nav ul li:hover a{
+        background-color: #f46075;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 20px;
+    }
+    .main{
+        height: auto;
+    }
+    section{
+        /* float: left; */
+        width: 600px;
+        height: 550px;
+        background-color: skyblue;
+    }
+    section h2{
+        text-align: center;
+        padding: 10px 0;
+    }
+    section article{
+        float: left;
+        width: 260px;
+        height: 180px;
+        background-color: #fff;
+        border: 1px solid #333;
+        margin: 0 0 15px 12px;
+        padding: 10px;
+        text-align: justify;
+        /* 양쪽정렬 */
+    }
+    section article h3{
+        padding-bottom: 10px;
+        padding-left: 30px;
+        background: url(../img/bg.png) no-repeat 0% 30%;
+    }
+    section article p{
+        font-size: 13px;
+    }
+    aside{
+        /* float: left; */
+        width: 100%;
+        height: auto;
+        background-color:#ffffcc;
+        text-align: center;
+    }
+    aside h2{
+        padding: 10px 0;
+    }
+    aside img{
+        padding-bottom: 10px;
+    }
+    footer{
+        height: 50px;
+        background-color: #333;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+    }
+}
+
+/* PC용 */
+@media screen and (min-width:1024px){
+    
+    #wrapper{
+        width: 900px;
+        margin: auto;
+        /* 전체 900을 중앙정렬 */
+    }
+    header{
+        height: 200px;
+        background-color: #f46075;
+    }
+    header h1{
+        float: left;
+        color: #fff;
+        margin-top: 70px;
+        margin-left: 50px;
+    }
+    header .logo_p{
+        float: right;
+        margin-top: 30px;
+        margin-right: 20px;
+    }
+    nav{
+        height: 60px;
+        background-color: #ccc;
+    }
+    nav ul li{
+        float: left;
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+    nav ul li a{
+        display: block;
+        width: 160px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    nav ul li:hover a{
+        background-color: #f46075;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 20px;
+    }
+    .main{
+        height: 550px;
+    }
+    section{
+        float: left;
+        width: 650px;
+        height: 550px;
+        background-color: skyblue;
+    }
+    section h2{
+        text-align: center;
+        padding: 10px 0;
+    }
+    section article{
+        float: left;
+        width: 300px;
+        height: 200px;
+        background-color: #fff;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        margin: 0 0 15px 15px;
+        padding: 10px;
+        text-align: justify;
+        /* 양쪽정렬 */
+    }
+    section article h3{
+        padding-bottom: 10px;
+        padding-left: 30px;
+        background: url(../img/bg.png) no-repeat 0% 30%;
+    }
+    section article p{
+        font-size: 13px;
+    }
+    aside{
+        float: left;
+        width: 250px;
+        height: 550px;
+        background-color:#ffffcc;
+        text-align: center;
+    }
+    aside h2{
+        padding: 10px 0;
+    }
+    aside img{
+        padding-bottom: 10px;
+    }
+    footer{
+        height: 50px;
+        background-color: #333;
+        color: #fff;
+        line-height: 50px;
+        text-align: center;
+    }
+}

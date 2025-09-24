@@ -1,0 +1,98 @@
+*{margin: 0; padding: 0;}
+
+body{
+   font:normal 18px/1.5 "Helvetica Neue", sans-serif;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.flex-wrapper{
+    display: flex;
+    height: 100%;
+}
+.flex-wrapper a{
+    position: relative;
+    flex: 1;
+    transition: all 0.4s;
+}
+.flex-wrapper a.one{
+    background: url(../images/a1.jpg) no-repeat 50% 50% / cover;
+    background-color: red;
+}
+.flex-wrapper a.two{
+    background: url(../images/a2.jpg) no-repeat 50% 50% / cover;
+    background-color: steelblue;
+}
+.flex-wrapper a.three{
+    background: url(../images/a3.jpg) no-repeat 50% 50% / cover;
+    background-color: orange;
+}
+.flex-wrapper a.four{
+    background: url(../images/a4.jpg) no-repeat 50% 50% / cover;
+    background-color: palevioletred;
+}
+.flex-wrapper a.five{
+    background: url(../images/a5.jpg) no-repeat 50% 50% / cover;
+    background-color: lavender;
+}
+.flex-wrapper a:hover{
+    flex: 3;
+}
+.flex-wrapper .overlay{
+    padding: 0 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /*top:0;left:0;width:100%;height:100%;*/
+    transition: background-color 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-wrapper a:hover .overlay{
+    background-color: rgba(0,0,0,0.5);
+}
+.flex-wrapper a .overlay-inner h2, .flex-wrapper a .overlay-inner p{
+    visibility: hidden;
+    /* display: none; */
+    opacity: 0;
+    color: #fff;
+    text-align: center;
+}
+.flex-wrapper a .overlay-inner h2{
+    transform: translateY(-60px);
+}
+.flex-wrapper a .overlay-inner p{
+    transform: translateX(-60px);
+}
+.flex-wrapper a:hover .overlay-inner *{
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s 0.3s;
+    /* transform: translate(0px); */
+    transform: none;
+    /* 원래 위치나 크기로 돌아옴 */
+}
+
+@media screen and (max-width:800px) {
+    .flex-wrapper{
+        flex-direction: column;
+        /* 세로로 배열 */
+    }
+    .flex-wrapper a:hover{
+        flex: 1;
+    }
+    .flex-wrapper a:hover .overlay{
+        background-color: transparent;
+        /* 배경색을 투명하게 */
+    }
+    .flex-wrapper a .overlay h2, .flex-wrapper a .overlay p{
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}

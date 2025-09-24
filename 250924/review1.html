@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: blue;
+        }
+        .intro{
+            font-size: 20px;
+        }
+        /* 클래스 선택자는 앞에 '.'을 찍는다. */
+        #header{
+            background-color: aqua;
+        }
+        h1, h2{
+            color: tomato;
+        }
+        /* 여러 요소를 한꺼번에 선택할 때 ',' 사용 - 그룹선택자 */
+        div>ul>li{
+            border: 1px solid #333;
+        }
+        /* '>' 자손 또는 자식 선택자 */
+        div ul li a{
+            color: green;
+        }
+        /* 후손 선택자 li 밑에 있는 모든 a */
+        h3 + p{
+            color: orange;
+        }
+        /* 형제 선택자 '+' */
+        input[type="text"]{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <p>문단을 나누는 태그</p>
+    <h1>헤딩 태그</h1>
+    <h2 class="intro">클래스 선택자</h2>
+    <div id="header">
+        아이디 선택자(주로 전체적인 레이아웃 만들 때 사용)<br/>
+        하나의 html에 오로지 한개만 존재(중복X)
+    </div>
+    <div>
+        <ul>
+            <li><a href="#">회사소개</a>
+                <ul>
+                    <li><a href="#">Sub1</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">회사소개1</a></li>
+            <li><a href="#">회사소개2</a></li>
+            <li><a href="#">회사소개3</a></li>
+        </ul>
+    </div>
+    <h3>나 말고 밑에 친구 오렌지색</h3>
+    <p>내가 오렌지색</p>
+    <input type="text">
+</body>
+</html>

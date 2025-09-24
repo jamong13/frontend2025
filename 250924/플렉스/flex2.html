@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container{
+            width: 1500px;
+            background-color: dodgerblue;
+            display: flex;
+            /* justify-content: center; */
+            /* 중앙정렬 */
+            justify-content:space-evenly;
+            /* justify-content -> center, space-between, space-around, space-evenly, flex-end */
+            /* justify-content 속성 값 설명
+            flex-start
+            기본값
+            아이템들이 주축의 시작 지점에 붙어서 배치됨.
+            (가로축이면 왼쪽, 세로축이면 위쪽)
+
+            flex-end
+            아이템들이 주축의 끝 지점에 붙어서 배치됨.
+            (가로축이면 오른쪽, 세로축이면 아래쪽)
+
+            center
+            아이템들이 주축의 가운데에 모여 배치됨.
+
+            space-between
+            첫 번째 아이템은 시작 지점, 마지막 아이템은 끝 지점에 붙고,
+            나머지 아이템들은 사이 간격을 균등 분배함.
+
+            space-around
+            아이템들 주변(앞뒤)에 동일한 여백을 가짐.
+            따라서 양쪽 끝 아이템은 절반 크기 여백만 갖게 됨.
+
+            space-evenly
+            아이템 사이와 양 끝(컨테이너 여백)까지 모두 동일한 간격으로 배치됨.
+            space-around보다 균등한 느낌.
+            */
+        }
+        .flex-container > div{
+            background-color: #f1f1f1;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexiable Boxes</h1>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+</html>

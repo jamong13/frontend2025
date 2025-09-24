@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* font-family 글꼴 지정, font-size 글자 크기 */
+        /* 글자 사이즈는 기본 16px */
+        body{font-size: 20px;}
+        .f1{
+            font-size: 1em;
+        }
+        /* em 부모의 크기에 비례 */
+        .f2{
+            font-size: 1rem;
+        }
+        /* 최근에는 em보다 rem이라고 씀
+        root(html)의 글자 크기에 비례*/
+        /* font-weight 글자 굵기 font-style: italic, normal; */
+        /* line-height: 100%, 2.0, 32px; 보통 1.4 ~ 1.8 */
+        .f3{
+            font: italic bold 16px/1.5 "Arial", sans-serif;
+            /* font-style font-weight font-size/line-height font-family 순서로 작성 */
+        }
+        /* 
+        text
+        color: red; 색상
+        text-align 
+        p{ text-align: left;} 
+        p{ text-align: right;} 
+        p{ text-align: center;} 
+        p{ text-align: justify;} 양쪽 정렬
+        text-decoration
+        text-decoration: none; 밑줄제거
+        text-decoration: underline; 밑줄 생성
+        text-decoration: line-through; 취소선 생성
+        text-decoration: overline; 윗줄 생성
+        text-transform (대소문자)
+        text-transform: lowercase;
+        text-transform: capitalize; 첫글자만 대문자
+
+        letter-spacing(글자간격)
+
+        word-spacing(단어 간격)
+        text-indent(들여쓰기)
+        */
+        
+        .f4{
+            letter-spacing: -2px;
+        }
+        .f5{
+            text-indent: 10px;
+        }
+        /* white-space 공백처리
+        white-space: nowrap; 줄바꿈없이 한줄로
+        white-space: pre; 공백, 줄바꿈 그대로 유지
+        white-space: normal; 기본(자동 줄바꿈) */
+        *{margin: 0; padding: 0;}
+        header{
+            width: 1000px;
+            height: 300px;
+            border: 1px solid #333;
+            position: relative;
+            margin: 0 auto;
+        }
+        header h1{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <p class="f1">요즈음은 반응형웹이 대세이다.</p>
+    <p class="f2">요즈음은 반응형웹이 대세이다.</p>
+    <p class="f3">요즈음은 반응형웹이 대세이다.</p>
+    <p class="f4">요즈음은 반응형웹이 대세이다.</p>
+    <p class="f5">요즈음은 반응형웹이 대세이다.</p>
+    <p class="f6">요즈음은 반응형웹이 대세이다.</p>
+
+    <header>
+        <h1>안녕하세요 더조은 컴퓨터 학원입니다.</h1>
+    </header>
+</body>
+</html>
