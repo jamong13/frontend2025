@@ -1,0 +1,326 @@
+@media screen and (min-width: 1280px) and (max-width: 1599px) {
+    header{
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    nav, section{
+        width: 100%;
+        margin-left: 0;
+    }
+    header h1{
+        background-image: url(../images/logo2.png);
+        width: 200px;
+        height: 40px;
+        top: 20px;
+        left: 20px;
+        margin-left: 0;
+    }
+
+    #gnb{
+        top: 20px;
+        right: 200px;
+    }
+    #gnb li{
+        float: left;
+    }
+    .snsSet{
+        bottom: 20px;
+        right: 80px;
+    }
+
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    header{
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    /* 헤더 상단 이동 */
+    nav, section{
+        width: 100%;
+        margin-left: 0;
+    }
+    header h1{
+        /* logo1 -> log2로 변경 위치도 왼쪽으로 이동 */
+        background-image: url(../images/logo2.png);
+        width: 200px;
+        height: 40px;
+        top: 20px;
+        left: 20px;
+        margin-left: 0;
+    }
+    /* gnb 오른쪽 끝으로 이동 */
+    #gnb{
+        top: 20px;
+        right: 30px;
+    }
+    #gnb li{
+        float: left;
+    }
+    .snsSet{
+        display: none;
+    }
+    /* snsSet 숨김 */
+
+    article:nth-child(1){width: 75%;}
+    article:nth-child(2){width: 25%;}
+    article:nth-child(3){width: 25%;}
+
+    article:nth-child(4){width: 25%;}
+    article:nth-child(5){width: 25%;}
+    article:nth-child(6){width: 50%;}
+
+    article:nth-child(7){width: 50%;}
+    article:nth-child(8){width: 25%;}
+    article:nth-child(9){width: 25%;}
+
+    article:nth-child(10){width: 50%;}
+    article:nth-child(11){width: 25%;}
+    article:nth-child(12){width: 25%;}
+}
+
+@media screen and (min-width: 780px) and (max-width: 1023px) {
+    header{
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    /* 헤더 상단 이동 */
+    nav, section{
+        width: 100%;
+        margin-left: 0;
+    }
+    header h1{
+        /* logo1 -> log2로 변경 위치도 왼쪽으로 이동 */
+        background-image: url(../images/logo2.png);
+        width: 200px;
+        height: 40px;
+        top: 20px;
+        left: 20px;
+        margin-left: 0;
+    }
+    /* gnb 오른쪽 끝으로 조금 더 이동 right 30 -> 10 */
+    #gnb{
+        top: 20px;
+        right: 10px;
+    }
+    #gnb li{
+        float: left;
+    }
+    #gnb a{
+        padding: 10px;
+    }
+    /* #gnb a 안여백을 30 -> 10 */
+    .snsSet{
+        display: none;
+    }
+    /* snsSet 숨김 */
+
+    article:nth-child(1){width: 100%; height: 400px;}
+    /* height: 520px -> 400px */
+
+    article:nth-child(2){width: 66.6666%;}
+    article:nth-child(3){width: 33.3333%;}
+
+    article:nth-child(4){width: 25%; display: none;}
+    article:nth-child(5){width: 66.6666%;}
+    article:nth-child(6){width: 33.3333%;}
+
+    article:nth-child(7){width: 50%; display: none;}
+    article:nth-child(8){width: 33.3333%;}
+    article:nth-child(9){width: 33.3333%;}
+    article:nth-child(10){width: 50%; display: none;}
+    article:nth-child(11){width: 33.3333%;}
+    article:nth-child(12){width: 33.3333%; display: none;}
+    /* 컨텐츠 박스(article) 중 중요도가 떨어지는 내용을 숨김 */
+}
+@media screen and (min-width: 640px) and (max-width: 779px) {
+    header{
+        position: relative;
+        width: 100%;
+        height: 80px;
+    }
+    /* 헤더 상단 이동 */
+    nav, section{
+        width: 100%;
+        margin-left: 0;
+    }
+    header h1{
+        /* logo1 -> log2로 변경 위치도 왼쪽으로 이동 */
+        background-image: url(../images/logo2.png);
+        width: 200px;
+        height: 40px;
+        top: 20px;
+        left: 20px;
+        margin-left: 0;
+    }
+    /* gnb 오른쪽 끝으로 조금 더 이동 right 30 -> 10 */
+    #gnb{
+        top: 20px;
+        right: 10px;
+    }
+    #gnb li{
+        float: left;
+    }
+    #gnb a{
+        padding: 5px;
+    }
+    /* #gnb a 안여백을 10 -> 5 */
+    .snsSet{
+        display: none;
+    }
+    /* snsSet 숨김 */
+
+    article:nth-child(1){width: 100%; height: 400px;}
+    /* height: 520px -> 400px */
+
+    article:nth-child(2){width: 100%;}
+    article:nth-child(3){width: 33.3333%; display: none;}
+
+    article:nth-child(4){width: 25%; display: none;}
+    article:nth-child(5){width: 50%;}
+    article:nth-child(6){width: 50%;}
+
+    article:nth-child(7){width: 50%; display: none;}
+    article:nth-child(8){width: 50%;}
+    article:nth-child(9){width: 50%;}
+
+    article:nth-child(10){width: 50%; display: none;}
+    article:nth-child(11){width: 50%;}
+    article:nth-child(12){width: 50%;}
+    /* 컨텐츠 박스(article) 중 중요도가 떨어지는 내용을 숨김 */
+}
+@media screen and (min-width: 480px) and (max-width: 639px) {
+    header{
+        position: relative;
+        width: 100%;
+        height: 130px;
+        /* height: 80px -> 130px */
+    }
+    /* 헤더 상단 이동 */
+    nav{display: none;}
+    /* nav 숨김 */
+    section{
+        width: 100%;
+        margin-left: 0;
+    }
+    header h1{
+        position: relative;
+        /* logo1 -> log2로 변경 위치도 왼쪽으로 이동 */
+        background-image: url(../images/logo2.png);
+        width: 200px;
+        height: 45px;
+        top: 20px;
+        left: 0px;
+        margin: 0 auto;
+    }
+    /* gnb 오른쪽 끝으로 조금 더 이동 right 30 -> 10 */
+    #gnb{
+        width: 100%;
+        height: 40px;
+        top: 80px;
+        /* 아래로 메뉴 이동 */
+        right: 0px;
+    }
+    #gnb li{
+        float: left;
+        width: 25%;
+    }
+    #gnb a{
+        padding: 4px;
+        text-align: center;
+    }
+    /* #gnb a 안여백을 10 -> 5 */
+    .snsSet{
+        display: none;
+    }
+    /* snsSet 숨김 */
+
+    article{
+        height: 150px;
+        /* 260 -> 150 */
+    }
+    article .bg1 span{
+        font-size: 140px;
+        bottom: -40px;
+        right: 0;
+    }
+    article:nth-child(1){width: 100%; height: 300px;}
+    /* height: 400px -> 300px */
+
+    article:nth-child(2){width: 100%;}
+    article:nth-child(3){width: 33.3333%; display: none;}
+
+    article:nth-child(4){width: 25%; display: none;}
+    article:nth-child(5){width: 50%;}
+    article:nth-child(6){width: 50%;}
+
+    article:nth-child(7){width: 50%; display: none;}
+    article:nth-child(8){width: 50%;}
+    article:nth-child(9){width: 50%;}
+
+    article:nth-child(10){width: 50%; display: none;}
+    article:nth-child(11){width: 50%;}
+    article:nth-child(12){width: 50%;}
+    /* 컨텐츠 박스(article) 중 중요도가 떨어지는 내용을 숨김 */
+}
+@media screen and (max-width: 479px) {
+    header{
+        position: fixed;
+        width: 100%;
+        height: 40px;
+        background-color: transparent;
+        /* 투명하게 */
+        z-index: 10;
+    }
+    /* 헤더 상단 이동 */
+    nav{display: none;}
+    /* nav 숨김 */
+    section{
+        width: 100%;
+        margin-left: 0;
+        z-index: 5;
+    }
+    article{display: none;}
+    article:nth-child(1){
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    /* articel 첫번째만 보이고 나머지 숨김 */
+    header h1{
+        width: 140px;
+        top: 20px;
+        margin-left: -70px;
+        /* 로고줄임 */
+    }
+    #gnb{
+        top: 140px;
+        right: 50%;
+        width: 250px;
+        margin-right: -125px;
+    }
+    #gnb a{
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #000;
+        opacity: 0.5;
+        color: #fff;
+        margin: 8px 0;
+        border-radius: 10px;
+    }
+    #gnb a:hover{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    .snsSet{display: none;}
+    article:nth-child(1) span{
+        display: none;
+    }
+    /* 로고 위치 변경 및 위치 조정
+    #gnb position 변경 및 재배치
+    #gnb li a 효과 적용
+    .snsSet숨김 */
+}

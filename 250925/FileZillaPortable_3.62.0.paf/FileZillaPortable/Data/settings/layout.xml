@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<FileZilla3 version="3.62.0" platform="windows">
+	<Layout Builddate="2022-10-27" Buildtime="13:30:54">
+		<Resources>
+			<xrc file="dialogs.xrc" date="1666877530" />
+			<xrc file="netconfwizard.xrc" date="1666877530" />
+		</Resources>
+		<Language id="ko_KR" date="1666877530">
+			<Font font="0;-12;0;0;0;400;0;0;0;1;0;0;0;0;맑은 고딕" width="697" height="15" />
+			<Dialog name="Update" width="727" />
+		</Language>
+	</Layout>
+</FileZilla3>

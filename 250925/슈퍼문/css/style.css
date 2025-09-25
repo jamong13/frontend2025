@@ -1,0 +1,202 @@
+@import url('//fonts.googleapis.com/earlyaccess/hanna.css');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+*{margin: 0; padding: 0;}
+ul, ol{list-style: none;}
+a{
+    outline: 0;
+    text-decoration: none;
+}
+.cf{
+    content: '';
+    display: block;
+    clear: both;
+}
+body{
+    font-family: "Poiret One", "Hanna", sans-serif;
+}
+
+header{
+    position: fixed;
+    width: 15%;
+    height: 100%;
+    background-color: #00116d;
+}
+header .logo{
+    position: absolute;
+    width: 80%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+header .logo img{
+    display: block;
+    width: 100%;
+}
+.gnb{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+}
+.gnb li a{
+    display: block;
+    padding: 8px 30px;
+    color: #fff;
+    line-height: 1.8;
+}
+.bottom .snsSet{
+    position: absolute;
+    width: 50%;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom .snsSet li{
+    float: left;
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.bottom .snsSet li:nth-child(1){
+    border-right: 1px solid #fff;
+}
+.bottom .snsSet li a{
+    display: block;
+    font-size: 0.8em;
+    color: #fff;
+}
+.bottom .sns{
+    position: absolute;
+    width: 50%;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bottom .sns li{
+    float: left;
+    width: 33.3333%;
+    text-align: center;
+}
+.bottom .sns li a{
+    color: #fff;
+}
+section{
+    position: relative;
+    width: 85%;
+    height: auto;
+    overflow: hidden;
+    margin-left: 15%;
+    font-family: "Hanna", sans-serif;
+}
+article{
+    position: relative;
+    float: left;
+    height: 280px;
+}
+article:nth-child(1){width: 60%; height: 560px; background-color: #00116d;}
+article:nth-child(2){width: 40%;}
+article:nth-child(3){width: 20%;}
+article:nth-child(4){width: 20%;}
+
+article:nth-child(5){width: 20%;}
+article:nth-child(6){width: 40%;}
+article:nth-child(7){width: 20%;}
+article:nth-child(8){width: 20%;}
+
+article:nth-child(9){width: 40%;}
+article:nth-child(10){width: 20%;}
+article:nth-child(11){width: 20%;}
+article:nth-child(12){width: 20%; background-color: yellowgreen;}
+
+article > div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+article .bg{
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+article .bg1{background-image: url(../images/1.png);}
+article .bg2{background-image: url(../images/3.png);}
+article .bg3{background-image: url(../images/4.jpg);}
+article .bg4{background-image: url(../images/5.jpg);}
+article .bg5{background-image: url(../images/6.jpg);}
+article .bg6{background-image: url(../images/7.jpg);}
+article .bg7{background-image: url(../images/8.png);}
+
+article .bg span{
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    transform: scale(10);
+    transition: all 0.6s;
+    opacity: 0;
+    font-size: 60px;
+    font-weight: normal;
+    color: #666;
+}
+article:hover span{
+    transform: scale(1);
+    opacity: 1;
+}
+article .bg1 span{
+    font-size: 100px;
+    transform: scale(1) rotateY(0deg);
+    color: #222;
+}
+article:hover .bg1 span{
+    transform: scale(1) rotateY(360deg);
+    opacity: 1;
+}
+
+article:nth-child(2):hover .txt{background-color: skyblue;}
+article:nth-child(3):hover .txt{background-color: #00b3ff; color: #fff;}
+article:nth-child(6):hover .txt{background-color: #ffff33;}
+article:nth-child(8):hover .txt{background-color: #00be3c; color: #fff;}
+article:nth-child(11):hover .txt{background-color: #3d3332; color: #fff;}
+
+article .txt p{
+    padding: 30px 40px 0;
+    position: relative;
+    z-index: 10;
+    line-height: 1.6;
+}
+article .txt i, article .txt img{
+    position: absolute;
+    transition: all 0.6s;
+    opacity: 0;
+}
+article .txt i{
+    font-size: 200px;
+    color: #fff;
+    bottom: -20px;
+    right: -10px;
+}
+article .txt3 i{
+    color: #333;
+}
+
+article .txt img{
+    width: 40%;
+    height: auto;
+    bottom: 10px;
+    right: 10px;
+}
+article:hover .txt i, article:hover .txt img{
+    opacity: 0.5;
+}
+
+article .txt p strong{
+    font-size: 30px;
+    display: block;
+    margin-bottom: 20px;
+}
+article .txt p em{
+    font-family: sans-serif;
+}
