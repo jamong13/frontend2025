@@ -132,7 +132,7 @@ article .bg7{background-image: url(../images/8.png);}
 
 article .bg span{
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
     right: 20px;
     transform: scale(10);
     transition: all 0.6s;
@@ -165,18 +165,23 @@ article .txt p{
     padding: 30px 40px 0;
     position: relative;
     z-index: 10;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 article .txt i, article .txt img{
     position: absolute;
     transition: all 0.6s;
     opacity: 0;
 }
+
 article .txt i{
     font-size: 200px;
     color: #fff;
     bottom: -20px;
     right: -10px;
+}
+article .txt2 i{
+    opacity: 1;
+    color: #666;
 }
 article .txt3 i{
     color: #333;
@@ -190,6 +195,9 @@ article .txt img{
 }
 article:hover .txt i, article:hover .txt img{
     opacity: 0.5;
+}
+article:hover .txt2 i{
+    color: #fff;
 }
 
 article .txt p strong{

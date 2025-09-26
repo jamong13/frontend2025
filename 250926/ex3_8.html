@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num1 = 20;
+        var num2 = 10;
+        //두 수를 더한 값은 score1에 저장
+        //두 수를 뺀 값은 score2에 저장
+        //두 수를 곱한 값은 score3에 저장 *연산자
+        //두 수를 나눈 값은 score4에 저장 /연산자
+        //결과를 콘솔로 보여주세요
+        var score1 = num1 + num2;
+        var score2 = num1 - num2;
+        var score3 = num1 * num2;
+        var score4 = num1 / num2;
+        console.log(score1 + "," + score2 + "," + score3 + "," + score4);
+
+        var evenOdd = 7; //짝수예제
+        var result = evenOdd % 2
+        var comment;
+        if(result === 0){
+            comment = evenOdd + "는 짝수입니다.";
+        }else{
+            comment = evenOdd + "는 홀수입니다.";
+        }
+        console.log(comment);
+
+        var a = 0;
+        // a = a + 1;
+        a++;
+        // document.write(a);
+
+        var increase = 0;
+        var add = 0;
+        ++increase;
+        document.write(increase + "<br/>");
+        increase++;
+        document.write(increase + "<br/>");
+        add = ++increase; //전위증가
+        document.write(add + "," + increase + "<br/>");
+        add = increase++; //후위증가, add에 3을 전달하고 increase는 1을 더해 4가 됨
+        document.write(add + "," + increase + "<br/>");
+    </script>
+</body>
+</html>

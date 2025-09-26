@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num1 = 20;
+        num1 = 30; //변수의 값이 변경
+        document.write(num1 + '<br/>');
+
+        var num2 = 20;
+        var num2 = 30;
+        document.write(num2 + '<br/>');
+
+        //재할당 가능, 재선언 불가능
+        let num3 = 20;
+        num3 = 30;
+        document.write(num3 + '<br/>');
+        
+        let num4 = 20;
+        //let num4 = 30; let은 중복 선언이 안 됨
+        document.write(num4 + '<br/>');
+
+        //재선언 재할당 불가능
+        const num5 = 5; //const 상수 선언, 출력 안됨, 바뀌면 안 되는 것들 저장
+        //num5 = 40; 상수는 변경 안됨
+        document.write('num5=' + num5);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

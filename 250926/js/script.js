@@ -1,0 +1,1 @@
+document.write("처음 배우는");

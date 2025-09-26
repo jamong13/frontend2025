@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="gnb">이거예요</div>
+
+    <script>
+        //number
+        var num1 = 10;
+        var num2 = 10.2;
+        var num3 = 1e+2; //1x 10제곱 100과 같음
+        console.log(num1 + ',' + num2 + ',' + num3);
+
+        //string
+        var str1 = "문자";
+        var str2 = "문자는 '문자'";
+        var str3 = '문자는 "문자"';
+        var str4 = "You \"are\" too smart";
+        console.log(str1 + ',' + str2 + ',' + str3 + ',' + str4);
+        // 이스케이프 시퀀스   일반 문법 기능   사용 예시
+        // \"   문자열의 끝   let str = "그는 \"안녕\"이라고 말했다.";
+        // \'   문자열의 끝   let str = '그는 \'안녕\'이라고 말했다.';
+// \\ 이스케이프 문자의 시작   let path = "C:\\User\\data";
+
+        //boolean
+        var com1 = (5 > 4);
+        var com2 = (5 < 4);
+        console.log(com1+","+com2);
+
+        // undefined
+        var storage;
+        console.log(storage);
+
+        //null
+        var gnb = document.getElementById("gnb");
+        console.log(gnb);
+
+        //typeof
+        var type1 = 10;
+        var type2 = "문자";
+        var type3 = true;
+        console.log(typeof type1+","+typeof type2+","+typeof type3);
+    </script>
+</body>
+</html>
