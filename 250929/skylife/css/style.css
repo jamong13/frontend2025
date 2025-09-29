@@ -2,7 +2,7 @@
 a{text-decoration: none; color: #000;}
 
 #wrap{
-    width: 1300px;
+    width: 1200px;
     margin: 0 auto;
 }
 section{
@@ -37,15 +37,16 @@ article .kt{
     top: 50%;
     right: 0;
     transform: translate(0, -50%);
-    color: #333;
 }
 .top .mobile p{
     float: left;
+    color: #555;
 }
 .top .mobile img{
     width: 24px;
     display: block;
     float: left;
+    opacity: 0.6;
 }
 article .box{
     border-radius: 10px;
