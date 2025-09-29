@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var score = prompt("성적을 입력하세요.");
+        if(score <= 100 && score >= 90){
+            document.write("수");
+        }else if(score < 90 && score >= 80){
+            document.write("우");
+        }else if(score < 80 && score >= 70){
+            document.write("미");
+        }else if(score < 70 && score >= 60){
+            document.write("양");
+        }else if(score < 60 && score >= 50){
+            document.write("가");
+        }else{
+            document.write("성적을 입력하세요.");
+        }
+    </script>
+</body>
+</html>

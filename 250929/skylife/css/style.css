@@ -1,0 +1,82 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+
+#wrap{
+    width: 1300px;
+    margin: 0 auto;
+}
+section{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+article{
+    width: 100%;
+    
+}
+article .kt{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+.top{
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 30px;
+}
+.top h1{
+    font-size: 50px;
+    
+    flex: 1.6;
+}
+.top .mobile{
+    flex: 0.4;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    color: #333;
+}
+.top .mobile p{
+    float: left;
+}
+.top .mobile img{
+    width: 24px;
+    display: block;
+    float: left;
+}
+article .box{
+    border-radius: 10px;
+    min-width: 200px;
+    flex: 1;
+}
+article .box a{
+    display: block;
+    padding: 40px 20px 20px;
+}
+article .box > a > img{
+    width: 358px;
+    display: block;
+    margin: 0 auto 40px;
+}
+.kt1{background-color: rgb(255, 171, 96);}
+.kt2{background-color: rgb(189, 213, 143);}
+.kt3{background-color: rgb(137, 183, 221);}
+.txt{
+    background-color: #fff; 
+    border-radius: 10px; 
+    padding: 20px;
+    position: relative;
+}
+.txt h2{
+    margin-bottom: 10px;
+}
+.txt img{
+    position: absolute;
+    width: 24px;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}

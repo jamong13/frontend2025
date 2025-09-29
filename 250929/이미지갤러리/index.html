@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        img{vertical-align: middle;}
+        #galleryWrap{
+            position: relative;
+            top: 1000px;
+            width: 530px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #galleryWrap img{
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        let num = 1;
+        function nextGallery(){
+            num++; ///num = num + 1 -> num을 하나씩 증가 2, 3, 4, 5, 6, 7
+            if(num > 7) num = 1; //중괄호 다음 실행문 하나면 중괄호 생략 가근ㅇ
+            document.getElementById("gallery").src="images/img" + num + ".jpg";
+            return false; //임시 링크 막아서 스크롤 올라가는 것을 방지
+        }
+        function preGallery(){
+            num--; ///num = num + 1 -> num을 하나씩 증가 2, 3, 4, 5, 6, 7
+            if(num == 0) num = 7;
+            document.getElementById("gallery").src="images/img" + num + ".jpg";
+            return false; //임시 링크 막아서 스크롤 올라가는 것을 방지
+        }
+    </script>
+</head>
+<body>
+    <div id="galleryWrap">
+        <h2>이미지 넘기기</h2>
+        <a href="#" onclick="return preGallery()"><img src="images/left_btn.png" alt="이전"></a>
+        <img src="images/img1.jpg" alt="갤러리그림" id="gallery">
+        <a href="#" onclick="return nextGallery()"><img src="images/right_btn.png" alt="다음"></a>
+    </div>
+</body>
+</html>

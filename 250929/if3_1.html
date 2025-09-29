@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //학점을 내려고 한다. avg >= 90 A avg >=80 B 70 이상이면 C 그 외에는 D
+        var avg = prompt("당신의 점수는?","");
+        var hak;
+        if(avg >= 90){
+            hak = 'A';
+        }else if(avg >= 80){
+            hak = 'B';
+        }else if(avg >= 70){
+            hak = 'C';
+        }else{
+            hak = 'D';
+        }
+        document.write("당신의 학점은? " + hak + " 입니다.");
+    </script>
+</body>
+</html>

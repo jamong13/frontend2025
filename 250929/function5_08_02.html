@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //일반함수
+        function add(a, b){
+            return a + b;
+        }    
+        
+        //화살표함수
+        const addArrow = (a, b) =>{
+            return a+ b;
+        }
+        //리액트에서 가장 많이 쓰임
+        //리턴 한 줄이면 중괄호와 return 생략 가능
+        const addShort = (a, b) => a + b;
+
+        document.write(add(7,10)+"<br/>");
+        document.write(addArrow(5,8)+"<br/>");
+        document.write(addShort(9,17)+"<br/>");
+    </script>
+</body>
+</html>

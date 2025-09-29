@@ -182,47 +182,69 @@
         margin-top: 60px;
         right: inherit;
         height: 80px;
+        text-align: center;
     }
     .gnb li{
         width: 25%;
     }
     .gnb li a{
-        line-height: 64px;
+        line-height: 30px;
         padding: 8px 10px;
     }
     .bottom{
         display: none;
     }
-    article:nth-child(1){width: 100%; height: 400px;}
+    article{
+        height: 150px;
+    }
+    article:nth-child(1){width: 100%; height: 300px;}
 
     article:nth-child(2){width: 100%;}
     article:nth-child(3){width: 25%; display: none;}
-    article:nth-child(4){width: 34%;}
+    article:nth-child(4){width: 34%; display: none;}
 
-    article:nth-child(5){width: 34%;}
-    article:nth-child(6){width: 66%;}
+    article:nth-child(5){width: 50%;}
+    article:nth-child(6){width: 50%;}
 
     article:nth-child(7){width: 50%; display: none;}
-    article:nth-child(8){width: 66%;}
-    article:nth-child(9){width: 34%;}
+    article:nth-child(8){width: 50%;}
+    article:nth-child(9){width: 50%;}
 
-    article:nth-child(10){width: 34%;}
-    article:nth-child(11){width: 66%;}
+    article:nth-child(10){width: 50%;}
+    article:nth-child(11){width: 50%;}
     article:nth-child(12){width: 50%; display: none;}
 
     article:nth-child(2):hover .txt,
     article:nth-child(6):hover .txt,
     article:nth-child(8):hover .txt,
-    article:nth-child(11):hover .txt{background-color: #fff; color: #000;}
+    article:nth-child(11):hover .txt{ color: #000;}
     
+    article .txt{
+        transition: all 0.6s;
+    }
     article .txt i, article .txt img{
-        display: none;
+        display: block;
+    }
+    article .txt i{
+        bottom: -20px;
+        right: -200px;
+        color: #222;
+    }
+    article .txt img{
+        bottom: -50px;
+        right: -200px;
+    }
+    article:hover .txt i{
+        right: 0;
+    }
+    article:hover .txt img{
+        right: 20px;
     }
     article .txt p{
         padding: 10px; 
     }
     article .txt p strong{
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 10px;
     }
     article .txt2 i{
@@ -230,8 +252,64 @@
     }
     article .txt p em{
         font-size: 14px;
+        display: none;
     }
 }
 @media screen and (max-width: 499px) {
-
+    header{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        /* 투명하게 */
+        z-index: 10;
+    }
+    header .logo{
+       width: 200px;
+       top: 60px;
+       left: 50%;
+       margin-left: -100px;
+    }
+    section{
+        width: 100%;
+        margin-left: 0;
+        z-index: 5;
+    }
+    article{display: none;}
+    article:nth-child(1){
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .gnb{
+        top: 50%;
+        right: 50%;
+        width: 250px;
+        margin-right: -125px;
+    }
+    .gnb li{
+        width: 100%;
+    }
+    .gnb li a{
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #000;
+        opacity: 0.5;
+        color: #fff;
+        margin: 8px 0;
+        border-radius: 10px;
+        padding: 8px 20px;
+    }
+    .gnb li a:hover{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    .bottom{
+        display: none;
+    }
+    article:nth-child(1) span{
+        display: none;
+    }
 }

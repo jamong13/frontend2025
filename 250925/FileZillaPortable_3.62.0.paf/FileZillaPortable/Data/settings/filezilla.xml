@@ -100,7 +100,6 @@
 		<Setting name="Search column widths" />
 		<Setting name="Search column shown" />
 		<Setting name="Search column order" />
-		<Setting name="Search window size" />
 		<Setting name="Comparison hide identical">0</Setting>
 		<Setting name="Search sort order" />
 		<Setting name="Edit track local">1</Setting>
@@ -129,28 +128,44 @@
 		<Setting name="Local filelist sortorder">0 0</Setting>
 		<Setting name="Remote filelist sortorder">0 0</Setting>
 		<Setting name="Kiosk mode">1</Setting>
-		<Setting name="Sitemanager last selected">0/heesoo</Setting>
 		<Setting name="Prompt password save">0</Setting>
-		<Setting name="Already connected choice">1</Setting>
-		<Setting name="Site Manager position">0 684 279 774 443 </Setting>
 		<Setting name="Remote filelist colwidths">150 75 80 103 80 85</Setting>
-		<Setting name="Window position and size">0 360 45 1422 841 </Setting>
 		<Setting name="Splitter positions (v2)">97 -131 412095639 227 227 500000000</Setting>
+		<Setting name="Search window size">0 154 250 1750 500 </Setting>
+		<Setting name="Sitemanager last selected">0/gmltn</Setting>
+		<Setting name="Already connected choice">0</Setting>
+		<Setting name="Site Manager position">0 687 279 774 443 </Setting>
+		<Setting name="Window position and size">0 367 45 1415 841 </Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
-				<Tab connected="1" selected="1">
-					<Host>pos03013.dothome.co.kr</Host>
+				<Tab>
+					<Host>gmltn03013.dothome.co.kr</Host>
+					<Port>21</Port>
+					<Protocol>6</Protocol>
+					<Type>1</Type>
+					<User>gmltn03013</User>
+					<Logontype>2</Logontype>
+					<PasvMode>MODE_DEFAULT</PasvMode>
+					<EncodingType>Auto</EncodingType>
+					<BypassProxy>0</BypassProxy>
+					<Name>gmltn</Name>
+					<Site></Site>
+					<RemotePath>1 0 7 hosting 10 gmltn03013 4 html</RemotePath>
+					<LocalPath>D:\heesoo\250925\슈퍼문\</LocalPath>
+				</Tab>
+				<Tab selected="1">
+					<Host>gmltn03013.dothome.co.kr</Host>
 					<Port>21</Port>
 					<Protocol>0</Protocol>
 					<Type>0</Type>
-					<User>pos03013</User>
+					<User>gmltn03013</User>
 					<Logontype>2</Logontype>
 					<PasvMode>MODE_DEFAULT</PasvMode>
 					<EncodingType>Auto</EncodingType>
 					<BypassProxy>0</BypassProxy>
 					<Site></Site>
-					<RemotePath>1 0 4 html</RemotePath>
-					<LocalPath>D:\heesoo\250925\반응형2\</LocalPath>
+					<RemotePath></RemotePath>
+					<LocalPath>D:\heesoo\250925\슈퍼문\</LocalPath>
 				</Tab>
 			</Tabs>
 		</Setting>

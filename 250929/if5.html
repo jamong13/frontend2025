@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //프롬프트로 숫자를 입력 받아
+        //3~5 봄입니다.
+        //6~8 여름입니다.
+        //9~11 가을입니다.
+        //나머지 12, 1, 2월은 겨울입니다.
+
+        var month = prompt("월을 입력해주세요", "");
+        var season;
+        if(month >=3 && month <= 5){
+            document.write("봄입니다.");
+        }else if(month >= 6 && month <= 8){
+            document.write("여름입니다.");
+        }else if(month >= 9 && month <= 11){
+            document.write("가을입니다.");
+        }else if(month == 1 || month == 2 || month == 12){
+            document.write("겨울입니다.");
+        }else{
+            document.write("재입력")
+        }
+
+    </script>
+</body>
+</html>
