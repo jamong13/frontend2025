@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-container{
+            display: flex;
+        }
+        .tab{
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+        }
+        .tab-content{
+            display: none;
+        }
+        .tab-content.active-content{
+            display: block;
+        }
+        .tab.active-tab{
+            border-color: #000;
+            background-color: blueviolet;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <div id="menutab1" class="tab active-tab" onclick="changeTab('tab1')">Tab 1</div>
+        <div id="menutab2" class="tab" onclick="changeTab('tab2')">Tab 2</div>
+        <div id="menutab3" class="tab" onclick="changeTab('tab3')">Tab 3</div>
+    </div>
+    <div id="tab1" class="tab-content active-content">
+        <p>Content for Tab 1</p>
+        <p>Content for Tab 1</p>
+        <p>Content for Tab 1</p>
+    </div>
+    <div id="tab2" class="tab-content">
+        <p>Content for Tab 2</p>
+        <p>Content for Tab 2</p>
+        <p>Content for Tab 2</p>
+    </div>
+    <div id="tab3" class="tab-content">
+        <p>Content for Tab 3</p>
+        <p>Content for Tab 3</p>
+        <p>Content for Tab 3</p>
+    </div>
+</body>
+</html>
+<script>
+    function changeTab(tabId){
+        const allTabs = document.querySelectorAll('.tab');//탭버튼 3개 등록
+        const allContent = document.querySelectorAll('.tab-content'); //탭내용 3개 등록
+        allTabs.forEach(function(tab){
+            tab.classList.remove('active-tab');
+        });
+        allContent.forEach(function(content){
+            content.classList.remove('active-content');
+        });
+        const selectedTab = document.getElementById("menu"+tabId);
+        selectedTab.classList.add('active-tab');
+        const selectedContent = document.getElementById(tabId);
+        selectedContent.classList.add('active-content');
+    }
+</script>

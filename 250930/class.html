@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+        }
+        .red-bg{
+            background-color: red;
+        }
+        .blue-bg{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="red-bg">
+
+    </div>
+    <button id="changeColorBtn">컬러변경</button>
+</body>
+</html>
+<script>
+    const box = document.getElementById("box"); //변경할 일이 없을 때 const에 넣음
+    const button = document.getElementById("changeColorBtn");
+    
+    // button.addEventListener("click",function(){할일});
+    button.addEventListener("click",function(){
+        if(box.classList.contains("red-bg")){
+            //박스의 클래스에서 "red-bg"라는 클래스가 포함되어 있는가
+            box.classList.add('blue-bg');
+            box.classList.remove('red-bg');
+        }else{
+            box.classList.add('red-bg');
+            box.classList.remove('blue-bg');
+        }
+    });
+</script>

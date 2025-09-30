@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭하여 콘솔 보기</button>
+</body>
+<script>
+    //#btn을 선택해서 변수 btn 할당
+    const btn = document.getElementById('btn');
+    btn.onclick = function(){
+        console.log("첫번째 실행");
+    }
+    btn.onclick = function(){
+        console.log("두번째 실행");
+    }
+</script>
+</html>

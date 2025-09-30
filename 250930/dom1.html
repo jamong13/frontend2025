@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 선택자 예제</title>
+    
+</head>
+<body>
+    <h1 id="title">과일 목록</h1>
+    <ul>
+        <li class="item">사과</li>
+        <li class="item">바나나</li>
+        <li class="item">포도</li>
+        <li class="item">오렌지</li>
+    </ul>
+</body>
+</html>
+<script>
+//1. Id 선택자
+    const title = document.getElementById("title");
+    console.log("id선택자", title.textContent);
+
+//2. 클래스 선택자(HtmlCollection -> for문)
+const itemByClass = document.getElementsByClassName("item");
+console.log("클래스로 선택");
+for(let i = 0; i < itemByClass.length; i++){
+    console.log(" -", itemByClass[i].textContent);
+}
+//3. 태그 선택자(HtmlCollection -> for문)
+const itemByTag = document.getElementsByTagName("li");
+console.log("태그로 선택");
+for(let i = 0; i < itemByTag.length; i++){
+    console.log(" -", itemByTag[i].textContent);
+}
+//4. querySelector
+const firstItem = document.querySelector(".item");
+console.log("querySelector(첫번째) : ", firstItem.textContent);
+//5. querySelectorAll
+const itemAll = document.querySelectorAll(".item");
+console.log("querySelectorAll : ");
+itemAll.forEach(function(el, index){
+    console.log(index+1 + ":" + el.textContent);
+});
+</script>

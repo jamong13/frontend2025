@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://google.com" id="myLink" target="_blank">구글</a>
+</body>
+</html>
+<script>
+    const link = document.getElementById("myLink");
+    console.log(link.getAttribute("href")); //출력 : https://google.com
+    console.log(link.getAttribute("target")); //출력 : _blank
+    
+    //href 속성 네이버로 변경
+    link.setAttribute("href", "https://naver.com");
+    link.setAttribute("target", "_self");
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">클릭하여 콘솔 보기</button>
+</body>
+<script>
+    //#btn을 선택해서 변수 btn 할당
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', function(){
+        console.log("첫번째 실행");
+    });
+    btn.addEventListener('click',function(){
+        console.log("두번째 실행");
+    });
+    //하나의 요소에 여러개의 이벤트 핸들러 등록 가능 'click/mouseover'
+    //기존의 핸들러가 유지되고 차례대로 실행됨
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var today = new Date();
+        var year = today.getFullYear(); //today 년도만 가져와서 year 대입
+        var month = today.getMonth()+1;
+        var date = today.getDate();
+        var day = today.getDay();//0 : 일요일, 1 : 월요일 ~ 6 : 토요일
+
+        console.log(year, month, date, day);
+        var yoil;
+        switch(day){
+            case 0:
+                yoil = "일요일";
+                break;
+            case 1:
+                yoil = "월요일";
+                break;
+            case 2:
+                yoil = "화요일";
+                break;
+            case 3:
+                yoil = "수요일";
+                break;
+            case 4:
+                yoil = "목요일";
+                break;
+            case 5:
+                yoil = "금요일";
+                break;
+            case 6:
+                yoil = "토요일";
+                break;
+            default:
+                yoil = "에러";
+        }
+        // if(day == 0){
+        //     yoil = "일요일";
+        // }else if(day == 1){
+        //     yoil = "월요일";
+        // }else if(day == 2){
+        //     yoil = "화요일";
+        // }else if(day == 3){
+        //     yoil = "수요일";
+        // }else if(day == 4){
+        //     yoil = "목요일";
+        // }else if(day == 5){
+        //     yoil = "금요일";
+        // }else if(day == 6){
+        //     yoil = "토요일";
+        // }
+        var hour = today.getHours();
+        var min = today.getMinutes();
+        var sec = today.getSeconds();
+
+        document.write(year + "년 " + month + "월 " + date + "일 " + yoil + " " + hour + "시 " + min + "분 " + sec + "초");
+        document.write(`${year}년 ${month}월 ${date}일 ${yoil} ${hour}시 ${min}분 ${sec}초`); //백틱문법, 요즘 많이 활용
+    </script>
+</body>
+</html>

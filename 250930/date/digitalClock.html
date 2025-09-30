@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="clock">
+        <span id="year">0000</span>년
+        <span id="month">00</span>월
+        <span id="date">00</span>일
+        <span id="yoil">0</span>요일
+        <span id="hour">00</span>시
+        <span id="minute">00</span>분
+        <span id="second">00</span>초
+    </h1>
+
+
+    <script>
+        function autotime(){
+            var today = new Date();
+            var year = today.getFullYear(); //today 년도만 가져와서 year 대입
+            var month = today.getMonth()+1;
+            var date = today.getDate();
+            var day = today.getDay();//0 : 일요일, 1 : 월요일 ~ 6 : 토요일
+
+            console.log(year, month, date, day);
+            var yoil;
+            switch(day){
+                case 0:
+                    yoil = "일";
+                    break;
+                case 1:
+                    yoil = "월";
+                    break;
+                case 2:
+                    yoil = "화";
+                    break;
+                case 3:
+                    yoil = "수";
+                    break;
+                case 4:
+                    yoil = "목";
+                    break;
+                case 5:
+                    yoil = "금";
+                    break;
+                case 6:
+                    yoil = "토";
+                    break;
+                default:
+                    yoil = "에러";
+            }
+            var hour = today.getHours();
+            var min = today.getMinutes();
+            var sec = today.getSeconds();
+
+            document.getElementById('year').innerHTML = year;
+            document.getElementById('month').innerHTML = month;
+            document.getElementById('date').innerHTML = date;
+            document.getElementById('yoil').innerHTML = yoil;
+            document.getElementById('hour').innerHTML = hour;
+            document.getElementById('minute').innerHTML = min;
+            document.getElementById('second').innerHTML = sec;
+        }
+
+        setInterval(autotime, 1000);
+        // setInterval(function(){},1000);
+        // setInterval(함수명, 1000);
+    </script>
+</body>
+</html>
