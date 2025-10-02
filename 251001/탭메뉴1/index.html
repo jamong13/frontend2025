@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  .tab-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #eee;
+    }
+    .tab.active-tab {
+      background: #007BFF;
+      color: #fff;
+      border-color: #007BFF;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tab-content.active-content {
+      display: block;
+    }  
+</style>
+
+
+</head>
+<body>
+    <h2>탭 메뉴 예제</h2>
+
+   <div class="tab-container">
+    <div id="menutab1" class="tab active-tab" onclick="changeTab('tab1')">🍎 사과</div>
+    <div id="menutab2" class="tab" onclick="changeTab('tab2')">🍌 바나나</div>
+    <div id="menutab3" class="tab" onclick="changeTab('tab3')">🍇 포도</div>
+  </div>
+
+  <!-- 탭 내용 -->
+  <div id="tab1" class="tab-content active-content">사과는 빨갛고 달콤합니다.</div>
+  <div id="tab2" class="tab-content">바나나는 노랗고 길쭉합니다.</div>
+  <div id="tab3" class="tab-content">포도는 보라색이고 송이로 열립니다.</div>
+
+
+</body>
+</html>
+<script>
+    function changeTab(tabId){
+        const allTabs = document.querySelectorAll('.tab'); // 탭버튼 모두 
+        const allContent = document.querySelectorAll('.tab-content'); //탭내용모두
+        
+        //모든 탭 버튼 / 탭내용 초기화
+        allTabs.forEach(tab=>tab.classList.remove('active-tab')); //모두 탭버튼 클래스제거
+        allContent.forEach(content => content.classList.remove('active-content'));
+        
+        //선택된 버튼 활성화
+        //클릭했을때 전달된는 매개변수는 tab1 tab2 tab3 중 하나가 전달
+        const selectedTab = document.getElementById("menu"+ tabId); 
+        // menu + tab2 = menutab2 
+        selectedTab.classList.add('active-tab');
+       
+        //선택된 탭 내용을 활성화(display:block) - 보이게함
+        const selectedContent= document.getElementById(tabId);  //#tab1 #tab2
+        electedContent.classList.add('active-content');
+
+        //기본 탭은 사과가 선택되있고
+        //다른 탭을 클릭하면 버튼 스타일이 바뀌고 해당 내용만 보입니다.
+
+    }
+
+</script>

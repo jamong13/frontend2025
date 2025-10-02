@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <img src="images/coffee-pink.jpg" alt="sample" id="myImage">
+</body>
+</html>
+<script>
+   const img1 = document.getElementById('myImage'); 
+   let srcVal = img1.getAttribute('src');//현재 img1 src속성에 들어있는 속성값
+    //images/coffee-pink.jpg
+   // alert(srcVal);  
+   img1.addEventListener('mouseover',function(){
+     img1.setAttribute('src','images/coffee-blue.jpg')
+   });
+    img1.addEventListener('mouseout',function(){
+     img1.setAttribute('src','images/coffee-pink.jpg')
+   });
+
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아코디언메뉴</title>
+<style>
+    .accordion{
+      border: 1px solid #ccc;
+      margin-bottom: 5px;
+      cursor: pointer;
+      padding: 10px;
+      background: #f5f5f5;
+    }
+    .panel {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    .accordion.active {
+      background: #007BFF;
+      color: white;
+    }
+</style>
+
+
+</head>
+<body>
+      <h2>아코디언 메뉴 예제</h2>
+
+  <div class="accordion">🍎 사과</div>
+  <div class="panel">사과는 빨갛고 달콤합니다.</div>
+
+  <div class="accordion">🍌 바나나</div>
+  <div class="panel">바나나는 노랗고 길쭉합니다.</div>
+
+  <div class="accordion">🍇 포도</div>
+  <div class="panel">포도는 보라색이고 송이로 열립니다.</div>
+</body>
+</html>
+<script>
+    const accordions = document.querySelectorAll(".accordion");
+    accordions.forEach(function(acc){
+        acc.addEventListener('click',function(){
+
+            accordions.forEach(function(a){
+                a.classList.remove("active"); //active class 제거
+                a.nextElementSibling.style.display = 'none';
+                //모든 패널을 닫는다.
+            });
+            //현재 클리한 패널 열기
+            acc.classList.add('active');
+            acc.nextElementSibling.style.display = 'block';     
+
+        });
+    
+    });
+
+
+</script>

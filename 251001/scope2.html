@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let, const는 블록 {} 단위로만 스코프가 생깁니다.
+        //블록을 벗어나면 변수가 사라집니다.
+        function testLetConst(){ 
+            if(true){
+                let y=200;
+                const z = 300;
+                console.log("블록 내부y:" , y); 
+                console.log("블록 내부z:" , z); 
+            }
+             //console.log("블록 외부y:" , y); 
+             //console.log("블록 외부z:" , z); 
+        }
+       
+        testLetConst();
+    </script>
+</body>
+</html>

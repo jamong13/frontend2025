@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* 탭 버튼 */
+    .tab-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab-buttons button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background: #eee;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .tab-buttons button.active {
+      background: #007BFF;
+      color: white;
+    }
+
+    /* 탭 내용 */
+    .tab-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>    
+</head>
+<body>
+    <h2>탭 메뉴 예제</h2>
+
+<!-- html  data- 속성은 html 요소에 추가적인 사용자 정의 데이터를 저장 -->
+ <!-- data-id, data-price -->
+
+  <!-- 탭 버튼 -->
+  <div class="tab-buttons">
+    <button class="tab-link active" data-tab="tab1">🍎 사과</button>
+    <button class="tab-link" data-tab="tab2">🍌 바나나</button>
+    <button class="tab-link" data-tab="tab3">🍇 포도</button>
+  </div>
+
+  <!-- 탭 내용 -->
+  <div id="tab1" class="tab-content active">사과는 빨갛고 달콤합니다.</div>
+  <div id="tab2" class="tab-content">바나나는 노랗고 길쭉합니다.</div>
+  <div id="tab3" class="tab-content">포도는 보라색이고 송이로 열립니다.</div>
+
+</body>
+</html>
+<script>
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabLinks.forEach(function(button){
+        button.addEventListener('click',function(){
+           const targetId =  button.getAttribute("data-tab"); //tab1, tab2, tab3
+
+           //모든 버튼을 비활성화
+           tabLinks.forEach(btn => btn.classList.remove('active'));
+           //내용을 숨기기
+           tabContents.forEach(content => content.classList.remove('active'));
+
+           //현재 클릭한버튼(색상변경) / 내용활성화
+           button.classList.add("active");
+           document.getElementById(targetId).classList.add("active");
+ 
+        });
+    });
+
+
+</script>

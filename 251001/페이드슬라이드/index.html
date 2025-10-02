@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/fade.css">
+</head>
+<body>
+    <div id="slider-container">
+        <div class="slider">
+            <div class="slide fade">
+                <img src="img/slide1.jpg" alt="Slide 1">
+            </div>
+            <div class="slide fade">
+                <img src="img/slide2.jpg" alt="Slide 2">
+            </div>
+            <div class="slide fade">
+                <img src="img/slide3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <div class="pager">
+            <!-- span은 대표적인 인라인 요소 -->
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function showSlides(a){
+        let i;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        if(a > slides.length){ //slides.length
+            slideIndex = 1;
+        }
+
+        slides.forEach(slide => slide.classList.remove('on')); //.on제거
+        //forEach 는 querySelectorAll에서만 사용가능
+        dots.forEach(dot => dot.classList.remove("active")); //.active제거  
+        slides[slideIndex-1].classList.add('on');
+        dots[slideIndex-1].classList.add('active');
+    }
+
+    function currentSlide(a){
+        showSlides(slideIndex = a);
+    }
+
+    function plusSlides(a){ //여기서 a = 1;
+        showSlides(slideIndex += a);
+    }
+
+    setInterval(function(){
+        plusSlides(1)
+    },3000)
+
+</script>

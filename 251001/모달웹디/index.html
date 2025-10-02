@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{margin: 0;padding: 0;}
+
+    #modal_win{
+        position: fixed;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+    }
+    #modal{
+        width: 500px;
+        height: 400px;
+        box-sizing: border-box;
+        padding: 30px;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        background-color:#fff ;
+    }
+    #modal button{
+        display: block;
+        padding: 5px 20px;
+        margin: 20px auto 0;
+    }
+</style>
+
+
+</head>
+<body>
+    <button id="open">모달 열기</button>
+    <div id="modal_win">
+        <div id="modal">
+            <p>
+                Integer pretium porttitor lectus at tempor. Donec nec cursus elit. Maecenas ornare malesuada urna vitae lobortis. Sed vulputate sapien quis purus cursus consectetur. Aenean nulla neque, egestas ut accumsan nec, convallis vel enim. Vestibulum vehicula interdum diam nec condimentum. Etiam in condimentum justo. Fusce a tortor metus, id pellentesque orci. Sed facilisis, tellus quis tempus faucibus, justo elit sodales lorem, eget placerat lectus risus bibendum ipsum. Donec varius mattis quam eu conse...
+            </p>
+            <button id="close">닫기</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+document.getElementById("open").addEventListener('click',function(){
+    document.getElementById("modal_win").style.display = "block";
+});
+document.getElementById("close").addEventListener('click',function(){
+    document.getElementById("modal_win").style.display = "none";
+});
+
+</script>

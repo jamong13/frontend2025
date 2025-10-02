@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">Hello world</div>
+    <div class="myClass">First Div</div>
+    <div class="myClass">Second Div</div>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+
+    <script>
+        //const element1 = document.getElementById("myDiv");
+        const element = document.querySelector('#myDiv');
+        console.log(element.textContent); //element값을 추출
+
+        //const elements = document.querySelector(".myClass");
+        // 클래스 한개선택시, 또는 여러가지 동일 클래스중 첫번째만
+// const elements1 = document.getElementsByClassName('myClass');
+        const elements = document.querySelectorAll(".myClass");
+        console.log(elements[0].textContent);
+        console.log(elements[1].textContent);
+        //const b1 = document.getElementsByTagName('p');
+        const b = document.querySelectorAll('p');
+        console.log(b[0].textContent);
+        console.log(b[1].textContent);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>자바스크립트 함수 예제</h2>
+    <p>결과는 콘솔(f12)에서 확인하세요</p>
+    <script>
+        //함수 선언문
+        function add(x,y){//매개변수
+            return x + y;
+        }
+
+        //함수 표현식(익명함수)
+        const sub = function(x,y){
+             return x - y;
+        }
+
+        // 화살표함수(Es6)
+           const mul = (x,y) => x * y;
+        
+
+
+        //함수호출
+        console.log("함수선언문 add(5,3) = " ,add(5,3));//8
+        console.log("함수표현식 sub(5,3) = " ,sub(5,3)); //2
+         console.log("화살표 함수 mul(5, 3) =", mul(5, 3));   // 15
+    </script>
+</body>
+</html>

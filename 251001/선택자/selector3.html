@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="fruits">
+        <li>🍎 사과</li>
+        <li>🍌 바나나</li>
+        <li>🍇 포도</li>
+    </ul>
+</body>
+</html>
+<script>
+const first = document.querySelector("#fruits li"); //li중 첫번째 사과
+console.log(first.textContent);// 사과
+console.log(first.nextElementSibling.textContent); //바나나
+const second = first.nextElementSibling; //바나나
+console.log(second.nextElementSibling.textContent); //포도
+
+console.log(second.previousElementSibling.textContent); //이전 -> 사과
+
+
+const list = document.getElementById('fruits');
+//부모 
+console.log("부모 자식")
+console.log(list.parentElement.tagName);
+
+console.log(list.children.length); //3개 - 리스트 자식들의 갯수
+console.log(list.firstElementChild.textContent); // 🍎 사과
+console.log(list.lastElementChild.textContent);  // 🍇 포도
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 첫번째 이벤트 등록 방법 -->
+    <!-- html 속성이용 -->
+     <button id="btn1" onclick="alert('클릭됨')">Click1</button>
+     <button id="btn2" >Click2</button>
+     <button id="btn3" >Click3</button>
+</body>
+</html>
+<script>
+// 두번째 방법 Dom속성이용
+document.getElementById('btn2').onclick = function(){
+    alert("버튼클릭됨")
+};
+//세번째 방법  addEventListner (추천)
+let btn3 = document.getElementById('btn3');
+btn3.addEventListener('click',()=>{
+    alert("이벤트 리스너 방식");
+});
+//주요이벤트
+//clik(클릭)
+//mouseover,mouseout : 마우스 올림내림
+//keydown, keyup : 키보드입력
+//change : 입력값 변경
+//submit : 폼제출
+//load, DomcontentLoaded : 페이지 로드
+
+
+</script>

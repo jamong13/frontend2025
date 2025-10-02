@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //숫자로변환 Number() 사용 / parseInt() 사용
+        var sum = 0;
+        var avg = 0;
+        var kor = Number(prompt("당신의 국어 점수는?",""));
+        var mat = Number(prompt("당신의 수학 점수는?",""));
+        var eng = parseInt(prompt("당신의 영어 점수는?",""));
+        // 150.5px => 150
+        sum = kor+mat+eng;
+        document.write(sum);
+    </script>
+</body>
+</html>

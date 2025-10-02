@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+*{margin: 0;padding: 0;}
+header{
+    width: 100%;
+    max-width: 1920px;
+    height:200px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+.slide-container{
+    width: 100%;
+    max-width: 1920px;
+    height:480px;
+    position: relative;
+}
+.slider{
+    display: flex;
+    transition: transform 0.5s;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <header></header>
+    <div class="slide-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/slide1.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="images/slide2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="images/slide3.jpg" alt="">
+            </div>
+        </div>
+      
+    </div>
+</body>
+</html>
+<script>
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function auto() {
+    index++;
+    if(index >= slides.length){
+        index=0;
+    }
+    const transformValue = -index * 100 + '%';
+    //slider.style.transform= "translateX("+transformValue+")";  
+    slider.style.transform= `translateX(${transformValue})`; 
+}
+setInterval(auto, 2000);
+
+</script>
