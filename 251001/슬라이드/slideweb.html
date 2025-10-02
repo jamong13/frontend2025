@@ -48,19 +48,19 @@ header{
 </body>
 </html>
 <script>
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-let index = 0;
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
 
-function auto() {
-    index++;
-    if(index >= slides.length){
-        index=0;
+    function auto() {
+        index++;
+        if(index >= slides.length){
+            index=0;
+        }
+        const transformValue = -index * 100 + '%';
+        //slider.style.transform= "translateX("+transformValue+")";  
+        slider.style.transform= `translateX(${transformValue})`; 
     }
-    const transformValue = -index * 100 + '%';
-    //slider.style.transform= "translateX("+transformValue+")";  
-    slider.style.transform= `translateX(${transformValue})`; 
-}
-setInterval(auto, 2000);
+    setInterval(auto, 2000);
 
 </script>

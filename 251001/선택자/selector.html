@@ -19,12 +19,13 @@
 
         //const elements = document.querySelector(".myClass");
         // 클래스 한개선택시, 또는 여러가지 동일 클래스중 첫번째만
-// const elements1 = document.getElementsByClassName('myClass');
+        // const elements1 = document.getElementsByClassName('myClass');
         const elements = document.querySelectorAll(".myClass");
         console.log(elements[0].textContent);
         console.log(elements[1].textContent);
         //const b1 = document.getElementsByTagName('p');
         const b = document.querySelectorAll('p');
+        //querySelectorAll 선택된 선택자만이 forEach
         console.log(b[0].textContent);
         console.log(b[1].textContent);
 
