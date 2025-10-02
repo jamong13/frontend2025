@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="m1">0000</div>
+        <div id="m2">0000</div>
+    </div>
+    <script>
+        document.onmousemove = function(e){
+            var x = e.pageX; //x좌표
+            var y = e.pageY; //y좌표
+            // console.log(x, y);
+            document.getElementById('m1').innerHTML = x;
+            document.getElementById('m2').innerHTML = y;
+        }
+    </script>
+</body>
+</html>

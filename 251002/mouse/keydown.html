@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #cat-container{
+            position: relative;
+        }
+        #cat{
+            width: 100px;
+            position: absolute;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="cat-container">
+        <img src="img/1.png" alt="" id="cat">
+    </div>
+</body>
+</html>
+<script>
+    let cat = document.getElementById('cat');
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener('keydown', function(e){
+        moveCat(e.key);
+        //e.key 키보드 이벤트 눌린 값을 문자열로 알려줌
+        //↑ 방향키 -> "ArrowUp"
+        //← 방향키 -> "ArrowLeft"
+        
+    }); //키보드를 눌렀을 때 moveCat(e.key) 호출하고 누른 키값을 인수 보낸다.
+    function moveCat(e){
+        const step = 20;
+        switch (e) {
+            case 'ArrowUp':
+                currentY -= step;
+                //cat.style.transform = `translateY(-${step}px)`
+                break;
+            case 'ArrowDown':
+                currentY += step;
+                //cat.style.transform = `translateY(${step}px)`
+                break;
+            case 'ArrowLeft':
+                currentX -= step;
+                break;
+            case 'ArrowRight':
+                currentX += step;
+                break;
+        
+            default:
+                break;
+        }
+        cat.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    }
+</script>

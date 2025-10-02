@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style: none; width: 600px; margin: 50px auto 0;}
+        ul li{float: left;}
+    </style>
+</head>
+<body>
+    <h2>ul li 여러개 이미지 Hover replace</h2>
+    <ul>
+        <li><img src="images/menu01_out.png" alt="" class="hoverImg"></li>
+        <li><img src="images/menu02_out.png" alt="" class="hoverImg"></li>
+        <li><img src="images/menu03_out.png" alt="" class="hoverImg"></li>
+        <li><img src="images/menu04_out.png" alt="" class="hoverImg"></li>
+    </ul>
+</body>
+</html>
+<script>
+    const imgs = document.querySelectorAll(".hoverImg");
+
+    imgs.forEach(function(img){
+        img.addEventListener("mouseover", function(){
+            //images/menu03_out.png => images/menu03_over.png
+            //this는 mouseover 한 대상
+            this.src = this.src.replace("out.png", "over.png");
+        });
+        img.addEventListener("mouseout", function(){
+            //images/menu03_over.png => images/menu03_out.png
+            //this는 mouseover 한 대상
+            this.src = this.src.replace("over.png", "out.png");
+        });
+    });
+</script>
