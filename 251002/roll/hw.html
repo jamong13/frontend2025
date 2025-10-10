@@ -21,12 +21,13 @@
             height: 300px;
             margin: 0 auto;
             position: relative;
-            /* overflow: hidden; */
+            overflow: hidden;
         }
         #slider{
-            width: 5000px;
+            width: 3600px;
             height: 300px;
-            border: 1px solid red;
+            
+            /* border: 1px solid red; */
         }
         li{
             list-style: none;
@@ -74,5 +75,52 @@
 </body>
 </html>
 <script>
-    
+    let list = document.getElementById('slider');
+    let listLi = document.querySelectorAll('#slider li');
+    let total = listLi.length;
+    let li_width = document.querySelector("#slider > li").offsetWidth;
+    let num = 0;
+
+    document.querySelector('.next').addEventListener('click', function(e){
+        e.preventDefault();
+        if(num == total){
+            num = 0;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = 0;
+        }
+        setTimeout(function(){
+            num++;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = -li_width * (num-1) + 'px';
+        }, 50);
+        
+    });
+    document.querySelector('.prev').addEventListener('click', function(e){
+        e.preventDefault();
+        if(num == total){
+            num = li_width;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = -li_width * num + 'px';
+        }
+        setTimeout(function(){
+            num--;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = -li_width * num + 'px';
+        }, 50);
+        
+    });
+
+    function autoPlay(){
+        if(num == total){
+            num = 0;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = 0;
+        }
+        setTimeout(function(){
+            num++;
+            list.style.transition = 'margin-left 0.5S';
+            list.style.marginLeft = -li_width * (num-1) + 'px';
+        }, 50);
+    }
+    let interVal = setInterval(autoPlay, 3000);
 </script>
