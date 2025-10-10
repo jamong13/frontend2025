@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <style>
+        .highlight{background-color: yellow;}
+        .bold{font-weight: bold;}
+    </style>
+</head>
+<body>
+    <p id="myText">이 문장을 클릭해 보세요.</p>
+</body>
+</html>
+<script>
+    // $('#myText').click(function(){
+    //     if($(this).hasClass('highlight')){
+    //         $(this).removeClass('highlight');
+    //         $(this).removeClass('bold');
+    //     }else{//클래스를 가지고 있지 않으면 >> 클래스 삽입
+    //         $(this).addClass('highlight');
+    //         $(this).addClass('bold');
+    //     }
+    // });
+
+    $('#myText').on('click', function(){
+        $(this).toggleClass('highlight');
+        $(this).toggleClass('bold');
+    });
+</script>
