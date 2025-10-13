@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        .tab li{background-color: #fff;}
+        .tab li.on{background-color: red;}
+
+        .tab_list div{background-color: #fff;}
+        .tab_list div.on{background-color: red;}
+    </style>
+</head>
+<body>
+    <ul class="tab">
+        <li>1번</li><!-- index 0 -->
+        <li>2번</li><!-- index 1 -->
+        <li>3번</li><!-- index 2 -->
+    </ul>
+    <div class="tab_list">
+        <div>1번의 내용입니다.</div><!-- index 0 -->
+        <div>2번의 내용입니다.</div><!-- index 1 -->
+        <div>3번의 내용입니다.</div><!-- index 2 -->
+    </div>
+</body>
+</html>
+
+<script>
+    $(function(){
+        $('.tab li').click(function(){
+            var i = $(this).index();
+            // alert(i);
+            $('.tab li').removeClass('on');
+            $('.tab li').eq(i).addClass('on');
+            $('.tab_list div').removeClass('on');
+            $('.tab_list div').eq(i).addClass('on');
+        });
+    });
+</script>
