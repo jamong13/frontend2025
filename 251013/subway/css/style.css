@@ -1,0 +1,80 @@
+*{margin: 0;padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none; color: #333;}
+
+#wrap{
+    border-top: 5px solid #009223;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+}
+header{
+    width: 100%;
+    height: auto;
+}
+
+header .logo{
+    width: 202px;
+    margin: 35px auto 0;
+}
+header .logo a{
+    display: block;
+}
+
+nav{
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+#header_menu{
+    width: 1000px;
+    margin: 22px auto 0;
+    display: flex;
+    
+}
+#header_menu > li{
+    flex: auto;
+    text-align: center;
+    position: relative;
+}
+#header_menu > li > a{
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: bold;
+}
+#header_menu .submenu{
+    width: 100%;
+    margin-top: 20px;
+    position: absolute;
+    font-size: 15px;
+    opacity: 0;
+    z-index: 100;
+}
+#header_menu .submenu li a{
+    display: block;
+    line-height: 30px;
+}
+.shadow{
+    width: 100%;
+    position: absolute;
+    height: 230px;
+    background-color: #fff;
+    transition: all 0.6s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    z-index: 10;
+}
+#header_menu:hover .submenu, nav:hover + .shadow{
+    opacity: 1;
+}
+/* slidedown 사용합시다~ */
+
+#slide{
+    position: relative;
+    width: 100%;
+}
+#slide_banner{
+    height: 440px;
+}

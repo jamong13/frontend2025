@@ -42,11 +42,12 @@ img{border:none;vertical-align: middle;}
     top: 215px;
     left: 50%;
     margin-left: 300px;
+    display: flex;
 }
 #buttonList li{
     width: 14px;
     height: 15px;
-    float: left;
+    /* float: left; */
     border-radius: 7.5px;
     margin: 0 5px;
     background: #ddd;
