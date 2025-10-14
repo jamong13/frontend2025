@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery.bxslider3.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    header{
+        width: 960px;
+        height: 200px;
+        margin: 0 auto;
+        background-color: pink;
+    }
+    section{
+        width: 960px;
+        height: 800px;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+
+    article{
+        width: 960px;
+        height: 400px;
+        position: relative;
+    }
+    #prev{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        margin-top: -25px;
+    }
+    #next{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        margin-top: -25px;
+    }
+</style>
+<script>
+    $(function(){
+        let slide = $('.bxup').bxSlider({
+            auto: true,
+            controls:false,
+        });
+        $('#prev').click(function(){
+            slide.goToPrevSlide()
+            return false;
+        })
+        $('#next').click(function(){
+            slide.goToNextSlide()
+            return false;
+        })
+    })
+</script>
+<body>
+    <header></header>
+    <section>
+        <article>
+            <ul class="bxup">
+                <li><img src="img/images(1).jpg" alt=""></li>
+                <li><img src="img/images(2).jpg" alt=""></li>
+                <li><img src="img/images(3).jpg" alt=""></li>
+                <li><img src="img/images(4).jpg" alt=""></li>
+                <li><img src="img/images(5).jpg" alt=""></li>
+            </ul>
+            <p>
+                <a href="#"><img id="prev" src="img/prev.png" alt=""></a>
+                <a href="#"><img id="next" src="img/next.png" alt=""></a>
+            </p>
+        </article>
+    </section>
+</body>
+</html>

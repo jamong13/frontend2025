@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.bxslider.css">
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="js/jquery.bxslider.js"></script>
     <script src="js/jquery_index.js"></script>
 </head>
 <body>
@@ -16,60 +18,63 @@
                     <img src="img/logo_w.png" alt="logo">
                 </a>
             </div>
-            <ul id="header_menu">
-                <li>
-                    <a href="#">메뉴소개</a>
-                    <ul class="submenu">
-                        <li><a href="#">샌드위치</a></li>
-                        <li><a href="#">랩ㆍ기타</a></li>
-                        <li><a href="#">샐러드</a></li>
-                        <li><a href="#">아침메뉴</a></li>
-                        <li><a href="#">스마일 썹</a></li>
-                        <li><a href="#">단체메뉴</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">이용방법</a>
-                    <ul class="submenu">
-                        <li><a href="#">써브웨이 이용방법</a></li>
-                        <li><a href="#">단체메뉴 이용방법</a></li>
-                        <li><a href="#">신선한 재료 소개</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">새소식</a>
-                    <ul class="submenu">
-                        <li><a href="#">이벤트ㆍ프로모션</a></li>
-                        <li><a href="#">뉴스ㆍ공지사항</a></li>
-                        <li><a href="#">광고영상</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">써브웨이</a>
-                    <ul class="submenu">
-                        <li><a href="#">써브웨이 역사</a></li>
-                        <li><a href="#">써브웨이 약속</a></li>
-                        <li><a href="#">매장찾기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">가맹점</a>
-                    <ul class="submenu">
-                        <li><a href="#">써브웨이 프랜차이즈</a></li>
-                        <li><a href="#">가맹관련 FAQ</a></li>
-                        <li><a href="#">가맹신청ㆍ문의</a></li>
-                        <li><a href="#">지사안내</a></li>
-                        <li><a href="#">사업설명회</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">온라인 주문</a>
-                    <ul class="submenu">
-                        <li><a href="#">App 주문</a></li>
-                        <li><a href="#">단체주문</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <nav>
+                <ul id="header_menu">
+                    <li>
+                        <a href="#">메뉴소개</a>
+                        <ul class="submenu">
+                            <li><a href="#">샌드위치</a></li>
+                            <li><a href="#">랩ㆍ기타</a></li>
+                            <li><a href="#">샐러드</a></li>
+                            <li><a href="#">아침메뉴</a></li>
+                            <li><a href="#">스마일 썹</a></li>
+                            <li><a href="#">단체메뉴</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">이용방법</a>
+                        <ul class="submenu">
+                            <li><a href="#">써브웨이 이용방법</a></li>
+                            <li><a href="#">단체메뉴 이용방법</a></li>
+                            <li><a href="#">신선한 재료 소개</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">새소식</a>
+                        <ul class="submenu">
+                            <li><a href="#">이벤트ㆍ프로모션</a></li>
+                            <li><a href="#">뉴스ㆍ공지사항</a></li>
+                            <li><a href="#">광고영상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">써브웨이</a>
+                        <ul class="submenu">
+                            <li><a href="#">써브웨이 역사</a></li>
+                            <li><a href="#">써브웨이 약속</a></li>
+                            <li><a href="#">매장찾기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">가맹점</a>
+                        <ul class="submenu">
+                            <li><a href="#">써브웨이 프랜차이즈</a></li>
+                            <li><a href="#">가맹관련 FAQ</a></li>
+                            <li><a href="#">가맹신청ㆍ문의</a></li>
+                            <li><a href="#">지사안내</a></li>
+                            <li><a href="#">사업설명회</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">온라인 주문</a>
+                        <ul class="submenu">
+                            <li><a href="#">App 주문</a></li>
+                            <li><a href="#">단체주문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="shadow"></div>
         </header>
         <section>
             <div id="slide">
@@ -80,19 +85,13 @@
                     <li><a href="#"><img src="img/s4.jpg" alt="슬라이드4"></a></li>
                     <li><a href="#"><img src="img/s5.jpg" alt="슬라이드5"></a></li>
                 </ul>
-                <ul class="slider_btn">
-                    <li><a href="#">슬라이드 버튼1</a></li>
-                    <li><a href="#">슬라이드 버튼2</a></li>
-                    <li><a href="#">슬라이드 버튼3</a></li>
-                    <li><a href="#">슬라이드 버튼4</a></li>
-                    <li><a href="#">슬라이드 버튼5</a></li>
-                </ul>
                 <ul class="contact">
                     <li><a href="#"><img src="img/icon_map.png" alt="">매장찾기</a></li>
                     <li><a href="#"><img src="img/icon_franchise.png" alt="">가맹신청ㆍ문의</a></li>
                 </ul>
             </div>
-            <div id="subway_menu">
+            <!-- 아래는 구현 안 해도 됨 -->
+            <!-- <div id="subway_menu">
                 <h2>Subway's Menu</h2>
                 <ul id="sandwitch_menu">
                     <li>
@@ -282,17 +281,9 @@
                         </ul>
                     </li>
                     
-                </ul>
-                <div class="menuSlide">
-                    <div class="prev"></div>
-                    <div class="next"></div>
-                </div>
-            </div>
-            <div id="tip">
-                
-            </div>
+                </ul> -->
         </section>
-        <footer></footer>
+        <!-- <footer></footer> -->
     </div>
 </body>
 </html>
