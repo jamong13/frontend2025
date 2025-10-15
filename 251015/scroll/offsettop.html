@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        .box{width: 150px;height: 150px;}
+        .box1{background-color: aqua; position: absolute;top: 300px;}
+        .box2{background-color: blueviolet; position: absolute;top: 700px; left: 150px;}
+        .box3{background-color: brown; position: absolute;top: 1200px; left: 300px;}
+        .box4{background-color: coral; position: absolute;top: 1800px; left: 575px;}
+    </style>
+</head>
+<body>
+    <div class="box box1">박스1</div>
+    <div class="box box2">박스2</div>
+    <div class="box box3">박스3</div>
+    <div class="box box4">박스4</div>
+
+    <script>
+        let abox = $('.box1').offset().top;
+        let bbox = $('.box2').offset().top;
+        let cbox = $('.box3').offset().top;
+        let dbox = $('.box4').offset().top;
+        console.log(abox, bbox, cbox, dbox);
+        // 위에서부터의 거리
+    </script>
+</body>
+</html>

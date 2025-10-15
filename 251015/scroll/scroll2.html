@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        body{height: 5000px;}
+        
+        .container > div{
+            width: 100%;
+            height: 800px;
+            margin-top: 100px;
+        }
+
+        .container > div > img{
+            margin-top: 100px;
+            opacity: 0;
+            transition: all 0.8s;
+        }
+
+        .container > div.on > img{
+            margin-top: 20px;
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="title">jQuery UI Pattern</h1>
+    <div class="container">
+    <div class="area1">
+        <h2>area1</h2>
+        <img src="images/work1.jpg" alt="">
+    </div>
+    <div class="area2">
+        <h2>area2</h2>
+        <img src="images/work2.jpg" alt="">
+    </div>
+    <div class="area3">
+        <h2>area3</h2>
+        <img src="images/work3.jpg" alt="">
+    </div>
+    <div class="area4">
+        <h2>area4</h2>
+        <img src="images/work4.jpg" alt="">
+    </div>
+    <div class="area5">
+        <h2>area5</h2>
+        <img src="images/work5.jpg" alt="">
+    </div>
+</body>
+</html>
+<script>
+    $(window).scroll(function(){
+        //화면 스크롤할 때
+        let sct = $(this).scrollTop();
+        if(sct >= 10){
+            $('.area1').addClass('on');
+        }
+        if(sct >= 500){
+            $('.area2').addClass('on');
+        }
+        if(sct >= 1300){
+            $('.area3').addClass('on');
+        }
+        if(sct >= 2100){
+            $('.area4').addClass('on');
+        }
+        if(sct >= 2900){
+            $('.area5').addClass('on');
+        }
+    });
+</script>
