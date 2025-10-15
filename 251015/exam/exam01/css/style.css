@@ -1,0 +1,157 @@
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none; color: #333;}
+
+#wrap{
+    min-width: 1000px;   
+}
+header{
+    width: 100%;
+    border-top: 5px solid #16882c;
+}
+
+/* logo 및 로그인 위치 */
+.top{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.logo{
+    width: 202px;
+    margin: 35px auto 0;
+}
+.logo a{
+    display: block;
+}
+.login{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.login li{
+    float: left;
+    margin-right: 10px;
+}
+.login li:last-child{
+    margin-right: 0;
+}
+.login li a{
+    display: block;
+}
+
+/* 메뉴 */
+nav{
+    width: 100%;
+    margin-top: 40px;
+    border-bottom: 1px solid #ccc;
+}
+nav #header_menu{
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+}
+#header_menu > li{
+    flex: 1;
+    position: relative;
+}
+#header_menu > li > a{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 60px;
+}
+#header_menu > li > a:hover{
+    color: #16882c;
+}
+
+
+/* 서브메뉴 */
+#header_menu .submenu{
+    text-align: center;
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 10px 0;
+    transition: all 0.3s;
+    opacity: 0;
+    z-index: 400;
+}
+
+#header_menu .submenu li a{
+    display: block;
+    width: 100%;
+    line-height: 40px;
+}
+#header_menu:hover .submenu{
+    display: block;
+    opacity: 1;
+}
+#header_menu .submenu li a:hover{
+    text-decoration: underline;
+    color: #16882c;
+}
+
+/* 메뉴 배경 */
+.shadow{
+    background: #fff;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.15);
+    z-index: 200;
+}
+#header_menu:hover + .shadow{
+    height: 260px;
+}
+
+/* 슬라이드 배너 */
+#slide{
+    position: relative;
+    width: 100%;
+}
+#slide_banner{
+    height: 440px;
+}
+
+/* 가맹 문의 */
+.contact{
+    width: 440px;
+    position: absolute;
+    bottom: -40px;
+    right: 40px;
+}
+.contact li{
+    float: left;
+    text-align: center;
+}
+.contact li a{
+    width: 220px;
+    height: 60px;
+    line-height: 60px;
+    box-sizing: border-box;
+    display: block;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.contact li a img{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    vertical-align: middle;
+}
+.contact li:nth-child(1){
+    background: #ffce34;
+    border-top-left-radius: 20px;
+}
+.contact li:nth-child(2){
+    background: #008c1e;
+    border-bottom-right-radius: 20px;
+}
+.contact li:nth-child(2) a{
+    color: #fff;
+}
