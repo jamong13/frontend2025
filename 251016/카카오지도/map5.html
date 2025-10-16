@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"/>
+   <title>Kakao_tab_map</title>
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    .map{
+        width:100%;
+        height:400px;
+    }
+
+    #accordion .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+        background-color: brown;
+    }
+
+</style>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">종로구청</a></li>
+            <li><a href="#tabs-2">서울시청</a></li>
+            <li><a href="#tabs-3">강서구청</a></li>
+        </ul>
+        <div id="tabs-1" data-lat="37.5734684" data-lng="126.97679">
+            <div id="map1" class="map"></div>
+        </div>
+        <div id="tabs-2" data-lat="37.573468" data-lng="126.9701971">
+            <div id="map2" class="map"></div>
+        </div>
+        <div id="tabs-3" data-lat="37.566419" data-lng="126.9079054">
+            <div id="map3" class="map"></div>
+        </div>
+    </div>
+    <div id="accordion">
+        <h3>종로구청</h3>
+        <div id="amap1" class="map" data-lat="37.5734684" data-lng="126.97679">
+        
+        </div>
+        <h3>서울시청</h3>
+        <div id="amap2" class="map"  data-lat="37.573468" data-lng="126.9701971">
+        
+        </div>
+        <h3>강서구청</h3>
+        <div id="amap3" class="map"  data-lat="37.566419" data-lng="126.9079054">
+        
+        </div>
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=ff8dbd3e1b369e0c1bf92c5fa342a772"></script>
+        
+    <script>
+        function seoulMap(lat, lng, tdiv){
+
+            var container = document.getElementById(tdiv);
+            var options = {
+                center: new kakao.maps.LatLng(lat, lng),
+                level: 4
+            };
+        
+            var map = new kakao.maps.Map(container, options);
+        }   
+
+        $( "#tabs" ).tabs({
+            create: function( event, ui ) { //처음 생성될 때 호출 위도 경도를 가져와 seoulMap 생성
+                var lat = ui.panel.attr('data-lat');
+                var lng = ui.panel.attr('data-lng');
+                var target = ui.panel.find('div').attr('id');
+                seoulMap(lat, lng, target); //첫번째 지도를 표시
+            },
+            activate : function( event, ui ) { //사용자가 탭을 클릭할 때 호출
+                var lat = ui.newPanel.attr('data-lat');
+                var lng = ui.newPanel.attr('data-lng');
+                var target = ui.newPanel.find('div').attr('id');
+                seoulMap(lat, lng, target); //seoulMap 호출() 지도 업데이트
+            }
+
+        });
+        //https://jqueryui.com/tabs/
+
+        function accodionMap(lat, lng, tdiv){
+
+            var container = document.getElementById(tdiv);
+            var options = {
+                center: new kakao.maps.LatLng(lat, lng),
+                level: 4
+            };
+
+            var map = new kakao.maps.Map(container, options);
+            }
+
+            //https://jqueryui.com/accordion/
+
+        $( "#accordion" ).accordion({
+            create: function( event, ui ) {
+                var lat = ui.panel.attr('data-lat'); //새로 활성화된 패널
+                var lng = ui.panel.attr('data-lng');
+                var target = ui.panel.attr('id');
+                accodionMap(lat, lng, target);
+                //create 이벤트 : 아코디언이 처음 생성될 때 호출되어 각 항목에 대한 지도 생성
+            },
+            activate : function( event, ui ) {
+                var lat = ui.newPanel.attr('data-lat');
+                var lng = ui.newPanel.attr('data-lng');
+                var target = ui.newPanel.attr('id');
+                accodionMap(lat, lng, target);
+                //activate 이벤트 : 아코디언 항목을 클릭할 때, 
+            }
+        });
+
+
+   </script>
+</body>
+</html>

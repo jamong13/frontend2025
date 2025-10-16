@@ -1,0 +1,98 @@
+*{margin: 0; padding: 0;}
+.s_Top{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 100;
+}
+nav{
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+    transition: all 0.5s;
+}
+nav.fixed{
+    position: fixed;
+    background: rgba(255, 255, 255, 1);
+}
+
+nav ul{
+    width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    list-style: none;
+}
+nav ul li{
+    float: left;
+}
+
+nav ul li a{
+    display: block;
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 32px;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+}
+nav ul li.on a{
+    color: orange;
+    font-weight: bold;
+}
+.container{
+    overflow: hidden;
+}
+article{
+    width:100%;
+    height:100vh;
+    position: absolute;
+}
+
+#article1{
+    background-color: burlywood;
+    left: 0;
+}
+#article2 {
+    background-color: coral;
+    left: 100%;
+}
+
+#article3 {
+    background-color: darkcyan;
+    left: 200%;
+}
+
+#article4 {
+    background-color: darksalmon;
+    left: 300%;
+}
+
+#float_div{
+    width: 70px;
+    height:250px;
+    background-color: dimgray;
+    padding-top: 10px;
+    position: absolute;
+    right:0;
+    top:50%;
+    transform: translateY(-50%);
+}
+#float_div ul li{
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 13px;
+    background-color: #fff;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#float_div ul li.on{
+    background-color: orange;
+}
+

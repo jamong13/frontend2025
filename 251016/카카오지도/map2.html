@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Kakao 지도 시작하기</title>
+</head>
+<body>
+	<div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ff8dbd3e1b369e0c1bf92c5fa342a772"></script>
+	<script>
+		var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.485997,126.897464),
+            level: 3
+        };
+        //지도 레벨에 따라 확대/축소 가능
+        //위도 경도는 구글맵에 오른쪽눌러 위치공유
+
+        var map = new kakao.maps.Map(container, options);
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(37.485997,126.897464); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+        // marker.setMap(null); 
+
+        // 마커에 표시할 텍스트 설정
+        var content = '<div style="padding:5px;">더조은 아카데미 구로점</div>';
+
+        // 정보창(InfoWindow) 생성
+        var infoWindow = new kakao.maps.InfoWindow({
+            content: content, // 정보창 내용
+            removable: true // 정보창을 클릭하여 닫을 수 있게 설정
+        });
+
+        // 마커에 클릭 이벤트 추가: 클릭 시 정보창 표시
+        kakao.maps.event.addListener(marker, 'click', function() {
+            infoWindow.open(map, marker); // 마커 위에 정보창을 표시
+        });
+
+        // 마커에 마우스를 올리면 정보창을 자동으로 표시하도록 설정 (선택 사항)
+        kakao.maps.event.addListener(marker, 'mouseover', function() {
+            infoWindow.open(map, marker); // 마커 위에 정보창을 표시
+        });
+
+        // 마커에서 마우스를 뗐을 때 정보창을 닫기
+        kakao.maps.event.addListener(marker, 'mouseout', function() {
+            infoWindow.close(); // 정보창 닫기
+        });
+	</script>
+</body>
+</html>
