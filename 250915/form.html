@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            /* 브라우저 크기 50% */
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            /* margin-left: auto; margin-right: auto; 바깥 여백을 자동으로 하면 중앙정렬*/
+        }
+        legend{
+            text-align: center;
+        }
+        /* 인라인 요소는 text-align: center; 하면 가운데 정렬 */
+    </style>
+</head>
+<body>
+    <form action="">
+        <!-- fieldset 폼을 감싸는 테두리 -->
+        <fieldset>
+            <!-- legend 테두리 안의 글자 -->
+            <legend>로그인</legend>
+            <p>ID : <input type="text"></p>
+            <p>PW : <input type="password"></p>
+        </fieldset>
+    </form>
+</body>
+</html>
