@@ -3,8 +3,8 @@ $(function(){
     $('dl dt').click(function(){
         if($(this).next('dd').css('display') === 'none'){
             $('dd').slideUp('slow');
-            $(this).next('dd').slideDown('slow');
-            $('dt').removeClass('active');
+            $(this).next().slideDown('slow');
+            $('dl dt').removeClass('active');
             $(this).addClass('active');
         }else{
             $('dd').slideUp('slow');
@@ -12,10 +12,10 @@ $(function(){
         }
     });
 
-    $('dt').mouseover(function(){
+    $('dl dt').mouseover(function(){
         $(this).addClass('over');
     });
-    $('dt').mouseout(function(){
+    $('dl dt').mouseout(function(){
         $(this).removeClass('over');
     });
 });

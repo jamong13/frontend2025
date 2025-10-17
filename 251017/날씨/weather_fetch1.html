@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Async/Await</title>
+    <!-- Font Awesome 아이콘 -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" 
+        integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous">
+    </script>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .weather-box { margin-top: 20px; }
+        .weather-box div { margin-bottom: 10px; font-size: 18px; }
+        .cicon i { font-size: 40px; color: orange; }
+    </style>
+</head>
+<body>
+    <h1>Weather API Example</h1>
+    <h2>날씨 예보</h2>
+    <div class="weather-box">
+        <div class="ctemp">현재 온도: </div>
+        <div class="clowtemp">최저 온도: </div>
+        <div class="chightemp">최고 온도: </div>
+        <div class="cicon">아이콘: </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const weatherIcon = {
+                '01' : 'fas fa-sun',
+                '02' : 'fas fa-cloud-sun',
+                '03' : 'fas fa-cloud',
+                '04' : 'fas fa-cloud-meatball',
+                '09' : 'fas fa-cloud-sun-rain',
+                '10' : 'fas fa-cloud-showers-heavy',
+                '11' : 'fas fa-poo-storm',
+                '13' : 'fas fa-snowflake',
+                '50' : 'fas fa-smog'
+            };
+
+            const apiURI = "https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=8f04df4c7b8e5906135b3046c92a48f1&units=metric";
+
+            try {
+                const response = await fetch(apiURI);
+                const resp = await response.json();
+
+                console.log("현재 온도:", resp.main.temp);
+                console.log("현재 습도:", resp.main.humidity);
+                console.log("날씨:", resp.weather[0].main);
+                console.log("상세 날씨:", resp.weather[0].description);
+                console.log("날씨 아이콘:", resp.weather[0].icon);
+                console.log("바람 속도:", resp.wind.speed);
+                console.log("현재 국가:", resp.sys.country);
+                console.log("도시명:", resp.name);
+                console.log("구름:", resp.clouds.all);
+
+                // HTML에 출력
+                document.querySelector('.ctemp').innerHTML = "현재 온도 : " + resp.main.temp + "℃";
+                document.querySelector('.clowtemp').innerHTML = "최저 온도 : "+resp.main.temp_min + "℃";
+                document.querySelector('.chightemp').innerHTML = "최고 온도 : "+resp.main.temp_max + "℃";
+                document.querySelector('.cicon').innerHTML = '아이콘 : <i class="'+weatherIcon[resp.weather[0].icon.substr(0,2)]+'"></i>';
+
+            } catch(err) {
+                console.error("API 호출 오류:", err);
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+API 주소 만들고
+fetch로 요청 보내고
+.json()으로 변환하고
+필요한 데이터 꺼내서
+html로 출력
+-->

@@ -257,3 +257,42 @@ header .gnb{
     visibility: visible;
     animation: slide 1s;
 }
+
+#s3{
+    height: 635px;
+    padding: 80px 0 40px;
+    background: url(../img/sec2_bg.jpg);
+    box-sizing: border-box;
+/* s2전체 크기 지정및 배경이미지 */
+}
+.s3_table{
+    display: flex;
+    width: 1000px;
+    margin: 70px auto 0;
+}
+.s3_table li{
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-right: 10px;
+}
+.s3_table li:nth-child(4){
+    margin-right: 0;
+}
+.s3_table li a{
+    box-sizing: border-box;
+    padding: 45px 20px;
+    display: block;
+    height: 200px;
+}
+.s3_table li a img{
+    display: inline-block;
+    vertical-align: middle;
+}
+.s3_table li a p{
+    margin-top: 30px;
+}

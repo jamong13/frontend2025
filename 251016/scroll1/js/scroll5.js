@@ -6,7 +6,7 @@ $(function(){
 
     $(window).scroll(function(){
         let sct = $(this).scrollLeft();
-
+        $('#float_div').stop().animate({left:f_left+sct},300);
         // $('#float_div').stop().animate({left:f_left+sct},300);
 
         $('.container > article').each(function(i){
@@ -30,6 +30,7 @@ $(function(){
     $('nav ul li').click(function(){
          var i = $(this).index(); //li 인덱스 번호
          var offset_t = $('.container > article').eq(i).offset().left;
+        
         $('html,body').stop().animate({scrollLeft:offset_t},1000);
         // $('nav ul li').removeClass('on');
         //  $('nav ul li').eq(i).addClass('on');
@@ -39,7 +40,10 @@ $(function(){
     $('#float_div ul li').click(function(){
          var i = $(this).index(); //li 인덱스 번호
          var offset_t = $('.container > article').eq(i).offset().left;
+        
         $('html,body').stop().animate({scrollLeft:offset_t},1000);
+         
+
         return false;
     });
 
