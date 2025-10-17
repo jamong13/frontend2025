@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        // $.getJSON("demo_ajax_json.js", function(result){
+        //     // w3school 참조
+            
+        // });
+        $.getJSON('https://api.openweathermap.org/data/2.5/forecast?id=1948005&appid=8f04df4c7b8e5906135b3046c92a48f1', function(result){
+            alert(result.cod);
+        });
+    </script>
+</head>
+<body>
+    <h1>weather api</h1>
+    <h2> | 날씨예보</h2>
+    <div class="ctemp">현재 온도: </div>
+    <div class="clowtemp">최저 온도: </div>
+    <div class="chightemp">최고 온도: </div>
+    <div class="cicon">아이콘 :</div>
+</body>
+</html>
