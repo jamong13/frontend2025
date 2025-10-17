@@ -10,8 +10,30 @@
         //     // w3school 참조
             
         // });
-        $.getJSON('https://api.openweathermap.org/data/2.5/forecast?id=1948005&appid=8f04df4c7b8e5906135b3046c92a48f1', function(result){
-            alert(result.cod);
+        //id = 국가코드
+        //&appid = 내 api키
+        //&units=metric : 단위 켈빈을 섭씨로 변경
+        $.getJSON('https://api.openweathermap.org/data/2.5/forecast?id=1835848&appid=8f04df4c7b8e5906135b3046c92a48f1&units=metric', function(result){
+            // alert(result.cod);
+            // alert(result.city.name);
+            // alert(result.list[1].main.temp);
+            // alert(result.list[0].weather[0].icon); //icon 그림 대체하는 코드
+
+            let $ctemp = result.list[0].main.temp;
+            let $mintemp = result.list[0].main.temp_min;
+            let $maxtemp = result.list[0].main.temp_max;
+            let $cicon = result.list[0].weather[0].icon;
+            // 현재 시간을 따로 구해야 함
+            let $now = new Date();
+            let $cDate = ` ${$now.getFullYear()} ${$now.getMonth() + 1} ${$now.getDate()} / ${$now.getHours()} : ${$now.getMinutes()} `;
+
+            $('.ctemp').append($ctemp);
+            $('.clowtemp').append($mintemp);
+            $('.chightemp').append($maxtemp);
+            $('h2').append($cDate);
+            // $('.cicon').append($cicon);
+            $('.cicon').append(`<img src=https://openweathermap.org/img/wn/${$cicon}@2x.png>`);
+            
         });
     </script>
 </head>
