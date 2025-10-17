@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 여러 데이터를 하나로 묶어 관리할 수 있는 자료형
+        const user = {
+            name : '홍길동',
+            age : 20,
+            
+        }
+        user.name = '이몽룡'; // 객체 내부값 변경은 가능
+        console.log(user.name); // 이몽룡
+
+        // 전체 객체 재할당은 불가능
+        // user = {name : '성춘향'};
+
+        // 추가
+        user.job = '학생';
+        user['hobby'] = '독서';
+        console.log(user);
+
+        // 수정
+        user.age = 21;
+
+        // 삭제
+        delete user.hobby;
+        console.log(user);
+        // { name: '이몽룡', 'age: 21, job: '학생'}
+    </script>
+</body>
+</html>

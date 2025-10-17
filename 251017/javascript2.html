@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>버튼 클릭 시 count 증가</h1>
+    <div id="count">0</div>
+    <button id="btn">+1 증가</button>
+    <button id="btn1">-1 증가</button>
+    <script>
+        //count 변수 선언
+        let count = 0;
+
+        //요소 선택
+        const countDisplay = document.getElementById("count");
+        const btn = document.getElementById('btn');
+        const btn1 = document.getElementById('btn1');
+        // 원래는 선언해야 하는데, 자바스크립트에서 자동으로 만들어버림
+        // 자바스크립트는 알아서 전역변수를 등록해 버려서 원래 안 되는 코드에도 실행이 됨 하지만 권장하지 않음
+
+        //버튼 클릭 이벤트
+        btn.addEventListener('click', () =>{
+            count++; //카운트 증가
+            countDisplay.textContent = count; //화면에 표시
+        });
+        btn1.addEventListener('click', () =>{
+            count--; //카운트 감소
+            countDisplay.textContent = count; //화면에 표시
+        });
+
+        var a = 1;
+        b = 2;
+        result = a + b;
+        document.write(result);
+    </script>
+</body>
+</html>

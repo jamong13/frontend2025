@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재선언, 재할당 예제</title>
+</head>
+<body>
+    <script>
+        // var 재선언 가능, 재할당 가능
+        var x = 1;
+        var x = 2; // ☑ 재선언 가능
+        x = 3; // ☑ 재할당 가능
+        console.log(x); // 3
+
+        // let 재선언 불가, 재할당 가능
+        let y = 1;
+        // let y = 2; ☒ SyntaxError (재선언 불가)
+        y = 2; // ☑ 재할당 가능
+        console.log(y); // 2
+
+        //const 재선언 불가, 재할당 불가
+        const z = 1;
+        // const z = 2; ☒ SyntaxError
+        // z = 3; ☒ SyntaxError
+        console.log(z); // 1
+    </script>
+</body>
+</html>
