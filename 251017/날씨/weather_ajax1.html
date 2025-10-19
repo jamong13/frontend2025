@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<style>
+
+</style>
+<script>
+    $(function(){
+        let weatherIcon = {
+            '01' : 'fas fa-sun',
+            '02' : 'fas fa-cloud-sun',
+            '03' : 'fas fa-cloud',
+            '04' : 'fas fa-cloud-meatball',
+            '09' : 'fas fa-cloud-sun-rain',
+            '10' : 'fas fa-cloud-showers-heavy',
+            '11' : 'fas fa-poo-storm',
+            '13' : 'fas fa-snowflake',
+            '50' : 'fas fa-smog'
+        }
+        let apiURI = "https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=1d96354bf0eaebba4fceb35a490b452a&units=metric";
+        $.ajax({
+            url:apiURI,
+            dataType:"json",
+            type:"GET",
+            async:false,
+            success:function(resp){
+                console.log("현재 온도"+resp.main.temp)
+                console.log("현재 습도"+resp.main.humidity)
+                console.log("상세 날씨"+resp.weather[0].description)
+                console.log("날씨 아이콘"+resp.weather[0].icon)
+                console.log("바람 속도"+resp.wind.speed)
+                console.log("현재 국가"+resp.sys.country)
+                console.log("도시명"+resp.name)
+                console.log("구름"+resp.clouds.all)
+            }
+        })
+    })
+</script>
+<body>
+    <h1>weather api</h1>
+    <h2> | 날씨예보</h2>
+    <div class="ctemp">현재 온도: </div>
+    <div class="clowtemp">최저 온도: </div>
+    <div class="chightemp">최고 온도: </div>
+    <div class="cicon">아이콘 :</div>
+</body>
+</html>

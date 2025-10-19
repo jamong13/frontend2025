@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- fontawesome5 주소 -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+        .weather{
+        width:300px;
+        height:150px;
+        text-align: center;
+        background-color:cornflowerblue;
+        color: #fff;
+        }
+        .weather > div{
+        float: left;
+        height: 75px;
+        line-height: 75px;
+        width: 50%;
+        }
+        .weather > div.currIcon, .weather > div.currTemp{
+        font-size: 50px;
+        }
+
+        .weather > div.city{
+        width:100%;
+        font-size:23px;
+    }
+    </style>
+    <script>
+        $(function(){
+            let weather = { //객체
+                '01' : 'fas fa-sun',
+                '02' : 'fas fa-cloud-sun',
+                '03' : 'fas fa-cloud',
+                '04' : 'fas fa-cloud-meatball',
+                '09' : 'fas fa-sun-rain',
+                '10' : 'fas fa-showers-heavy',
+                '11' : 'fas fa-poo-storm',
+                '13' : 'fas fa-snowflake',
+                '50' : 'fas fa-smog'
+            }
+            let apiURI = "https://api.openweathermap.org/data/2.5/weather?id=1835848&appid=8f04df4c7b8e5906135b3046c92a48f1&units=metric";
+            $.ajax({
+                url : apiURI, //요청한 주소
+                dataType : "json", // 응답데이터를 json으로 받겠다. dataType을 변경해줌
+                type: 'GET', //GET 방식으로 요청
+                async: false, // 동기식(차례대로 데이터 받음 - 권장하지 않음)
+                success: function(data){ // 요청 성공 시 실행되는 콜백함수
+                    let $Icon = (data.weather[0].icon).substr(0,2);
+                    // 인덱스 번호 0부터 2 전까지 03d -> 03
+                    let $Temp = Math.floor(data.main.temp) + 'º';
+                    let $city = data.name;
+                    $('.currIcon').append('<i class="'+ weather[$Icon] +'"></i>');
+                    $('.currTemp').prepend($Temp);
+                    $('.city').append($city);
+                },
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="weather">
+        <div class="currIcon"></div>
+        <div class="currTemp"></div>
+        <div class="city">도시 : </div>
+    </div>
+</body>
+</html>

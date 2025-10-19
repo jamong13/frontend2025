@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 여러 데이터를 하나로 묶어 관리할 수 있는 자료형
+        const person = {
+            name : '홍길동',
+            age : 25,
+            job : '개발자',
+            sayHello : function(){
+                console.log('안녕하세요, 저는 ' + this.name + '입니다.');
+            }
+        }
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person['age']);
+        person.sayHello();
+
+        // 특징
+        // {} 중괄호로 감싸서 정의
+        // key(속성명) : value(값) 형식
+        // 값에는 문자열, 숫자, 함수, 배열, 객체 등 어떤 자료형이든 올 수 있음
+        // this는 해당 객체 자신을 가리킴
+    </script>
+</body>
+</html>
