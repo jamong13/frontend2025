@@ -1,0 +1,330 @@
+@charset "utf-8";
+
+*{margin:0;padding:0;box-sizing:border-box;}
+ul,li{list-style:none;}
+	a{text-decoration:none;color:#333;}
+.cf:after{content:'';display:block;clear:both;}
+
+body{
+	color:#333;
+	background-color:#fff;
+}
+/* 0076be e66b27 */
+#wrap{
+	width:100%;
+}
+
+header{
+	width:100%;
+	height:100px;
+	background-color:lightblue;
+}
+
+.h_cover{
+	width:1200px;
+	margin:0 auto;
+}
+
+.h_cover .logo{
+	float:left;
+	widtH:200px;
+	height:100px;
+}
+
+.h_cover .logo img{
+	width:100%;
+	height:auto;
+	margin-top:30px;
+	display:block;
+}
+
+nav{
+	float:right;
+	width:500px;
+	position:relative;
+	text-align:center;
+	padding-top:25px;
+	box-sizing:border-box;
+}
+
+nav>ul>li{
+	float:left;
+	width:25%;
+	line-height:50px;
+	position:relative;
+}
+
+nav>ul>li:hover>a{
+	background-color:#e66b27;
+	color:#fff;
+}
+
+nav>ul>li a{
+	display:block;
+}
+
+nav>ul>li>ul{
+	position:absolute;
+	top:100%;
+	left:0;
+	widtH:100%;
+	line-height:40px;
+	font-size:14px;
+	display:none;
+	z-index:2;
+}
+
+nav>ul>li>ul a:hover{
+	background-color:#0076be;
+	color:#fff;
+}
+
+.full_bg{
+	width:100%;
+	height:200px;
+	background-color:lightyellow;
+	position:absolute;
+	top:100%;
+	left:0;
+	display:none;
+	z-index:1;
+}
+
+.img_slide{
+	width:1200px;
+	margin:0 auto;
+	height:300px;
+	position:relative;
+	overflow:hidden;
+}
+
+.img_slide li{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:100%;
+}
+
+.img_slide li:first-child{
+	left:0;
+}
+
+.img_slide li .txt{
+	position:absolute;
+	top:50%;
+	left:15%;
+	transform:translateY(-50%);
+	line-height:45px;
+	font-size:24px;
+	text-align:center;
+	text-shadow:1px 1px 2px #888;
+}
+
+.img_slide li .txt a{
+	font-weight:bold;
+}
+
+.img_slide li .txt a:hover{
+	color:red;
+}
+
+.img_slide .btn{
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	font-size:50px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.img_slide .btn.prev{
+	left:0;
+}
+.img_slide .btn.next{
+	right:0;
+}
+
+section{
+	width:1200px;
+	margin:0 auto;
+	height:200px;
+}
+
+section article{
+	width:400px;
+	height:200px;
+	float:left;
+}
+
+section .contents .menu{
+	width:400px;
+	float:left;
+	height:40px;
+}
+
+section .contents .menu li{
+	width:50%;
+	float:left;
+	line-height:20px;
+	border:1px solid;
+	border-left:0;
+	text-align:center;
+	padding:10px;
+	background-color:#ccc;
+	cursor:pointer;
+	height:40px;
+}
+
+section .contents .menu li.on{
+	background-color:#fff;
+	border-bottom:0;
+}
+
+section .contents .menu li:nth-child(1){
+	border-left:1px solid;
+}
+
+section .contents .btn_cover{
+	width:100%;
+	height:160px;
+	border:1px solid;
+	border-top:0;
+	float:left;
+}
+
+section .contents .btn_cover .btn1 table{
+	width:100%;
+	font-size:14px;
+	padding:5px;
+	line-height:1.7;
+}
+
+section .contents .btn_cover .btn1 table td:nth-child(1){
+	padding-right:65px;
+	box-sizing:border-box;
+}
+
+.t1{
+	cursor:pointer;
+}
+
+.btn2{
+	width:100%;
+	height:100%;
+	text-align:center;
+	display:none;
+}
+
+.btn2 img{
+	width:auto;
+	height:139px;
+	margin:10px 10px 0;
+}
+
+.banner .img_box{
+	width:100%;
+	height:60px;
+	margin-bottom:10px;
+	background:no-repeat center /cover;
+	border-radius:10px;
+	text-align:center;
+}
+
+.banner .img_box.i1{
+	background-image:url(../images/banner1.jpg);
+}
+.banner .img_box.i2{
+	background-image:url(../images/banner2.jpg);
+}
+.banner .img_box.i3{
+	background-image:url(../images/banner3.jpg);
+	margin-bottom:0;
+}
+
+.banner .img_box span{
+	margin-top:14px;
+	display:inline-block;
+	font-weight:bold;
+	font-size:24px;
+	text-shadow:1px 1px 1px #fff;
+}
+
+.shortcut img{
+	display:block;
+	float:left;
+	height:200px;
+	width:auto;
+}
+
+footer{
+	width:100%;
+	height:100px;
+	background-color:#ccc;
+	font-size:14px;
+}
+
+footer .f_cover{
+	width:1200px;
+	margin:0 auto;
+}
+
+footer .f_cover .f_logo{
+	width:200px;
+	height:100px;
+	float:left;
+}
+
+footer .f_cover .f_logo img{
+	margin-top:30px;
+}
+
+footer .f_cover .f_r{
+	width:1000px;
+	height:50px;
+	float:left;
+	text-align:center;
+}
+
+footer .f_cover .menu{
+	padding-top:13.5px;
+}
+
+footer .f_cover .menu a{
+	margin:0 10px;
+}
+
+.copy{
+	padding-top:16px;
+}
+
+.pop{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.4);
+	z-index:99;
+	display:none;
+}
+
+.pop_cover{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background-color:#fff;
+	border-radius:10px;
+	padding:30px;
+}
+
+.pop_cover p{
+	margin:10px 0;
+	line-height:2;
+}
+
+
+
+
+

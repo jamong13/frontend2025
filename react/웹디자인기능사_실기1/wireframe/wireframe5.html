@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.12.3.js"></script>
+	<title>wireframe4</title>
+	<style>
+	*{margin:0;padding:0;}
+	ul,li{list-style:none;}
+	a{text-decoration:none; color:#666;}
+	
+	#wrap{
+		width:100%;
+		height:700px;
+	}
+	
+	header{
+		width:100%;
+		height:100px;
+		background-color:pink;
+		position:relative;
+	}
+	header .header_cover{
+		width:1200px;
+		height:100px;
+		margin:0 auto;
+	}
+	
+	header .header_cover nav{
+		width:600px;
+		height:50px;
+		float:right;
+		margin-top:25px;
+		margin-right:25px;
+		position:relative;
+	}
+	header .header_cover nav > ul{
+		width:600px;
+		height:50px;
+		background-color:violet;
+	}
+	header .header_cover nav > ul > li{
+		width:25%;
+		height:50px;
+		text-align:center;
+		line-height:50px;
+		float:left;
+		position:relative;
+	}
+	header .header_cover nav > ul > li:hover > a{
+		background-color:#666;
+		color:#fff;
+	}
+	header .header_cover nav > ul a{
+		display:block;
+		width:100%;
+		height:100%;
+	}
+	header .header_cover nav > ul > li > ul{
+		position:absolute;
+		left:0;
+		top:100%;
+		width:100%;
+		height:230px;
+		z-index:1;
+		display:none;
+	}
+	header .header_cover nav > ul > li > ul > li:hover > a{
+		background-color:#666;
+		color:#fff;
+	}
+	
+	header .header_cover nav .full_bg{
+		position:absolute;
+		width:100%;
+		height:230px;
+		left:0;
+		top:100%;
+		background-color:#fff;
+		display:none;
+	}
+	#main{
+		width:1200px;
+		height:500px;
+		margin:0 auto;
+	}
+	
+	#img_slide{
+		width:100%;
+		height:300px;
+		background-color:salmon;
+	}
+	
+	section{
+		width:100%;
+		height:200px;
+	}
+	section article{
+		float:left;
+		width:33.33%;
+		height:200px;
+	}
+	
+	section article.notice{
+		background-color:yellow;
+	}
+	section article.gallery{
+		background-color:orange;
+	}
+	section article.icons{
+		background-color:aqua;
+	}
+	footer{
+		width:100%;
+		height:100px;
+		background-color:seagreen;
+	}
+	
+	footer .foot_cover{
+		width:1200px;
+		height:100px;
+		margin:0 auto;
+	}
+	
+	footer .foot_cover .foot_logo{
+		width:20%;
+		height:100px;
+		float:left;
+		background-color:plum;
+	}
+	
+	footer .foot_cover .foot_right{
+		float:left;
+		width:80%;
+		height:100px;
+	}
+	
+	footer .foot_cover .foot_right .foot_menu{
+		width:100%;
+		height:50px;
+		background-color:tan;
+	}
+	footer .foot_cover .foot_right .foot_copy{
+		width:100%;
+		height:50px;
+		background-color:tomato;
+	}
+	
+	
+	
+	</style>
+	<script>
+	$(function(){
+		$("nav > ul > li > a").mouseover(function(){
+			$("nav > ul > li > ul").stop().slideDown();
+			$(".full_bg").stop().slideDown();
+		});
+		
+		$("nav").mouseleave(function(){
+			$("nav > ul > li > ul").stop().slideUp();
+			$(".full_bg").stop().slideUp();
+		});
+	
+	});
+	
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		<header>
+			<div class="header_cover">
+				<nav>
+					<ul>
+						<li><a href="#">MENU-1</a>
+							<ul>
+								<li><a href="#">SubMenu-1</a></li>
+								<li><a href="#">SubMenu-2</a></li>
+								<li><a href="#">SubMenu-3</a></li>
+								<li><a href="#">SubMenu-4</a></li>
+							</ul>
+						</li>
+						<li><a href="#">MENU-2</a>
+							<ul>
+								<li><a href="#">SubMenu-1</a></li>
+								<li><a href="#">SubMenu-2</a></li>
+								<li><a href="#">SubMenu-3</a></li>
+								<li><a href="#">SubMenu-4</a></li>
+							</ul>
+						</li>
+						<li><a href="#">MENU-3</a>
+							<ul>
+								<li><a href="#">SubMenu-1</a></li>
+								<li><a href="#">SubMenu-2</a></li>
+								<li><a href="#">SubMenu-3</a></li>
+								<li><a href="#">SubMenu-4</a></li>
+							</ul>
+						</li>
+						<li><a href="#">MENU-4</a>
+							<ul>
+								<li><a href="#">SubMenu-1</a></li>
+								<li><a href="#">SubMenu-2</a></li>
+								<li><a href="#">SubMenu-3</a></li>
+								<li><a href="#">SubMenu-4</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="full_bg"></div>
+				</nav>
+			</div>
+		</header>
+		<div id="main">
+			<div id="img_slide">
+				
+			</div>
+			<section>
+				<article class="notice"></article>
+				<article class="gallery"></article>
+				<article class="icons"></article>
+			</section>
+		</div>
+		<footer>
+			<div class="foot_cover">
+				<div class="foot_logo"></div>
+				<div class="foot_right">
+					<div class="foot_menu"></div>
+					<div class="foot_copy"></div>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

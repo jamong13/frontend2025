@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>한국드라마제작협회</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+	<script src="./js/jquery-1.12.3.js"></script>
+
+	<script>
+	$(function(){
+		$("#menu>ul>li").mouseover(function(){
+			$(this).find("ul").stop().slideDown();
+		});
+		$("#menu>ul>li").mouseleave(function(){
+			$(this).find("ul").stop().slideUp();
+		});
+		
+		
+		var num = 0;
+		var swidth = $("#main_img .imgs img").width();
+		var clone = $("#main_img .imgs img").eq(0).clone();
+		$(".imgs").append(clone);
+		
+		setInterval(function(){
+			if(num==10){
+				num=0;
+				$("#main_img .imgs").css("margin-left","0")
+			}
+			num++; /*num+1*/
+			
+			$("#main_img .imgs").animate({"margin-left":"-"+num*swidth+"px"},1000)
+		}, 3000);
+		
+		
+		$("#modal").hide();
+		
+		$("#contents > .btn").click(function(){
+			$("#modal").fadeIn();
+			$("body").addClass("on");
+		});
+		$("#modal > .close_btn").click(function(){
+			$("#modal").fadeOut();
+			$("body").removeClass("on");
+		});
+	});	
+	</script>	
+</head>
+<body>
+
+<div id="wrap">
+	<header>
+		<h1><img src="./images/logo.png" alt=""/></h1>
+		<ul class="lnb">
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">ID/Password찾기</a></li>
+		</ul>
+	</header>
+	<div id="menu">
+		<ul>
+			<li><a href="#">협회소개</a>
+				<ul>
+					<li><a href="#">인사말</a></li>
+					<li><a href="#">연혁</a></li>
+					<li><a href="#">조직도</a></li>
+					<li><a href="#">정관</a></li>
+					<li><a href="#">사업 및 제휴 안내</a></li>
+				</ul>
+			</li>
+			<li><a href="#">회원사</a>
+				<ul>
+					<li><a href="#">회원사현황</a></li>
+					<li><a href="#">협회가입안내</a></li>
+				</ul>
+			</li>
+			<li><a href="#">회원사공간</a>
+				<ul>
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">정책&amp;이슈</a></li>
+					<li><a href="#">갤러리</a></li>
+				</ul>
+			</li>
+			<li><a href="#">정보</a>
+				<ul>
+					<li><a href="#">시청률</a></li>
+					<li><a href="#">뉴스레터</a></li>
+					<li><a href="#">드라마preview</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="contents">
+		<div id="icon">
+			<img src="./images/icon_01.jpg" alt=""/>
+			<img src="./images/icon_02.jpg" alt=""/>
+			<img src="./images/icon_03.jpg" alt=""/>
+			<img src="./images/icon_04.jpg" alt=""/>
+		</div>
+		<div id="table_section">
+			<table>
+				<caption>공지사항</caption>
+				
+					<tr>
+					
+						<td><a href="#">방송프로그램제작안내</a></td>
+						<td><a href="#">2017-04-25</a></td>
+					
+					</tr>
+				
+				<a href="#">
+					<tr>
+						<td><a href="#">방송영상진흥정책연구</a></td>
+						<td><a href="#">2017-03-13</a></td>
+					</tr>
+				</a>
+				<a href="#">
+					<tr>
+						<td><a href="#">안방극장은로코가대세</a></td>
+						<td><a href="#">2017-06-01</a></td>
+					</tr>
+				</a>
+				<a href="#">
+					<tr>
+						<td><a href="#">웃음가득방송현장보기</a></td>
+						<td><a href="#">2017-06-02</a></td>
+					</tr>
+				</a>
+			</table>
+		</div>
+		<div id="partner" class="btn">
+			<div class="img">
+				<img src="./images/partner/01.jpg" alt=""/>
+			</div>
+			<div class="img">
+				<img src="./images/partner/02.jpg" alt=""/>
+			</div>
+			<div class="img">
+				<img src="./images/partner/03.jpg" alt=""/>
+			</div>
+			<div class="img">
+				<img src="./images/partner/04.jpg" alt=""/>
+			</div>
+		</div>
+	</div>
+	<div id="main_img">
+		<div class="imgs cf">
+			<img src="./images/01.jpg" alt=""/>
+			<img src="./images/02.jpg" alt=""/>
+			<img src="./images/03.jpg" alt=""/>
+			<img src="./images/04.jpg" alt=""/>
+			<img src="./images/05.jpg" alt=""/>
+			<img src="./images/06.jpg" alt=""/>
+			<img src="./images/07.jpg" alt=""/>
+			<img src="./images/08.jpg" alt=""/>
+			<img src="./images/09.jpg" alt=""/>
+			<img src="./images/10.jpg" alt=""/>
+		</div>
+	</div>
+	<footer>
+		<ul>
+			<li><a href="#">협회소개</a></li>            
+			<li><a href="#">협회 이용약관</a></li>   
+			<li><a href="#">개인정보취급방침</a></li>     
+			<li><a href="#">이메일무단수집거부</a></li> 
+		</ul>
+		<p id="copy">
+		COPYRIGHT &copy;2015<br/> COREA DRAMA PRODUCTION ASSOCIATION<br/> ALL RIGHT RESERVED.
+		</p>
+		<p id="addr">
+		(사)한국드라마제작사협회<br/> 주소 : (157-030) 서울특별시 강서구 화곡로 61길 99, 404 <br/>전화 : 02-554-1448<br/> 팩스 : 02-554-1475 
+		</p>
+		
+
+	</footer>
+</div>
+	<div id="modal">
+		<img src="./images/partner/01.jpg" alt=""/>
+		<img src="./images/partner/02.jpg" alt=""/>
+		<img src="./images/partner/03.jpg" alt=""/>
+		<img src="./images/partner/04.jpg" alt=""/>
+		<div class="close_btn">닫기</div>
+	</div>
+
+
+</body>
+</html>

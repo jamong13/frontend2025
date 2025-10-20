@@ -1,0 +1,90 @@
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+.header{
+    position: relative;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo{
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.gnb{
+    position: relative;
+}
+.main-menu{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.main-menu > li{
+    position: relative;
+    width: 200px;
+    text-align: center;
+}
+.main-menu > li > a{
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+}
+/* 서브메뉴 공통 스타일 */
+.sub-menu {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    text-indent: 20px;
+    background: #f9f9f9;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sub-menu li{
+    text-align: left;
+    padding: 0 20px;
+}
+.sub-menu a{
+    text-decoration: none;
+    color: #333;
+}
+/* 풀다운 메뉴 전체 박스 설정 */
+.gnb::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 0;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    transition: height 0.4s ease;
+    z-index: -1;
+    /* main-menu보다 밑에 위치 시키기 위해서 */
+}
+
+.sub-menu{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+/* 호버 시 전체 풀다운 */
+.gnb:hover::after{
+    height: 280px;
+    /* 펼쳐질 높이 (콘텐츠에 맞게 조절 */
+}
+
+/* 호버 시 서브메뉴 보이기 */
+.gnb:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+}

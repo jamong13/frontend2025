@@ -461,6 +461,9 @@ header .gnb{
 .s6_content ul li a .list{
     float: left;
 }
+.s6_content ul li a .list:hover{
+    text-decoration: underline;
+}
 .s6_content ul li a .li_date{
     float: right;
 }

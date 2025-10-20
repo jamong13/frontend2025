@@ -1,0 +1,257 @@
+@charset "utf-8";
+
+*{margin:0;padding:0;color:#222328;}
+ul,li{list-style:none;}
+a{text-decoration:none;color:#222328;}
+
+#wrap{
+	width:1000px;
+}
+
+header{
+	width:200px;
+	height:650px;
+	float:left;
+	background-color:yellow;
+}
+
+.logo{
+	width:200px;
+	height:100px;
+	text-align:center;
+}
+
+.logo img{
+	width:auto;
+	height:100%;
+}
+
+nav{
+	margin:10px auto 0;
+	width:180px;
+	text-align:center;
+}
+
+nav>ul>li{
+	width:100%;
+	line-height:50px;
+	position:relative;
+	z-index:99;
+}
+
+nav>ul>li>ul{
+	line-height:40px;
+	font-size:14px;
+	position:absolute;
+	top:0;
+	left:100%;
+	width:100%;
+	background-color:slateblue;
+	display:none;
+}
+
+nav a{
+	display:block;
+}
+
+nav>ul>li:hover>a{
+	background-color:yellowgreen;
+	color:#fff;
+}
+
+nav>ul>li>ul a:hover{
+	background-color:lightpink;
+	color:#fff;
+}
+
+section{
+	float:left;
+	width:800px;
+	height:650px;
+}
+
+.img_slide{
+	width:100%;
+	height:350px;
+	position:relative;
+	overflow:hidden;
+}
+
+.img_slide ul li{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:100%;
+}
+
+.img_slide ul li:first-child{
+	left:0;
+}
+
+.img_slide ul li img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+.txt{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	padding:30px;
+	border-radius:10px;
+	background-color:rgba(255,255,255,.8);
+}
+
+.txt p{
+	line-height:2;
+	font-size:18px;
+}
+
+.contents{
+	width:100%;
+	height:200px;
+}
+
+.contents>div{
+	width:33.33%;
+	height:100%;
+	float:left;
+}
+
+.contents h3{
+	font-size:18px;
+	text-align:center;
+}
+
+.c1 table{
+	padding:5px;
+	box-sizing:border-box;
+	width:100%;
+	font-size:10px;
+	line-height:2.5;
+}
+
+.t1{
+	cursor:pointer;
+}
+
+.c2{
+	text-align:center;
+}
+
+.c2 img{
+	width:30%;
+	margin-top:31.5px;
+}
+
+.c3 img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+footer{
+	width:100%;
+	height:100px;
+	background-color:#ccc;
+}
+
+.f_logo{
+	width:130px;
+	height:100px;
+	float:left;
+	text-align:center;
+}
+
+.f_logo img{
+	height:100%;
+	width:auto;
+}
+
+.f_copy{
+	width:470px;
+	height:100%;
+	float:left;
+}
+
+.f_copy p{
+	font-size:14px;
+	line-height:1.5;
+	margin-top:8px;
+	margin-left:60px;
+}
+	
+
+.f_fam{
+	width:200px;
+	height:100%;
+	float:left;
+	text-align:center;
+}
+
+.f_fam a{
+	font-size:14px;
+	line-height:1.8;
+}
+
+
+
+
+
+
+
+
+.pop{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	display:none;
+	background-color:rgba(0,0,0,0.3);
+}
+
+.pop_cover{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background-color:#fff;
+	padding:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+@meta charset utf-8;
+*{margin:0; border:0; padding:0;}
+ul,li{list-style:none;}
+a{text-decoration:none;}
+	
+	
+#main_img{
+	width:1000px;
+	height:400px;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+#main_img ul{
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+#main_img ul li{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}

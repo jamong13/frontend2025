@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.App-header {
+  padding: 40px 20px;
+  color: white;
+}
+.App-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.App-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+.App-main{
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 카드너비 최소 300px 최대너비(1fr) -남은 공간을 균등하게 나눠차니 하라는 뜻 */
+    /* 화면이 좁아지면 카드가 줄바꿈, 넓어지면 카드가 여러개 들어 갈수있도록 */
+    /* repeat(auto-fit) */
+    /* 동일한 패턴을 반복해 컬럼을 만든다. -  auto-fit가능한 만큼 최대한 컬럼을 만듧*/
+    /* 화면크기에 맡춰 column 개수가 자동 조절 */
+    /* 회면이 크면 한줄에 4~5개가 나란히 화면이 좁아지면 한줄에 2개  */
+    gap: 30px;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* 3개의 열을 만들고 각각의 열은 1fr(grid 전체를 3등분) 크기로 차지 합니다. */

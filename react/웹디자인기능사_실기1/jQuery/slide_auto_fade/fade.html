@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="./js/script.js"></script>
+	<title></title>
+<script>
+$(function(){
+
+$(".img li").eq(0).show();
+$(".img li").eq(0).siblings().hide();
+
+
+var i = 0;
+setInterval(function(){
+	i++;
+	if(i==5){
+		i=0;
+	}
+	$(".img li").eq(i).fadeIn(1000);
+	$(".img li").eq(i-1).fadeOut(1000);
+},3000);
+	
+	
+});
+</script>
+<style>
+@meta charset utf-8;
+*{margin:0; border:0; padding:0;}
+ul,li{list-style:none;}
+a{text-decoration:none;}
+	
+	
+#main_img{
+	width:1000px;
+	height:400px;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+#main_img ul{
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+#main_img ul li{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div id="main_img">
+	<ul class="img">
+		<li>
+			<img src="./images/images1.jpg" alt=""/>
+		</li>
+		<li>
+			<img src="./images/images2.jpg" alt=""/>
+		</li>
+		<li>
+			<img src="./images/images3.jpg" alt=""/>
+		</li>
+		<li>
+			<img src="./images/images4.jpg" alt=""/>
+		</li>
+		<li>
+			<img src="./images/images5.jpg" alt=""/>
+		</li>
+	</ul>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+

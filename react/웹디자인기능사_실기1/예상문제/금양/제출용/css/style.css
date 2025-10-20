@@ -1,0 +1,250 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+*{margin:0; padding:0;}
+body{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+.cf:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+ul{
+	list-style:none;
+	}
+	
+#container{
+	width:1150px;
+	height:1080px;
+	margin:0 auto;
+}
+
+header{
+	text-align:center;
+	height:100px;
+	box-sizing:border-box;
+	z-index:4444;
+}
+header h1{
+	margin-top:30px;
+}
+
+header nav{
+	height:30px;
+	background-color:#a6832f;
+}
+header nav > ul{
+	width:850px;
+	height:30px;
+	margin-left:130px;
+}
+header nav>ul>li{float:left;}
+
+
+
+header nav ul li{position:relative;
+    width:170px;
+	height:30px;
+	text-align:center;
+	
+}
+header nav ul li a{
+	display:block;
+	text-decoration:none;
+	font-family: 'Nanum Gothic', sans-serif;
+	color:#ffffff;
+	height:30px;
+	font-weight:bold;
+	
+	line-height:30px;
+	box-sizing:border-box;
+	border-bottom:15px solid rgba(0,0,0,0);
+}
+header nav ul li a:hover{
+	font-weight:bold;
+	color:#3a2c05;
+	border-bottom:15px solid rgba(255,255,255,0.3);
+
+}
+header nav ul li ul{display:none;left:0;
+position:absolute;z-index:1000;background-color: rgba(166,131,47,0.7);}
+nav ul li:hover ul{}
+#vis{
+	height:400px;
+}
+
+#cont{
+	background-color:#e1d9c6;
+	height:500px;
+}
+section{
+	float:left;
+	width:900px;
+	height:500px;
+}
+section article{
+	float:left;
+}
+.sec-tit{
+	height:15px;
+	padding:20px 20px;
+}
+.tit-eng{
+	color:#6c5939;
+	font-size:15px;
+	font-weight:800;
+}
+.tit-kor{
+	color:#ffffff;
+	font-size:15px;
+	font-weight:600;
+}
+
+.art-left ul li{
+	font-size:12px;
+	height:10px;
+	list-style:disc;
+	margin-left:20px;
+	margin-top:15px;
+}
+.art-left ul li a{
+	color:#57503f;
+	text-decoration:none;
+
+}
+.art-left ul li a:hover{
+	font-size:12px;
+	color:#8a702a;
+	font-weight:600;
+}
+
+
+
+.art-left{
+	float:left;
+	margin-right:25px;
+	margin-left:25px;
+}
+.art-box1{
+	width:300px;
+	height:300px;
+	background-color:#cac1ac;
+	background:url(../images/art1_bg.jpg) no-repeat right bottom;
+	background-size:cover;
+}
+.art-box2{
+	width:300px;
+	height:160px;
+	margin-top:20px;
+	background-color:#cac1ac;
+
+}
+.art-box3{
+	float:left;
+	width:525px;
+	height:480px;
+	background-color:#cac1ac;
+}
+.main-news-images{
+	margin-left:25px;
+	width:470px;
+	height:100px;
+	background:url(../images/art3_images.jpg) no-repeat left bottom;
+	background-position:contain;
+}
+.news{
+	margin-top:15px;
+}
+.news li{
+	text-decoration:none;
+	color:#57503f;
+	font-size:15px;
+	font-weight:600;
+	line-height:30px;
+	background:none;
+	border-bottom:1px solid #bcb39d;
+	margin-left:25px;
+	margin-right:25px;
+}
+.news li a{
+	text-decoration:none;
+	color:#57503f;
+}
+
+
+aside{
+	float:left;
+	
+	width:225px;
+}
+.asi-box1{
+	height:270px;
+	background:#cac1ac url(../images/bg_coffee.png) no-repeat 50% bottom;
+	background-size:70%;
+}
+.cs-info{
+	margin-left:25px;
+	margin-top:10px;
+	color:#57503f;
+	font-size:12px;
+	
+}
+.cs-tel{
+	color:#8a702a;
+	font-size:22px;
+	font-weight:900;
+	margin-bottom:20px;
+}
+.asi-box2{
+	margin-top:20px;
+	height:190px;
+	background:#cac1ac url(../images/bg_clock.png) no-repeat 60% 85%;
+	background-size:contain;
+}
+.loca-info{
+	margin-left:25px;
+	color:#57503f;
+	font-size:13px;
+}
+
+
+
+
+
+footer{
+	background-color:#0a0703;
+	height:80px;
+}
+footer p{
+	width:100%;
+	height:80px;
+	font-size:11px;
+	color:#423b30;
+	text-align:center;
+	line-height:35px;
+}
+footer p span{
+	font-weight:bold;
+}
+
+
+/* 배너 */
+
+#brandVisual { position:relative;width:100%;
+ min-width:1000px; margin:0 auto;overflow:hidden;height:390px; background:#8c908c;}
+#brandVisual ul { position:relative; float:left; width:100%; 
+height:390px;}
+#brandVisual li { position:absolute; width:100%;height:390px;}
+#brandVisual li a {display:block;text-indent:-9999px}
+#brandVisual .visual_0 {left:0px; background:url("../images/a1.png") 50% 0 no-repeat;}
+#brandVisual .visual_1 {left: 100%;  background:url("../images/a2.png") 50% 0 no-repeat;}
+#brandVisual .visual_2 {left: 200%; background:url("../images/a3.png") 50% 0 no-repeat;}
+#buttonList{background-color:#e1d9c6;}
+#buttonList:after {content:""; display:block; clear:both;}
+#buttonList li{ background:url("../images/btnVisual.png") 0 -16px no-repeat; width:14px; height:15px; float:left; 
+position:relative; left:50%; top:-65px; overflow:hidden; margin:0 5px; cursor:pointer;}
+#buttonList li.on { background-position:0 0;}
+#buttonList li a {display:block;text-indent:-9999px}
+

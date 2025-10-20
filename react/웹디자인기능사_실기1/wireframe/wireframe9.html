@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<script src="http://code.jquery.com/jquery-1.12.3.js"></script>
+	<title>wireframe9</title>
+	<style>
+	*{margin:0;padding:0;}
+	ul,li{list-style:none;}
+	a{text-decoration:none;color:#666;}
+	
+	#wrap{
+		width:1000px;
+		height:650px;
+	}
+	
+	#wrap header{
+		width:20%;
+		height:650px;
+		float:left;
+		background-color:pink;
+	}
+	
+	header h1{
+		width:100%;
+		height:80px;
+		text-align:center;
+		line-height:80px;
+	}
+	header nav{
+		width:90%;
+		margin:10px auto;
+		border:1px solid #333;
+	}
+	header nav > ul > li{
+		line-height:50px;
+		text-align:center;
+	}
+	header nav a{
+		display:block;
+		width:100%;
+		height:100%;
+	}
+	
+	header nav ul li:hover > a{
+		background-color:#666;
+		color:#fff;
+	}
+	header nav > ul > li > ul{
+		background-color:rgba(255,255,255,0.4);
+		display:none;
+	}
+	
+	
+	#wrap #main{
+		width:80%;
+		height:650px;
+		float:left;
+		background-color:hotpink;
+	}
+	
+	#main #img_slide{
+		width:100%;
+		height:350px;
+	}
+	
+	#main #img_slide ul{
+		position:relative;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+	}
+	
+	#main #img_slide ul li{
+		position:absolute;
+		width:100%;
+		height:100%;
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:cover;
+		left:100%;
+		top:0;
+	}
+	#main #img_slide ul li:nth-child(1){
+		background-image:url(./images/photo1.JPG);
+		left:0;
+	}
+	#main #img_slide ul li:nth-child(2){
+		background-image:url(./images/photo2.JPG);
+	}
+	#main #img_slide ul li:nth-child(3){
+		background-image:url(./images/photo3.JPG);
+	}
+	
+	section{
+		width:100%;
+		height:200px;
+	}
+	
+	section article{
+		width:33.33%;
+		height:200px;
+		float:left;
+	}
+	
+	section article.notice{background-color:#bbb;}
+	section article.banner{background-color:#aaa;}
+	section article.icons{background-color:#999;}
+	
+	footer{
+		width:100%;
+		height:100px;
+	}
+	
+	footer .foot_left{
+		width:20%;
+		height:100px;
+		background-color:#888;
+		float:left;
+	}
+	footer .foot_right{
+		width:80%;
+		height:100px;
+		background-color:#777;
+		float:left;
+	}
+	
+	footer .foot_right .foot_menu{
+		width:100%;
+		height:50px;
+		background-color:#666;
+	}
+	footer .foot_right .foot_copy{
+		width:100%;
+		height:50px;
+		background-color:#444;
+	}
+	</style>
+	<script>
+	$(function(){
+		/*마우스오버, 마우스리브 했을 때 실행문
+		$("nav > ul > li > a").mouseover(function(){
+			$("nav > ul > li > ul").stop().slideUp();
+			$(this).next("ul").stop().slideDown();
+		});
+		
+		$("nav").mouseleave(function(){
+			$("nav > ul > li > ul").stop().slideUp();
+		});
+		*/
+		$("nav > ul > li > a").click(function(){
+			var d = $(this).next("ul").css("display");
+			
+			if(d=="none"){
+				$("nav > ul > li > ul").stop().slideUp();
+				$(this).next("ul").stop().slideDown();
+			}else{
+				$(this).next("ul").stop().slideUp();
+			}
+			
+			return false;
+		});
+		
+		
+		var i = 0;
+		
+		setInterval(function(){
+			i++;
+			if(i==3){
+				i=0;
+			}
+			
+			$("#img_slide ul li").eq(i).css("left","100%").animate({
+				"left":0
+			},600);
+			$("#img_slide ul li").eq(i-1).css("left",0).animate({
+				"left":"-100%"
+			},600);
+			
+			
+		}, 3000);
+		
+		
+	});
+	
+	
+	</script>
+</head>
+<body>
+	
+	<div id="wrap">
+		<header>
+			<h1>LOGO</h1>
+			<nav>
+				<ul>
+					<li><a href="#">MENU-1</a>
+						<ul>
+							<li><a href="#">SubMenu-1</a></li>
+							<li><a href="#">SubMenu-2</a></li>
+							<li><a href="#">SubMenu-3</a></li>
+							<li><a href="#">SubMenu-4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">MENU-2</a>
+						<ul>
+							<li><a href="#">SubMenu-1</a></li>
+							<li><a href="#">SubMenu-2</a></li>
+							<li><a href="#">SubMenu-3</a></li>
+							<li><a href="#">SubMenu-4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">MENU-3</a>
+						<ul>
+							<li><a href="#">SubMenu-1</a></li>
+							<li><a href="#">SubMenu-2</a></li>
+							<li><a href="#">SubMenu-3</a></li>
+							<li><a href="#">SubMenu-4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">MENU-4</a>
+						<ul>
+							<li><a href="#">SubMenu-1</a></li>
+							<li><a href="#">SubMenu-2</a></li>
+							<li><a href="#">SubMenu-3</a></li>
+							<li><a href="#">SubMenu-4</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div id="main">
+			<div id="img_slide">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<section>
+				<article class="notice"></article>
+				<article class="banner"></article>
+				<article class="icons"></article>
+			</section>
+			<footer>
+				<div class="foot_left"></div>
+				<div class="foot_right">
+					<div class="foot_menu"></div>
+					<div class="foot_copy"></div>
+				</div>
+			</footer>
+		</div>
+	
+	</div>
+
+
+</body>
+</html>
