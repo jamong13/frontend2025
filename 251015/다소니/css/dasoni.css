@@ -103,6 +103,8 @@ header .gnb{
     height: 350px;
     background: #fff url(../img/header_line.png) repeat-x 50% 0;
 }
+
+/* #s1 */
 #s1{
     width: 100%;
     height: 820px;
@@ -145,6 +147,7 @@ header .gnb{
     opacity: 1;
 }
 
+/* #s2 */
 #s2{
     height: 635px;
     padding: 80px 0 40px;
@@ -152,6 +155,7 @@ header .gnb{
     box-sizing: border-box;
 /* s2전체 크기 지정및 배경이미지 */
 }
+/* #s2, #s3, #s4 타이틀 공통 css*/
 .sec_title{
    width: 1000px;
     height: 180px;
@@ -167,21 +171,20 @@ header .gnb{
     line-height: 30px;
     margin: 30px 0 40px;
 }
+
+/* #s2 타이틀 css */
 .s2_title h2{
     color: #ff8f2b;
 }
-
 .s2_title p{
     color: #666;
 }
+
+/* #s2, #s4 리스트 내용 공통 css */
 .sec_table{
     width: 1000px;
     height: 250px;
     margin: 40px auto 0;
-}
-.s2_table{
-    border-top: 3px solid #ff8f2b;
-    
 }
 .sec_table li{
     width: 247px;
@@ -192,6 +195,10 @@ header .gnb{
     margin-top: 1px;
     text-align: center;
     padding: 30px;
+}
+/* #s2 리스트 내용 css */
+.s2_table{
+    border-top: 3px solid #ff8f2b;
 }
 .s2_table li:nth-child(1){
     background: #fff url(../img/sec01_icon.png) no-repeat 50% 50%;
@@ -205,6 +212,8 @@ header .gnb{
 .s2_table li:nth-child(4){
     background: #ff8f2b url(../img/sec01_icon4.png) no-repeat 50% 50%;
 }
+
+/* #s2, #s4, #s5 버튼 공통 css */
 .s_apply{
     display: block;
     width: 116px;
@@ -215,6 +224,7 @@ header .gnb{
     margin: 110px auto 0;
     transition: all 0.5s;
 }
+/* #s2 버튼 css */
 .s2_apply{
     color: #fff;
     background: #ff8f2b;
@@ -260,6 +270,7 @@ header .gnb{
     animation: slide 1s;
 }
 
+/* #s3 */
 #s3{
     height: 635px;
     padding: 80px 0 40px;
@@ -296,6 +307,7 @@ header .gnb{
     margin: 40px auto 30px;
 }
 
+/* #s4 */
 #s4{
     height: 635px;
     padding: 80px 0 40px;
@@ -303,6 +315,7 @@ header .gnb{
     box-sizing: border-box;
 }
 
+/* #s4 타이틀, 공통 css 이외의 css */
 .s4_title h2{
     color: #7dae82;
 }
@@ -310,7 +323,7 @@ header .gnb{
 .s4_title p{
     color: #666;
 }
-
+/* #s4 리스트 내용 공통 css 이외의 css */
 .s4_table{
     border-top: 3px solid #7dae82;
     
@@ -327,6 +340,7 @@ header .gnb{
 .s4_table li:nth-child(4){
     background: #7dae82 url(../img/sec03_icon4.png) no-repeat 50% 40%;
 }
+/* #s4 버튼 공통 css 이외의 css */
 .s4_apply{
     color: #fff;
     background: #7dae82;
@@ -362,17 +376,24 @@ header .gnb{
     animation: slide 1s;
 }
 
+/* #s5 */
 #s5{
     height: 420px;
     background: url(../img/sec4_bg.jpg) no-repeat 20% 50%;
 }
+/* #s5 타이틀 공통 css 이외의 css */
 .s5_title{
     padding: 100px 30px;
 }
+/* #s5 내용 */
 .s5_left{
     width: 400px;
     float: left;
 }
+/* #s2~#s4까지의 타이틀 .sec_title h2에 공통되는 css를 주고
+.s$_title h2에 컬러 등의 css를 줬으므로
+.sec_title h3에 css를 줌 */
+/* #s5 타이틀 공통 css 이외의 css */
 .sec_title h3{
     font-size: 24px;
     margin-top: 20px;
@@ -380,6 +401,7 @@ header .gnb{
 .sec_title.s5_title p{
     margin-top: 10px;
 }
+/* #s5 버튼 공통 css 이외의 css */
 .s5_apply{
     color: #fff;
     background: #000;
@@ -393,7 +415,7 @@ header .gnb{
     background: #fff;
     color: #000;
 }
-
+/* #s6 */
 #s6{
     width: 1000px;
     height: 400px;
@@ -406,21 +428,17 @@ header .gnb{
     padding: 10px;
     box-sizing: border-box;
 }
+/* 공지사항, 상담후기 */
 .s6_list_title{
     width: 100%;
 }
 .s6_list_title a{
     display: block;
     height: 20px;
-}
-.s6_left .s6_list_title a{
-    background: url(../img/sec5_tit.png) no-repeat 0 50% / contain;
-}
-.s6_right .s6_list_title a{
-    background: url(../img/sec5_tit2.png) no-repeat 0 50% / contain;
-}
-.s6_list_title a{
     padding: 10px;
+}
+.s6_list_title h2{
+    float: left;
 }
 .s6_left h2{
     color: #7dae82;
@@ -428,23 +446,25 @@ header .gnb{
 .s6_right h2{
     color: #ff8f2b;
 }
-.s6_content > div h2{
-    float: left;
+.s6_left .s6_list_title a{
+    background: url(../img/sec5_tit.png) no-repeat 0 50% / contain;
 }
-
-.s6_content > div img{
+.s6_right .s6_list_title a{
+    background: url(../img/sec5_tit2.png) no-repeat 0 50% / contain;
+}
+/* 공지사항, 상담후기 배경 이미지 */
+.s6_list_title img{
     float: right;
     display: block;
     transition: all 0.3s;
 }
-.s6_content > div a:hover{
-    text-decoration: underline;
-}
-.s6_content > div a:hover img{
+/* 공지사항, 상담후기 옆 더보기 + 버튼 hover 시 */
+.s6_list_title a:hover img{
     transform: rotate(180deg);
 }
 
-.s6_content > div > ul{
+/* 게시물 */
+.s6_content ul {
     font-size: 14px;
     margin-top: 20px;
     width: 100%;
@@ -453,6 +473,7 @@ header .gnb{
     display: block;
     line-height: 40px;
 }
+
 .s6_content ul li a::after{
     content:'';
     clear:both;
@@ -468,6 +489,7 @@ header .gnb{
     float: right;
 }
 
+/* footer */
 footer{
     background: #333333;
 }
@@ -479,6 +501,7 @@ footer{
 .f_content > div{
     float: left;
 }
+/* footer logo */
 .foot_logo{
     width: 250px;
 }
@@ -486,12 +509,14 @@ footer{
     display: block;
     padding: 40px 10px;
 }
+/* footer 회사 정보 */
 .foot_content{
     width: 600px;
     color: #fff;
     font-size: 14px;
     line-height: 2rem;
 }
+/* footer 회사 sns 링크 */
 .foot_sns{
     width: 150px;
     padding: 10px;
@@ -508,13 +533,13 @@ footer{
     display: block;
 }
 
+/* 사이드 메뉴 스크롤바 */
 #float_div{
     padding-top: 10px;
     position: absolute;
     right:40px;
     top:250px;
 }
-
 
 #float_div li{
     margin-bottom: 20px;

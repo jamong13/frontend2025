@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <header class="header">
@@ -13,55 +15,123 @@
         </div>
         <nav class="gnb">
             <ul class="main-menu">
-            <li>
-                <a href="#">브랜드 소식</a>
-                <ul class="sub-menu">
-                    <li><a href="#">브랜드 스토리</a></li>
-                    <li><a href="#">글로벌 뚜레쥬르</a></li>
-                    <li><a href="#">뚜레쥬르 라뜰리에</a></li>
-                    <li><a href="#">뚜레쥬르 링크</a></li>
-                    <li><a href="#">뉴스 & 공지사항</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">제품</a>
-                <ul class="sub-menu">
-                    <li><a href="#">NEW</a></li>
-                    <li><a href="#">빵</a></li>
-                    <li><a href="#">케이크</a></li>
-                    <li><a href="#">샌드위치</a></li>
-                    <li><a href="#">디저트&스낵</a></li>
-                    <li><a href="#">선물</a></li>
-                    <li><a href="#">음료</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">이벤트&멤버십</a>
-                <ul class="sub-menu">
+                <li>
+                    <a href="#">브랜드 소식</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">브랜드 스토리</a></li>
+                        <li><a href="#">글로벌 뚜레쥬르</a></li>
+                        <li><a href="#">뚜레쥬르 라뜰리에</a></li>
+                        <li><a href="#">뚜레쥬르 링크</a></li>
+                        <li><a href="#">뉴스 & 공지사항</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">제품</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">NEW</a></li>
+                        <li><a href="#">빵</a></li>
+                        <li><a href="#">케이크</a></li>
+                        <li><a href="#">샌드위치</a></li>
+                        <li><a href="#">디저트&스낵</a></li>
+                        <li><a href="#">선물</a></li>
+                        <li><a href="#">음료</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">이벤트&멤버십</a>
+                    <ul class="sub-menu">
                     <li><a href="#">진행중인 이벤트</a></li>
                     <li><a href="#">이벤트 당첨자</a></li>
                     <li><a href="#">CJ ONE 멤버십</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">제휴혜택&기프트카드</a>
-                <ul class="sub-menu">
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">제휴혜택&기프트카드</a>
+                    <ul class="sub-menu">
                     <li><a href="#">제휴혜택</a></li>
                     <li><a href="#">기프트카드</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">뚜레쥬르 앱&온라인 쇼핑몰</a>
-                <ul class="sub-menu">
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">뚜레쥬르 앱&온라인 쇼핑몰</a>
+                    <ul class="sub-menu">
                     <li><a href="#">뚜레쥬르 앱</a></li>
                     <li><a href="#">홈페이지 전용 예약 배송</a></li>
                     <li><a href="#">꽃&케이크 택배 배송</a></li>
                     <li><a href="#">대량 구매 문의</a></li>
-                </ul>
-            </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
+    <div class="slider1">
+    <ul>
+        <li><img src="./images/main_visual.jpg" alt=""></li>
+    </ul>
+    </div>
+    <section class="section1">
+    <div class="main-content">
+        <div class="slide-area">
+        <div class="slide active">
+            <img src="https://picsum.photos/400/400?randam=1"  alt="슬라이드1">
+            <div class="slide-text">
+                <h2   h2>민생회복<br><span>소비쿠폰</span><br>사용 가능합니다</h2>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <img src="https://picsum.photos/400/400?randam=2"  alt="슬라이드1">
+            <div class="slide-text">
+                <h2>민생회복<br><span>소비쿠폰</span><br>사용 가능합니다</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://picsum.photos/400/400?randam=3"  alt="슬라이드1">
+            <div class="slide-text">
+                <h2>민생회복<br><span>소비쿠폰</span><br>사용 가능합니다</h2>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://picsum.photos/400/400?randam=4"  alt="슬라이드1">
+            <div class="slide-text">
+                <h2>민생회복<br><span>소비쿠폰</span><br>사용 가능합니다</h2>
+            </div>
+        </div>    
+        <div class="pager">
+            <button class="pager-dot active"></button>
+            <button class="pager-dot"></button>
+            <button class="pager-dot"></button>
+            <button class="pager-dot"></button>
+            <button class="stop-btn">⏸</button>
+        </div>
+        </div> 
+        <!-- 오른쪽 케이크 추천 -->
+
+        <div class="product-area">
+            <div class="product-big">
+                <img src="images/2025-8-26_event(5).jpg"  alt="밤이통통케이크">
+                <p class="title">밤이 통통 케이크</p>
+                <p class="tag">Cake</p>
+            </div>
+            <div class="product-small">
+            <div class="product-item">
+                <img src="images/2025-8-26_event(2).jpg"  alt="카라멜부케">
+                <p class="title">카라멜부케</p>
+                <p class="tag">Cake</p>
+            </div>
+            <div class="product-item">
+                <img src="images/2025-4-8_event(5).jpg"  alt="스트로베리 퀸">
+                <p class="title">스트로베리 퀸</p>
+                <p class="tag">Cake</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-banner">
+        <img src="images/main_section_banner.jpg" alt="">
+    </div>
+</section>
+<!-- 하단배너 -->
 
 </body>
 </html>

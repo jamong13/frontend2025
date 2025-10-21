@@ -1,90 +1,238 @@
-*{margin: 0; padding: 0;}
+*{margin: 0;padding:0 ;}
 ul{list-style: none;}
-.header{
-    position: relative;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+.header {
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
-.logo{
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+.logo {
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
-.gnb{
-    position: relative;
-}
-.main-menu{
-    width: 1200px;
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    list-style: none;
-    margin: 0 auto;
+.gnb {
+  position: relative;
 }
 
-.main-menu > li{
-    position: relative;
-    width: 200px;
-    text-align: center;
+.main-menu {
+  width: 1200px;  
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+  margin: 0 auto;
 }
-.main-menu > li > a{
-    display: block;
-    padding: 15px 0;
-    text-decoration: none;
-    font-weight: 600;
-    color: #333;
+
+.main-menu > li {
+  position: relative;
+  width: 200px;
+  text-align: center;
+}
+.main-menu > li > a {
+  display: block;
+  padding: 15px 0;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
 }
 /* 서브메뉴 공통 스타일 */
 .sub-menu {
-    position: absolute;
-    left: 0;
-    top: 60px;
-    text-indent: 20px;
-    background: #f9f9f9;
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  position: absolute;
+  width: 200px;
+  left: 0;
+  top: 60px;
+  text-indent: 20px;
+  /* background: #f9f9f9; */
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .sub-menu li{
     text-align: left;
     padding: 0 20px;
 }
 .sub-menu a{
-    text-decoration: none;
-    color: #333;
-}
-/* 풀다운 메뉴 전체 박스 설정 */
-.gnb::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50px;
-    width: 100%;
-    height: 0;
-    background: #f9f9f9;
-    border-top: 1px solid #ddd;
-    overflow: hidden;
-    transition: height 0.4s ease;
-    z-index: -1;
-    /* main-menu보다 밑에 위치 시키기 위해서 */
+    text-decoration:none ;
+    color:#333;
 }
 
-.sub-menu{
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
+/* 풀다운 메뉴 전체 박스 설정 */
+.gnb::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  height: 0px;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+  transition: height 0.4s ease;
+  z-index: -1;
+  /* main-menu 보다 밑에위치 시키기위해서 */
+}
+.sub-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s;
 }
 /* 호버 시 전체 풀다운 */
-.gnb:hover::after{
-    height: 280px;
-    /* 펼쳐질 높이 (콘텐츠에 맞게 조절 */
+.gnb:hover::after {
+  height: 280px; /* 펼쳐질 높이 (콘텐츠에 맞게 조절) */
 }
 
 /* 호버 시 서브메뉴 보이기 */
-.gnb:hover .sub-menu{
-    opacity: 1;
-    visibility: visible;
+.gnb:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+.sub-menu li a:hover {
+  color: #007bff;
+}
+.slider1{
+  padding-top: 156px;
+  position: relative;
+}
+.section1{
+  background-color: #f7f0da;
+}
+.main-content{
+  padding-top: 30px;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+
+}
+.slide-area{
+  position: relative;
+  width: 400px;
+  height:400px;
+  /* overflow: hidden; */
+  flex-shrink: 0;
+}
+.slide{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide-text{
+  position: absolute;
+  bottom: 30px;
+  left:20px;
+  color:white;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+.slide-text h2 span{
+  font-size: 18px;
+}
+.pager{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  z-index: 10;
+}
+.pager-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.5;
+  border: none;
+  cursor: pointer;
+}
+.pager-dot.active {
+  opacity: 1;
+  background: #ff4500;
+}
+
+.stop-btn {
+  margin-left: 10px;
+  padding: 2px 5px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+/* 추천케이크 */
+.product-area {
+  margin-left: 6px;
+  width:594px;
+  height:400px;
+  background-color: #fff;
+  display: flex;
+  /* flex: 1; */
+}
+.product-big {
+  flex: 1;
+  /* 남은공간 모두를 차지하려고함 */
+  text-align: center;
+}
+.product-big img {
+  width: 100%;
+  max-width: 300px;
+}
+.product-big .title {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.product-big .tag {
+  font-size: 14px;
+  color: #666;
+}
+
+.product-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product-item {
+  text-align: center;
+}
+.product-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.product-item .title {
+  font-weight: bold;
+  
+}
+.product-item .tag {
+  font-size: 14px;
+  color: #666;
+}
+.bottom-banner{
+  width: 1000px;
+  height:134px;
+  margin: 10px auto;
+}
+.bottom-banner img{
+  display: block;
+  width: 100%;
+  height:100%;
 }
