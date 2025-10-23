@@ -1,0 +1,66 @@
+.navbar{
+    background-color: #f4511e;
+    color: #fff;
+}
+.nav-link{
+    color: #fff;
+}
+.nav-link.active{
+    background-color: #fff;
+    color: #f4511e !important;
+}
+.header{
+    background-color: #f4511e;
+    color: #fff;
+}
+.graph{
+    color: #f4511e !important;
+    font-size: 160px !important;
+}
+.logo-small{
+    font-size: 60px !important;
+    color: #f4511e !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: transparent;
+  background-size: 100% 100%;
+  width: 2rem;
+  height: 2rem;
+  /* 흰색 화살표 SVG에 색상 필터 적용 */
+  filter: invert(36%) sepia(85%) saturate(2216%) hue-rotate(204deg) brightness(95%) contrast(102%);
+}
+.carousel-indicators {
+    margin-bottom: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #333; /* 짙은 회색 (원하는 색으로 변경 가능) */
+}
+
+.carousel-indicators .active {
+  background-color: #000; /* 활성 슬라이드 색상 (더 진한 색) */
+}
+.my-btn{
+    background-color: #f4511e;
+    color: #fff;
+}
+.my-btn:hover{
+    background-color: #fff;
+    color: #f4511e;
+    border: 1px solid #f4511e;
+}
+.slideanim{
+    visibility: hidden;
+}
+.slide{
+    animation: slide 1s;
+    visibility: visible;
+}
+@keyframes slide{
+    0%{opacity: 0; transform: translateY(70%);}
+    100%{opacity: 1; transform: translateY(0);}
+}
+.card-header{background-color: #f4511e;color:white;}
+.card{border:1px solid #f4511e;}
