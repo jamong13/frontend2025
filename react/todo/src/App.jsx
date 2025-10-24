@@ -1,14 +1,14 @@
-import React, { useState, useRef } from 'react'
-import './App.css'
-import Header from './component/header'
-import TodoEditor from './component/TodoEditor'
-import TodoList from './component/TodoList'
+import React, { useState, useRef } from "react";
+import "./App.css";
+import Header from "./component/Header";
+import TodoEditor from "./component/TodoEditor";
+import TodoList from "./component/TodoList";
 
 const mockTodo = [
   {
-    id:0,
-    isDone:false,
-    content:'react 공부하기',
+    id: 0,
+    isDone: false,
+    content: "react 공부하기",
     createdDate: new Date().getTime(),
   },
   {
@@ -23,27 +23,50 @@ const mockTodo = [
     content: "노래 연습하기",
     createdDate: new Date().getTime(),
   },
-]
+];
 
 export default function App() {
   const [todo, setTodo] = useState(mockTodo);
   const idRef = useRef(3);
-  
+
   const onCreate = (content) => {
-      const newItem= {
-        id: idRef.current,
-        content,
-        isDone : false,
-        createdDate: new Date().getTime(),
-      };
+    const newItem = {
+      id: idRef.current,
+      content,
+      isDone: false,
+      createdDate: new Date().getTime(),
+    };
     setTodo([newItem, ...todo]);
     idRef.current += 1;
   };
+  const onUpdate = (targetId) => {
+    //targetId는 클릭된 Todo 고유 id로 전달
+    setTodo(
+      todo.map((it) => {
+        // if(it.id === targetId){
+        //   // 순회 기존 it.id와 targetId 같은지 확인
+        //   return {
+        //     ...it, // 전개연산, 기존 다른 속성(content, date, createdDate) 등은 유지
+        //     isDone:!it.isDone // isDone 값을 반전(false -> true, true -> false)
+        //   }
+        // }else{
+        //   return it;
+        // }
+
+        return it.id === targetId ? { ...it, isDone: !it.isDone } : it;
+        // {idL1, content:'빨래하기', isDone:false} // 기존
+        // {idL1, content:'빨래하기', isDone:true} // update실행 후
+      })
+    );
+  };
+  const onDelete = (targetId) => {
+    setTodo(todo.filter((it) => it.id !== targetId));
+  };
   return (
-    <div className='App'>
-      <Header/>
-      <TodoEditor onCreate={onCreate}/>
-      <TodoList todo={todo}/>
+    <div className="App">
+      <Header />
+      <TodoEditor onCreate={onCreate} />
+      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
-  )
+  );
 }

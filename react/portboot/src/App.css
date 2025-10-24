@@ -1,0 +1,54 @@
+html {
+  scroll-behavior: smooth;
+}
+.card-header {
+  background-color: #f4511e;
+  color: white;
+}
+.card {
+  border: 1px solid #f4511e;
+}
+.my-btn {
+  background-color: #f4511e;
+  color: #fff;
+}
+.navbar {
+  background-color: #f4511e;
+  color: white;
+}
+.nav-link {
+  color: #fff !important;
+}
+.nav-link.active {
+  background-color: #fff;
+  color: #f4511e !important;
+}
+.header {
+  background-color: #f4511e;
+  color: #fff;
+}
+.graph {
+  color: #f4511e !important;
+  font-size: 160px !important;
+}
+.logo-small {
+  font-size: 60px !important;
+  color: #f4511e !important;
+}
+.slideanim {
+  visibility: hidden;
+}
+.slide {
+  animation: slide 1s;
+  visibility: visible;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

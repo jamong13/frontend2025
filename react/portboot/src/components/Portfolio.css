@@ -1,0 +1,20 @@
+/* 인디케이터 색상 */
+.carousel-indicators [data-bs-target] {
+  background-color: #333; /* 어두운 회색 */
+}
+
+.carousel-indicators .active {
+  background-color: #000; /* 활성화된 건 더 진하게 */
+}
+
+/* 화살표 아이콘 어둡게 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%) brightness(20%);
+  /* 흰색 아이콘을 어두운 색으로 반전 */
+}
+
+/* 화살표 주변 영역 넓히기 (선택사항) */
+.custom-arrow {
+  width: 5%;
+}

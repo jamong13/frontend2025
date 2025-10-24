@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scroll Animation</title>
+    <style>
+      .slideanim {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+      .slide {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 1000px">스크롤 내려보세요 👇</div>
+    <div class="slideanim" style="height: 200px; background: tomato">
+      애니메이션 박스
+    </div>
+    <script>
+      const handleScroll = () => {
+        document.querySelectorAll(".slideanim").forEach((el) => {
+          const pos = el.getBoundingClientRect().top; // 요소의 화면 내 위치
+          const winHeight = window.innerHeight; // 현재 화면 높이
+
+          if (pos < winHeight - 100) {
+            el.classList.add("slide");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", handleScroll);
+    </script>
+  </body>
+</html>
