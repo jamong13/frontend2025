@@ -1,170 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <style>
-        *{margin: 0; padding: 0;}
-        li{
-            list-style: none;
-            float: left;
-            width: 80px;
-            /* 여백 고려해서 80 */
-        }
-        h1{text-align: center;}
-        #banner_wrap{
-            width: 260px;
-            height: 120px;
-            padding: 10px 20px;
-            margin: 0 auto;
-            border: 1px solid #aaa;
-        }
-        #banner{
-            width: 800px;
-            height: 54px;
-            border: 1px solid red;
-        }
-        #frame{
-            width: 232px;
-            height: 54px;
-            position: relative;
-            margin: 10px auto;
-            border: 1px solid blue;
-            overflow: hidden;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        float: left;
+        width: 80px;
+        /* 여백 고려해서 80 */
+      }
+      h1 {
+        text-align: center;
+      }
+      #banner_wrap {
+        width: 260px;
+        height: 120px;
+        padding: 10px 20px;
+        margin: 0 auto;
+        border: 1px solid #aaa;
+      }
+      #banner {
+        width: 800px;
+        height: 54px;
+        border: 1px solid red;
+      }
+      #frame {
+        width: 232px;
+        height: 54px;
+        position: relative;
+        margin: 10px auto;
+        border: 1px solid blue;
+        overflow: hidden;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>롤링 슬라이더 배너 만들기</h1>
     <div id="banner_wrap">
-        <div id="frame">
-            <ul id="banner">
-                <li><a href="#"><img src="images/pic_t1.jpg" alt=""></a></li>
-                <li><a href="#"><img src="images/pic_t2.jpg" alt=""></a></li>
-                <li><a href="#"><img src="images/pic_t3.jpg" alt=""></a></li>
-                <li><a href="#"><img src="images/pic_t4.jpg" alt=""></a></li>
-                <li><a href="#"><img src="images/pic_t5.jpg" alt=""></a></li>
-                <!-- <li><a href="#"><img src="images/pic_t1.jpg" alt=""></a></li>
+      <div id="frame">
+        <ul id="banner">
+          <li>
+            <a href="#"><img src="images/pic_t1.jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pic_t2.jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pic_t3.jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pic_t4.jpg" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="images/pic_t5.jpg" alt="" /></a>
+          </li>
+          <!-- <li><a href="#"><img src="images/pic_t1.jpg" alt=""></a></li>
                 <li><a href="#"><img src="images/pic_t2.jpg" alt=""></a></li>
                 <li><a href="#"><img src="images/pic_t3.jpg" alt=""></a></li> -->
-            </ul>
-        </div>
-        <p>
-            <a class="prev" href="#"><img src="images/prev_btn.png" alt=""></a>
-            <a class="next" href="#"><img src="images/next_btn.png" alt=""></a>
-        </p>
+        </ul>
+      </div>
+      <p>
+        <a class="prev" href="#"><img src="images/prev_btn.png" alt="" /></a>
+        <a class="next" href="#"><img src="images/next_btn.png" alt="" /></a>
+      </p>
     </div>
     <script>
-        // let list = document.getElementById('banner'); //li를 감싸는 넓이 800 ul#banner
-        // let listLi = document.querySelectorAll('#banner li'); //사진을 감싸는 li 총 5개
-        let total = $('#banner > li').length; //5
-        // alert(total);
-        // let li_width = 80; 
-        // let li_width = document.querySelector('#banner>li').offsetWidth;
-        let li_width = $('#banner > li').eq(0).width();
-        let li_width1 = parseInt($('#banner > li').eq(0).css('width'));
-        let copy1 = $('#banner > li:lt(3)').clone();
-        //##banner > li 중 인덱스 번호 3보다 작은(0, 1, 2)을 clon복사(ctrl+)
-        // alert(li_width);
-        $('#banner').append(copy1); // #banner 맨 뒤로 복사한 (0, 1, 2) 추가 -> append 뒤로 추가
+      // let list = document.getElementById('banner'); //li를 감싸는 넓이 800 ul#banner
+      // let listLi = document.querySelectorAll('#banner li'); //사진을 감싸는 li 총 5개
+      let total = $("#banner > li").length; //5
+      // alert(total);
+      // let li_width = 80;
+      // let li_width = document.querySelector('#banner>li').offsetWidth;
+      let li_width = $("#banner > li").eq(0).width();
+      let li_width1 = parseInt($("#banner > li").eq(0).css("width"));
+      let copy1 = $("#banner > li:lt(3)").clone();
+      //##banner > li 중 인덱스 번호 3보다 작은(0, 1, 2)을 clon복사(ctrl+)
+      // alert(li_width);
+      $("#banner").append(copy1); // #banner 맨 뒤로 복사한 (0, 1, 2) 추가 -> append 뒤로 추가
 
-        let num = 0;
+      let num = 0;
 
-        $('.next').click(function(e){
-            e.preventDefault();
+      $(".next").click(function (e) {
+        e.preventDefault();
 
-            if(num === 5){
-                num = 0;
-                $('#banner').css('margin-left', '0');
-            }
-            num++;
-            $('#banner').stop().animate({'margin-left':-li_width * num}, 500);
-        });
-        $('.prev').click(function(e){
-            e.preventDefault();
+        if (num === 5) {
+          num = 0;
+          $("#banner").css("margin-left", "0");
+        }
+        num++;
+        $("#banner")
+          .stop()
+          .animate({ "margin-left": -li_width * num }, 500);
+      });
+      $(".prev").click(function (e) {
+        e.preventDefault();
 
-            if(num === 0){
-                num = 5;
-                $('#banner').css('margin-left', -li_width * num + 'px');
-            }
-            num--;
-            $('#banner').stop().animate({'margin-left':-li_width * num}, 500);
-            
-        });
-        // 자동 슬라이드
-        var id = setInterval(autoPlay, 2000);
-        function autoPlay(){
-            if(num === 5){
-                num = 0;
-                $('#banner').css('margin-left', '0');
-            }
-            num++;
-            $('#banner').stop().animate({'margin-left':-li_width * num}, 500);
-        };
+        if (num === 0) {
+          num = 5;
+          $("#banner").css("margin-left", -li_width * num + "px");
+        }
+        num--;
+        $("#banner")
+          .stop()
+          .animate({ "margin-left": -li_width * num }, 500);
+      });
+      // 자동 슬라이드
+      var id = setInterval(autoPlay, 2000);
+      function autoPlay() {
+        if (num === 5) {
+          num = 0;
+          $("#banner").css("margin-left", "0");
+        }
+        num++;
+        $("#banner")
+          .stop()
+          .animate({ "margin-left": -li_width * num }, 500);
+      }
 
-        $('#frame').mouseover(function(){
-            clearInterval(id);
-        });
-        //프레임에 마우스 올리면 멈춤
-        $('#frame').mouseout(function(){
-            id = setInterval(autoPlay, 2000);
-        });
-        //프레임에서 마우스 내리면 다시 재생
+      $("#frame").mouseover(function () {
+        clearInterval(id);
+      });
+      //프레임에 마우스 올리면 멈춤
+      $("#frame").mouseout(function () {
+        id = setInterval(autoPlay, 2000);
+      });
+      //프레임에서 마우스 내리면 다시 재생
 
-        // 자바스크립트
-        // let list = document.getElementById('banner'); //li를 감싸는 넓이 800 ul#banner
-        // // let listLi = document.querySelectorAll('#banner li'); //사진을 감싸는 li 총 5개
-        // let total = $('#banner > li').length; //5
-        // // alert(total);
-        // // let li_width = 80; 
-        // let li_width = document.querySelector('#banner>li').offsetWidth;
-        // let num = 0;
-        // document.querySelector('.next').addEventListener('click', function(e){
-        //     e.preventDefault();
-        //     if(num == 5){
-        //         num = 0;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = 0;
-        //         //트랜지션이 없으므로 움직임없이 첫번째 사진으로 순간적으로 이동
-        //     }
-        //     setTimeout(function(){
-        //         num++;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = -li_width * num + 'px';
-        //     }, 50);
-            
-        // });
-        // document.querySelector('.prev').addEventListener('click', function(e){
-        //     e.preventDefault();
-        //     if(num == 0){
-        //         num = 5;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = -li_width * num + 'px';
-        //     }
-        //     setTimeout(function(){
-        //         num--;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = -li_width * num + 'px';
-        //     }, 50);
+      // 자바스크립트
+      // let list = document.getElementById('banner'); //li를 감싸는 넓이 800 ul#banner
+      // // let listLi = document.querySelectorAll('#banner li'); //사진을 감싸는 li 총 5개
+      // let total = $('#banner > li').length; //5
+      // // alert(total);
+      // // let li_width = 80;
+      // let li_width = document.querySelector('#banner>li').offsetWidth;
+      // let num = 0;
+      // document.querySelector('.next').addEventListener('click', function(e){
+      //     e.preventDefault();
+      //     if(num == 5){
+      //         num = 0;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = 0;
+      //         //트랜지션이 없으므로 움직임없이 첫번째 사진으로 순간적으로 이동
+      //     }
+      //     setTimeout(function(){
+      //         num++;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = -li_width * num + 'px';
+      //     }, 50);
 
-        //     function autoPlay(){
-        //     if(num == total){
-        //         num = 0;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = 0;
-        //         //트랜지션이 없으므로 움직임없이 첫번째 사진으로 순간적으로 이동
-        //     }
-        //     setTimeout(function(){
-        //         num++;
-        //         list.style.transition = 'margin-left 0.5S';
-        //         list.style.marginLeft = -li_width * num + 'px';
-        //     }, 50);
-        // }
-            
-        // });
+      // });
+      // document.querySelector('.prev').addEventListener('click', function(e){
+      //     e.preventDefault();
+      //     if(num == 0){
+      //         num = 5;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = -li_width * num + 'px';
+      //     }
+      //     setTimeout(function(){
+      //         num--;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = -li_width * num + 'px';
+      //     }, 50);
 
+      //     function autoPlay(){
+      //     if(num == total){
+      //         num = 0;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = 0;
+      //         //트랜지션이 없으므로 움직임없이 첫번째 사진으로 순간적으로 이동
+      //     }
+      //     setTimeout(function(){
+      //         num++;
+      //         list.style.transition = 'margin-left 0.5S';
+      //         list.style.marginLeft = -li_width * num + 'px';
+      //     }, 50);
+      // }
+
+      // });
     </script>
-</body>
+  </body>
 </html>
