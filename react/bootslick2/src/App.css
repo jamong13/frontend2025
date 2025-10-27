@@ -1,0 +1,62 @@
+.slider-wrapper {
+  position: relative;
+  padding: 20px 0 60px 0;
+}
+
+.slide-item {
+  position: relative;
+}
+
+.slide-item img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slide-caption {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.slide-caption h6 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 슬라이더 버튼 커스터마이징 */
+.slick-prev,
+.slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+  color: black;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: white;
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+}

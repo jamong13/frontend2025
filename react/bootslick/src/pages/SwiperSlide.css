@@ -1,0 +1,52 @@
+.swiper-container {
+  padding: 20px 0 60px 0;
+}
+
+.swiper-slide-item {
+  text-align: center;
+}
+
+.swiper-slide-item img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide-item:hover img {
+  transform: scale(1.05);
+}
+
+.swiper-caption {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.swiper-caption h6 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Swiper 네비게이션 버튼 커스터마이징 */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+  width: 40px;
+  height: 40px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+  background: #000;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}

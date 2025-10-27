@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useRef } from "react";
+import React, { useReducer, useRef } from "react";
 import "./App.css";
 import Header from "./component/header";
 import TodoEditor from "./component/TodoEditor";
