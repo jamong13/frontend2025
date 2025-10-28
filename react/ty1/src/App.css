@@ -1,0 +1,213 @@
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-title {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid;
+}
+
+.ts-title {
+  color: #667eea;
+  border-color: #667eea;
+}
+
+.js-title {
+  color: #764ba2;
+  border-color: #764ba2;
+}
+
+.code-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.code-content {
+  color: #d4d4d4;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.demo {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.benefits {
+  margin-top: 20px;
+}
+
+.benefits h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.benefits ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.benefits li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.benefits li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+/* 실전 예제 섹션 */
+.practical-examples {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.examples-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.example-section {
+  margin-bottom: 40px;
+}
+
+.example-section h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.comparison-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.comparison-item h4 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.comparison-item pre {
+  background: #2d2d2d;
+  color: #d4d4d4;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* 결론 섹션 */
+.conclusion {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.conclusion h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.conclusion p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recommendation {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .comparison-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .code-comparison {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 20px;
+  }
+  
+  .code-content {
+    font-size: 0.8rem;
+  }
+}
+

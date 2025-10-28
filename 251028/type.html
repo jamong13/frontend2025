@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>javascript 와 TypeScript 차이 예제</h2>
+    <p>결과는 console 확인</p>
+    <script>
+      // JavaScript 버전
+      function add(a, b) {
+        return a + b;
+      }
+      console.log("====jabascript====");
+      console.log(add(1, 2));
+      console.log(add("1", "2")); // 12
+      console.log(add(1, "2")); // 12
+      console.log(add(null, 2)); // 2(null은 숫자 0으로 처리)
+
+      //   TypeScript 버전(런타임 흉내)
+      function addTs(a, b) {
+        if (typeof a !== "number" || typeof b !== "number") {
+          throw new Error("타입오류! 숫자만 입력해야 합니다.");
+        }
+        return a + b;
+      }
+      console.log("====TypeScript (흉내)====");
+      console.log(addTs(1, 2)); // 3
+      try {
+        console.log(addTs("1", "2")); // ❌ 오류
+      } catch (e) {
+        console.error(e.message);
+      }
+      try {
+        console.log(addTs(null, 2)); // ❌ 오류
+      } catch (e) {
+        console.error(e.message);
+      }
+    </script>
+  </body>
+</html>
