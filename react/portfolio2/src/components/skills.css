@@ -1,0 +1,159 @@
+.skills-section {
+  padding: 5rem 1rem;
+  background: rgba(17, 24, 39, 0.5);
+}
+
+.section-subtitle {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #9ca3af;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.skill-category-card {
+  background: black;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1a1a1a;
+  transition: all 0.3;
+}
+.skill-category-card:hover {
+  border-color: #a855f7;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.skills-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: #111827;
+}
+.skill-item:hover {
+  transform: scale(1.1);
+}
+.skill-icon {
+  font-size: 1.875rem;
+  margin-bottom: 0.5rem;
+}
+.skill-orange {
+  color: #f97316;
+}
+
+.skill-blue {
+  color: #3b82f6;
+}
+
+.skill-yellow {
+  color: #eab308;
+}
+
+.skill-cyan {
+  color: #06b6d4;
+}
+
+.skill-white {
+  color: white;
+}
+
+.skill-lightcyan {
+  color: #67e8f9;
+}
+
+.skill-green {
+  color: #10b981;
+}
+
+.skill-gray {
+  color: #6b7280;
+}
+
+.skill-lightyellow {
+  color: #fde047;
+}
+
+.skill-lightgreen {
+  color: #4ade80;
+}
+
+.skill-lightblue {
+  color: #60a5fa;
+}
+
+.skill-darkorange {
+  color: #f97316;
+}
+
+.skill-lightgray {
+  color: #9ca3af;
+}
+.skill-name {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* 프로그레스 바 */
+.skills-bars {
+  margin-top: 2rem;
+}
+.skills-bars-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.skill-bar-container {
+  margin-bottom: 1.5rem;
+}
+.skill-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.skill-bar-label {
+  font-weight: 500;
+  counter-reset: #d1d5db;
+}
+.skill-bar-value {
+  color: #a855f7;
+  font-weight: bold;
+}
+.skill-bar-track {
+  width: 100%;
+  background: #1f2937;
+  border-radius: 9999px;
+  height: 0.75rem;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 0.75rem;
+  background: linear-gradient(to right, #a855f7, #3b82f6);
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+}
