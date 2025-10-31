@@ -1,0 +1,173 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contact-section {
+  padding: 5rem 1rem;
+  background: rgba(17, 24, 39, 0.5);
+}
+
+.contact-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.contact-info-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info-text {
+  color: #d1d5db;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-icon {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.contact-icon:hover {
+  transform: scale(1.1);
+}
+
+.contact-icon-purple {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.contact-icon-blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+.contact-icon-green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.contact-detail-item h4 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.contact-detail-item a {
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.contact-detail-item a:hover {
+  color: #a855f7;
+}
+
+.contact-detail-item p {
+  color: #9ca3af;
+}
+.social-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  padding: 0.75rem;
+  background: #1a1a1a;
+  border-radius: 0.5rem;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  background: #a855f7;
+  color: white;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  color: white;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #a855f7;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #a855f7, #3b82f6);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-button:hover {
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+  transform: scale(1.02);
+}
+
+.footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+  color: #9ca3af;
+}

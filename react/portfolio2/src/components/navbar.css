@@ -1,0 +1,125 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* bottom: 0까지 쓰면 큰일나므로 쓰지 말 것 */
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+.navbar-logo {
+  flex-shrink: 0;
+}
+/* flex-shrink: 0; 공간 부족하면 줄어듦 */
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #60a5fa, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.desktop-nav {
+  display: none;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+.nav-button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+  /* 이걸 안 주면 나중에 .active가 부여될 때 버튼이 들썩거림 */
+  font-size: 0.875rem;
+}
+.nav-button:hover {
+  color: white;
+}
+.nav-button.active {
+  color: #a855f7;
+  border-bottom-color: #a855f7;
+}
+.mobile-menu-button {
+  display: flex;
+  color: #9ca3af;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.mobile-menu-button:hover {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+.mobile-nav {
+  padding: 1rem 0;
+  border-top: 1px solid #1a1a1a;
+  animation: slideDown 0.3s ease-out;
+}
+
+.mobile-nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-nav-button {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  transition: all 0.3s;
+  font-size: 0.875rem;
+}
+
+.mobile-nav-button:hover {
+  color: white;
+  background: #1f2937;
+}
+
+.mobile-nav-button.active {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+  border-left: 4px solid #a855f7;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

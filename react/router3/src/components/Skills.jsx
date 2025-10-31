@@ -69,7 +69,6 @@ export default function Skills() {
             Technologies and tools I work with to build amazing applications
           </p>
         </div>
-        {/* skillCategories */}
         {/* Skill Categories */}
         <div className="skills-grid">
           {skillCategories.map((category, categoryIndex) => (
