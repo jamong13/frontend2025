@@ -1,0 +1,99 @@
+// 변수 정의
+$btn-primary: #3498db;
+$btn-success: #2ecc71;
+$btn-danger: #e74c3c;
+$btn-warning: #f39c12;
+$btn-secondary: #95a5a6;
+
+// 믹스인
+@mixin btn-size($padding-y, $padding-x, $font-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+}
+
+// 버튼 기본 스타일
+.btn {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: inherit;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // 사이즈 변형
+  &--small {
+    @include btn-size(6px, 12px, 12px);
+  }
+  // &--small html btn--large
+  // &--small Scss {padding: 6px 12px; font-size: 12px}
+
+  // .btn 클래스를 가진 요소 중에서 small 변형을 가진 경우
+  // & 부모를 나타냄 -> .btn--large or .btn--primary (상태/ 크기/ 색상) 등을 변형
+  &--medium {
+    @include btn-size(10px, 20px, 14px);
+  }
+
+  &--large {
+    @include btn-size(14px, 28px, 16px);
+  }
+
+  // 색상 변형
+  &--primary {
+    background-color: $btn-primary;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($btn-primary, 10%);
+    }
+  }
+
+  &--success {
+    background-color: $btn-success;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($btn-success, 10%);
+    }
+  }
+
+  &--danger {
+    background-color: $btn-danger;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($btn-danger, 10%);
+    }
+  }
+
+  &--warning {
+    background-color: $btn-warning;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($btn-warning, 10%);
+    }
+  }
+
+  &--secondary {
+    background-color: $btn-secondary;
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: darken($btn-secondary, 10%);
+    }
+  }
+}

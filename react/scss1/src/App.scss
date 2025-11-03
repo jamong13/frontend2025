@@ -1,0 +1,38 @@
+@import "./styles/_variables.scss";
+@import "./styles/mixins";
+
+body {
+  background: #f9fafb;
+  font-family: "Pretendard", sans-serif;
+}
+
+// Card 스타일
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: $radius;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $text-gray;
+  }
+  .btn {
+    @include flex-center;
+
+    background: $primary-color;
+    color: white;
+    padding: 10px 15px;
+    border-radius: $radius;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+}
