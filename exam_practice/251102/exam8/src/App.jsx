@@ -50,27 +50,8 @@ export default function App() {
   }
    `;
   const answer = `
-  import React, { useState, useCallback } from 'react';
-
-  function Parent() {
-    const [count, setCount] = useState(0);
-    
-    const handleClick = useCallback(() => {
-      console.log('클릭됨!');
-    }, []);
-    
-    return (
-      <div>
-        <p>카운트: {count}</p>
-        <button onClick={() => setCount(count + 1)}>증가</button>
-        <Child onClick={handleClick} />
-      </div>
-    );
-  }
-
-  function Child({ onClick }) {
-    return <button onClick={onClick}>클릭</button>;
-  }
+  useCallback
+  useCallback
   `;
 
   function Parent() {

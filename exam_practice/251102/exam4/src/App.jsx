@@ -29,18 +29,9 @@ function AutoFocus() {
   return <input ref={???} type="text" placeholder="자동으로 포커스됩니다" />;
 }`;
   const answer = `
-  import React, { useRef, useEffect } from 'react';
-  function AutoFocus() {
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-      inputRef.current.focus();
-    }, []);
-
-    return (
-      <input ref={inputRef} type="text" placeholder="자동으로 포커스됩니다" />
-    );
-  }`;
+  useRef(null)
+  inputRef.current
+  inputRef`;
   function AutoFocus() {
     const inputRef = useRef(null);
 

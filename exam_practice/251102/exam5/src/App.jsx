@@ -39,16 +39,24 @@ export default function App() {
 
   return <div>현재 테마: {theme}</div>;
   }`;
-  const answer = ``;
+  const answer = `
+  useContext
+  ThemeContext`;
+  const ThemeContext = createContext("light");
 
+  function Child() {
+    const theme = useContext(ThemeContext);
+
+    return <div>현재 테마: {theme}</div>;
+  }
   return (
     <div>
       <div>
         <div>
           <p>
-            아직 안 배움 ## 문제 5: useContext 기본 사용
+            5: useContext 기본 사용
             <br />
-            // 아래 코드에서 `ThemeContext`를 사용하여 테마를 가져오려면 `???`를
+            아래 코드에서 `ThemeContext`를 사용하여 테마를 가져오려면 `???`를
             어떻게 채워야 하나요?
           </p>
           <br />
@@ -60,7 +68,9 @@ export default function App() {
           </pre>
         </div>
       </div>
-      <AutoFocus />
+      <ThemeContext.Provider value="dark">
+        <Child />
+      </ThemeContext.Provider>
       <div>
         <p>답: </p>
         <pre>

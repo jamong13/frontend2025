@@ -41,22 +41,9 @@ export default function App() {
     );
   }`;
   const answer = `
-  import React, { useState } from 'react';
-
-  function DoubleCounter() {
-    const [count, setCount] = useState(0);
-      const handleClick = () => {
-      ???((prev) => prev + 1);
-      ???((prev) => prev + 1);
-    };
-
-    return (
-      <div>
-        <p>카운트: {count}</p>
-        <button onClick={handleClick}>두 번 증가</button>
-      </div>
-      );
-  }
+  setCount
+  setCount
+  
   **설명:**
   함수형 업데이트를 사용하면 이전 상태 값을 기반으로 상태를 업데이트할 수 있습니다. 
   두 번의 setCount 호출이 모두 이전 값을 기준으로 계산되므로 최종적으로 2가 증가합니다.`;

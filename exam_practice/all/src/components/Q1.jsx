@@ -19,7 +19,7 @@ import React, { useState } from "react";
 
 // export default Counter;
 // ```
-export default function App() {
+export default function Q1() {
   function Counter() {
     const [count, setCount] = useState(0);
 
@@ -30,16 +30,17 @@ export default function App() {
       </div>
     );
   }
-  const question = `import React from 'react';
-          function Counter() {
-          const [count, ???] = ???(???);
-          return (
-            <div>
-              <p>현재 카운터: {count}</p>
-              <button onClick={() => ???(count + 1)}>증가</button>
-            </div>
-            );
-          }`;
+  const question = `
+  import React from 'react';
+    function Counter() {
+    const [count, ???] = ???(???);
+    return (
+        <div>
+            <p>현재 카운터: {count}</p>
+            <button onClick={() => ???(count + 1)}>증가</button>
+        </div>
+        );
+    }`;
   const answer = `
   setCount
   useState

@@ -45,24 +45,9 @@ export default function App() {
   }
    `;
   const answer = `
-  import React, { useState, useEffect } from 'react';
-  
-  function UserProfile() {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-      fetch("https://api.example.com/user")
-        .then((res) => res.json())
-        .then((data) => {
-          setUser(data);
-          setLoading(false);
-        });
-    }, []);
-
-    if (loading) return <div>로딩 중...</div>;
-    return <div>사용자: {user?.name}</div>;
-  }
+  useEffect
+  setUser
+  setLoading
   `;
 
   function UserProfile() {

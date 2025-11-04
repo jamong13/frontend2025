@@ -24,7 +24,7 @@ import React, { useEffect, useState } from "react";
 // }
 // ```
 
-export default function App() {
+export default function Q3() {
   const question = `import React, { useEffect, useState } from 'react';
   function Countdown() {
   const [count, setCount] = useState(5);

@@ -46,27 +46,9 @@ export default function App() {
   }
    `;
   const answer = `
-  import React, { useState, useMemo } from "react";
-
-  function ExpensiveComponent() {
-    const [number, setNumber] = useState(0);
-    const [toggle, setToggle] = useState(false);
-
-    const expensiveValue = useMemo(() => {
-      console.log("비용이 많이 드는 계산 실행");
-      return number * number;
-    }, [number]);
-
-    return (
-      <div>
-        <p>결과: {expensiveValue}</p>
-        <button onClick={() => setNumber(number + 1)}>
-          숫자 증가: {number}
-        </button>
-        <button onClick={() => setToggle(!toggle)}>토글</button>
-      </div>
-    );
-  }
+  useMemo
+  useMemo
+  number
   `;
   function ExpensiveComponent() {
     const [number, setNumber] = useState(0);
