@@ -1,0 +1,250 @@
+import React, { useState, useRef } from "react";
+
+// ## 보너스 (선택사항)
+
+// - 더미데이터 3개 추가✅
+// - 전체 선택/해제 버튼 추가✅
+
+const mockTodo = [
+  {
+    id: 0,
+    text: "react 공부하기",
+    completed: false,
+  },
+  {
+    id: 1,
+    text: "집안일 하기",
+    completed: false,
+  },
+  {
+    id: 2,
+    text: "장보기",
+    completed: false,
+  },
+];
+
+export default function App() {
+  const [todos, setTodos] = useState(mockTodo);
+  const [inputValue, setInputValue] = useState("");
+  const idRef = useRef(3);
+
+  // 할 일 추가
+  const handleAddTodo = () => {
+    if (inputValue.trim() === "") {
+      alert("할 일을 입력해주세요!");
+      return;
+    }
+
+    const newTodo = {
+      id: idRef.current++,
+      text: inputValue,
+      completed: false,
+    };
+
+    setTodos([...todos, newTodo]);
+    setInputValue(""); // input 초기화
+  };
+
+  // Enter 키로 추가
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleAddTodo();
+    }
+  };
+
+  // 완료 상태 토글
+  const handleToggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  // 할 일 삭제
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  // 전체 선택/선택 해제
+  const handleToggleAll = () => {
+    const isAllCompleted = todos.every((todo) => todo.completed);
+    // 모두 완료되어 있다면 전부 해제, 아니라면 전부 완료로
+    const updatedTodos = todos.map((todo) => ({
+      ...todo,
+      completed: !isAllCompleted,
+    }));
+    setTodos(updatedTodos);
+  };
+
+  // 통계 계산
+  const totalCount = todos.length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.title}>📝 Todo List</h1>
+      <h2 style={styles.title}>{new Date().toDateString()}</h2>
+      {/* 입력 영역 */}
+      <div style={styles.inputContainer}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyPress}
+          placeholder="할 일을 입력하세요..."
+          style={styles.input}
+        />
+        <button onClick={handleAddTodo} style={styles.addButton}>
+          추가
+        </button>
+      </div>
+      {/* 전체 선택/선택해제 */}
+      {todos.length > 0 && (
+        <button onClick={handleToggleAll} style={styles.toggleAllButton}>
+          {todos.every((todo) => todo.completed)
+            ? "전체 해제 ✖️"
+            : "전체 선택 ✔️"}
+        </button>
+      )}
+      {/* 할 일 목록 */}
+      <div style={styles.todoList}>
+        {todos.length === 0 ? (
+          <p style={styles.emptyMessage}>할 일이 없습니다. 추가해보세요! 😊</p>
+        ) : (
+          todos.map((todo) => (
+            <div key={todo.id} style={styles.todoItem}>
+              <input
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => handleToggleTodo(todo.id)}
+                style={styles.checkbox}
+              />
+              <span
+                style={{
+                  ...styles.todoText,
+                  textDecoration: todo.completed ? "line-through" : "none",
+                  color: todo.completed ? "#999" : "#333",
+                }}
+              >
+                {todo.text}
+              </span>
+              <button
+                onClick={() => handleDeleteTodo(todo.id)}
+                style={styles.deleteButton}
+              >
+                삭제
+              </button>
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* 통계 */}
+      {todos.length > 0 && (
+        <div style={styles.statistics}>
+          <span>전체: {totalCount}개</span>
+          <span style={styles.divider}>|</span>
+          <span>완료: {completedCount}개</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const styles = {
+  container: {
+    maxWidth: "600px",
+    margin: "0 auto",
+    padding: "2rem",
+    fontFamily: "Arial, sans-serif",
+  },
+  title: {
+    textAlign: "center",
+    color: "#333",
+    marginBottom: "2rem",
+  },
+  toggleAllButton: {
+    display: "block",
+    margin: "10px 0",
+    backgroundColor: "#1f93ff",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    padding: "10px 20px",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+  },
+  inputContainer: {
+    display: "flex",
+    gap: "0.5rem",
+    marginBottom: "2rem",
+  },
+  input: {
+    flex: 1,
+    padding: "12px",
+    fontSize: "1rem",
+    border: "2px solid #ddd",
+    borderRadius: "5px",
+    outline: "none",
+  },
+  addButton: {
+    padding: "12px 24px",
+    fontSize: "1rem",
+    backgroundColor: "#28a745",
+    color: "white",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "background-color 0.3s",
+  },
+  todoList: {
+    marginBottom: "1rem",
+  },
+  todoItem: {
+    display: "flex",
+    alignItems: "center",
+    padding: "12px",
+    backgroundColor: "#f8f9fa",
+    borderRadius: "5px",
+    marginBottom: "0.5rem",
+    gap: "0.5rem",
+  },
+  checkbox: {
+    width: "20px",
+    height: "20px",
+    cursor: "pointer",
+  },
+  todoText: {
+    flex: 1,
+    fontSize: "1rem",
+    transition: "all 0.3s",
+  },
+  deleteButton: {
+    padding: "6px 12px",
+    backgroundColor: "#dc3545",
+    color: "white",
+    border: "none",
+    borderRadius: "3px",
+    cursor: "pointer",
+    fontSize: "0.875rem",
+  },
+  statistics: {
+    textAlign: "center",
+    padding: "1rem",
+    backgroundColor: "#e9ecef",
+    borderRadius: "5px",
+    fontSize: "1rem",
+    fontWeight: "bold",
+    color: "#495057",
+  },
+  divider: {
+    margin: "0 1rem",
+  },
+  emptyMessage: {
+    textAlign: "center",
+    color: "#999",
+    fontSize: "1.1rem",
+    padding: "2rem",
+  },
+};
