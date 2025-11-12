@@ -15,7 +15,15 @@
   --subway-cream: #f6eee0;
   --subway-gray: #586476;
   --container-width: min(1120px, 92vw);
-  --shadow-soft: 0 16px 48px rgba(16, 56, 40, 0.12);
+  /* 1920(pc) min(1120, 1766.4px) -> 1120 */
+  /* 800px(태블릿) min(1120, 736) -> 736*/
+  /* 
+  | 화면 너비         | 계산 결과                                 |
+  | ---------------  | --------------------------------------- |
+  | 1920px (데스크탑) | `min(1120px, 1766.4px)` → **1120px 적용**|
+  | 800px (태블릿)   | `min(1120px, 736px)` → **736px 적용**     |
+  | 400px (모바일)   | `min(1120px, 368px)` → **368px 적용**     |
+    --shadow-soft: 0 16px 48px rgba(16, 56, 40, 0.12); */
 }
 
 *,
@@ -225,6 +233,24 @@ a {
   padding-bottom: 88px;
 }
 .page-hero {
+  padding: 80px 0 48px;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 104, 56, 0.08),
+    rgba(255, 194, 14, 0.08)
+  );
+  text-align: center;
+}
+.page-hero h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2.4rem, 2.8vw, 3rem);
+  color: var(--subway-dark);
+}
+
+.page-hero p {
+  margin: 0 auto;
+  max-width: 640px;
+  color: var(--subway-gray);
 }
 
 .hero-section {
@@ -244,6 +270,7 @@ a {
 .hero-copy h1 {
   margin: 12px 0 16px;
   font-size: clamp(2.8rem, 4vw, 3.6rem);
+  /* 반응형 폰트 사이즈 */
   font-weight: 800;
 }
 
@@ -385,4 +412,287 @@ a {
 
 .btn-outline:hover {
   background-color: rgba(0, 104, 56, 0.08);
+}
+
+.text-link {
+  font-weight: 600;
+  color: var(--subway-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-link:hover {
+  color: var(--subway-dark);
+}
+
+.menu-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 14px 32px rgba(31, 45, 61, 0.08);
+  border: 1px solid rgba(0, 104, 56, 0.08);
+}
+
+.menu-card h2 {
+  margin-bottom: 8px;
+  color: var(--subway-dark);
+}
+
+.menu-card ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.menu-card li {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: var(--subway-cream);
+  color: var(--subway-dark);
+  font-weight: 600;
+}
+
+.menu-description {
+  margin: 0;
+  color: var(--subway-gray);
+}
+
+.menu-tip {
+  margin-top: 72px;
+  padding: 48px 0;
+  background: rgba(0, 104, 56, 0.06);
+}
+
+.tips-inner {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
+}
+
+.tips-inner ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--subway-gray);
+  line-height: 1.6;
+}
+
+.steps-section {
+  padding: 64px 0;
+}
+.step-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.step-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 104, 56, 0.08);
+  box-shadow: 0 18px 36px rgba(31, 45, 61, 0.12);
+}
+.step-number {
+  display: inline-flex;
+  /* 내부 글자나 아이콘을 가로세로 중앙 정렬 */
+  align-items: center;
+  /* 세로 중앙 */
+  justify-content: center;
+  /* 가로 중앙 */
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--subway-yellow);
+  color: var(--subway-dark);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.online-order {
+  padding: 64px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 104, 56, 0.08),
+    rgba(255, 194, 14, 0.12)
+  );
+}
+
+.online-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.news-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.news-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 104, 56, 0.07);
+  box-shadow: 0 14px 28px rgba(31, 45, 61, 0.1);
+}
+
+.news-list {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.news-card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 104, 56, 0.07);
+  box-shadow: 0 14px 28px rgba(31, 45, 61, 0.1);
+}
+
+.new-card p {
+  color: var(--subway-gray);
+  margin-bottom: 16px;
+}
+.news-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: rgba(0, 104, 56, 0.12);
+  color: var(--subway-green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.media-banner {
+  margin-top: 72px;
+  padding: 56px 0;
+  background-color: var(--subway-dark);
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+.media-banner h3 {
+  margin: 0 0 12px;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.milestone-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.milestone-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 104, 56, 0.08);
+  box-shadow: 0 16px 36px rgba(31, 45, 61, 0.1);
+}
+
+.milestone-card h2 {
+  margin-bottom: 12px;
+  color: var(--subway-dark);
+}
+
+.milestone-card p {
+  color: var(--subway-gray);
+}
+
+.franchise-contact {
+  margin-top: 72px;
+  padding: 64px 0;
+  background: rgba(0, 104, 56, 0.06);
+}
+.contact-inner {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+}
+.contact-inner ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+  color: var(--subway-gray);
+  line-height: 1.6;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.site-footer {
+  background: #0a2a1c;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 32px 0;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-weight: 600;
+}
+.footer-links a:hover {
+  color: var(--subway-yellow);
+}
+
+@media (max-width: 768px) {
+  .site-nav {
+    gap: 16px;
+    font-size: 0.95rem;
+  }
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .site-nav > ul {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px 0;
+  }
+  .mega-menu {
+    display: none;
+  }
+  .hero-section {
+    padding: 72px 0;
+  }
+  .hero-section h1 {
+    font-size: clamp(2.4rem, 8vw, 3rem);
+  }
+  .cta-inner {
+    flex-direction: column;
+    /* 수직인 방향으로 정렬 */
+    align-items: flex-start;
+    /* 왼쪽 정렬 */
+  }
+  .footer-inner {
+    align-items: flex-start;
+  }
 }
