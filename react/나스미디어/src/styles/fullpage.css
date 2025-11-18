@@ -1,0 +1,9 @@
+/* Additional overrides for fullpage-style layout */
+
+html,
+.app-root {
+  background-color: #000;
+}
+
+
+

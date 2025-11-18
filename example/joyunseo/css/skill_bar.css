@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+.scene{
+		position:absolute;
+		width:100%;
+		height:100%;
+		top:50%;
+		transform:translateY(-50%);
+	}
+	.scene #content{
+		position:absolute;
+		width:100%;
+		height:100%;
+	}
+	.scene #content .charts{
+		position:relative;
+		width:100%;
+		height:100%;
+	}
+	.chart{
+		position:relative;
+		width:15%;
+		height:auto;
+		float:left;
+		margin:25px 2.5%;
+		
+	}
+	.chart img{
+		width:100%;
+		height:auto;
+		display:block;
+	}
+	.chart .circle-mask-outer{
+		position:absolute;
+		top:0;
+		width:50%;
+		height:100%;
+		overflow:hidden;
+	}
+	.chart .circle-mask-outer.left{
+		left:0;
+	}
+	.chart .circle-mask-outer.right{
+		right:0;
+	}
+	
+	.chart .circle-mask-outer .circle-mask-inner{
+		position:absolute;
+		width:100%;
+		width:calc(100% + 0.1px);
+		width:-webkit-calc(100% + 0.1px);
+		height:100%;
+		overflow:hidden;
+		
+		background-color:#f1c652;
+		transform:rotate(0deg);
+	}
+	.chart .circle-mask-outer.left .circle-mask-inner{
+		left:100%;
+		transform-origin:0% 50%;
+		border-radius:0 100% 100% 0 / 0 50% 50% 0;
+	}
+	.chart .circle-mask-outer.right .circle-mask-inner{
+		right:100%;
+		transform-origin:100% 50%;
+		border-radius:100% 0 0 100% / 50% 0 0 50%;
+	}
+	
+	/*.circle-body{
+		position:absolute;
+		width:200%;
+		height:100%;
+		top:0;
+		background-color:#f1c652;
+		border-radius:50%;
+	}*/
+	.circle-mask-outer.left .circle-body{
+		right:0;
+	}
+	.circle-mask-outer.right .circle-body{
+		left:0;
+	}
+
+	.chart-center{
+		position:absolute;
+		left:50%;
+		top:50%;
+		transform:translate(-50%,-50%);
+		width:80%;
+		height:80%;
+		border-radius:50%;
+		background-color:#242328;
+	}
+	
+	.chart-center .chart-title{
+		display:block;
+		position:absolute;
+		left:50%;
+		transform:translateX(-50%);
+		bottom:120%;
+		font-size:15px;
+		color:#fff;
+	}
+	.chart-center .text{
+		position:absolute;
+		left:50%;
+		top:50%;
+		transform:translate(-50%,-50%);
+		font-size:14px;
+		color:#fff;
+	}

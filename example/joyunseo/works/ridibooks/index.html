@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE-Edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="./img/favicon.png"/>
+	<link rel="stylesheet" href="css/css.css"/>
+	<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+	<title>일반도서 - 리디북스</title>		
+	<script>
+	$(function(){
+		var n = 0;
+		var repeat;
+		$(".mainbox li").mouseover(function(){
+			n = $(this).index();
+			
+			$(".mainbox li").removeClass("on");
+			$(this).addClass("on");
+			
+			$(".mainimg li").fadeOut(300);
+			$(".mainimg li").eq(n).fadeIn(300);
+		});
+		
+		timer();
+		
+		function timer(){
+			repeat = setInterval(function(){
+				n++;
+				if(n==6){
+					n=0;
+				}	
+				$(".mainbox li").removeClass("on");
+				$(".mainbox li").eq(n).addClass("on");
+				$(".mainimg li").fadeOut(300);
+				$(".mainimg li").eq(n).fadeIn(300);
+				console.log(n);
+			}, 3000);
+			
+		}
+		
+		$("#main").mouseover(function(){
+			clearInterval(repeat);
+		});
+		$("#main").mouseleave(function(){
+			timer();
+		});
+		
+	});
+	</script>
+</head>
+<body>
+<header>
+	<div class="h_cover">
+		<h1>
+			<a href="#" title="Home"><img src="./img/logo.svg" alt=""/></a>
+		</h1>
+		<div class="search">
+			<i class="fa fa-search" aria-hidden="true"></i>
+			<input type="text" value="" placeholder="제목, 저자, 출판사 검색" name="search"/>
+		</div>
+		<ul>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">로그인</a></li>
+		</ul>
+	</div>
+</header>
+<nav>
+	<div class="n_cover">
+		<p>
+			<a href="#"><i class="fa fa-bars" aria-hidden="true"></i> 카테고리</a>
+		</p>
+		<ul class="gnb_left">
+			<li><a href="#">일반</a></li>
+			<li><a href="#">로맨스</a></li>
+			<li><a href="#">판타지</a></li>
+			<li><a href="#">BL</a></li>
+		</ul>
+		<ul class="gnb_right">
+			<li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> 제휴카드</a></li>
+			<li><a href="#"><i class="fa fa-bolt" aria-hidden="true"></i> 리디캐시 충전</a></li>
+		</ul>
+	</div>
+</nav>
+<div id="main">
+	<ul class="mainimg">
+		<li class="img1"><img src="img/main1.jpg" alt=""/></li>
+		<li class="img2"><img src="img/main2.jpg" alt=""/></li>
+		<li class="img3"><img src="img/main3.jpg" alt=""/></li>
+		<li class="img4"><img src="img/main4.jpg" alt=""/></li>
+		<li class="img5"><img src="img/main5.jpg" alt=""/></li>
+		<li class="img6"><img src="img/main6.jpg" alt=""/></li>
+	</ul>
+	<ul class="mainbox">
+		<li class="on"><a href="#"><img src="img/mainbox1.jpg" alt=""/></a></li>
+		<li><a href="#"><img src="img/mainbox2.jpg" alt=""/></a></li>
+		<li><a href="#"><img src="img/mainbox3.jpg" alt=""/></a></li>
+		<li><a href="#"><img src="img/mainbox4.jpg" alt=""/></a></li>
+		<li><a href="#"><img src="img/mainbox5.jpg" alt=""/></a></li>
+		<li><a href="#"><img src="img/mainbox6.jpg" alt=""/></a></li>
+	</ul>
+</div>
+
+<section>
+	<div class="section1 cf">
+		<h2><i class="fa fa-smile-o" aria-hidden="true"></i> 오늘, 리디의 발견 <i class="fa fa-smile-o" aria-hidden="true"></i></h2>
+		<ul>
+			<li><a href="#">
+				<p>문화가 응축된 수첩<br/>'여권'으로 나라 읽기</p>
+				<img src="./img/xxlarge1.jpg" alt=""/>
+			</a></li>
+			<li><a href="#">
+				<p>어제완 다른 오늘로<br/>인생의 축을 바꿔라!</p>
+				<img src="./img/xxlarge2.jpg" alt=""/>
+			</a></li>
+			<li><a href="#">
+				<p>안드레아스 그루버의<br/>슈나이더 시리즈 신간</p>
+				<img src="./img/xxlarge3.jpg" alt=""/>
+			</a></li>
+			<li><a href="#">
+				<p>인류 문명의 종착지<br/><멋진 신세계> 완역판</p>
+				<img src="./img/xxlarge4.jpg" alt=""/>
+			</a></li>
+			<li><a href="#">
+				<p>통장이 통통해지는<br/>EBS 화제의 다큐!</p>
+				<img src="./img/xxlarge5.jpg" alt=""/>
+			</a></li>
+		</ul>
+	</div>
+	<div class="section2 cf">
+		<ul>
+			<li><a href="#">
+				<img src="./img/icon1_1.png" alt="" title="특가 세트"/>
+				<p>특가 세트</p>
+			</a></li>
+			<li><a href="#">
+				<img src="./img/icon1_2.png" alt="" title="특가 세트"/>
+				<p>대여 도서</p>
+			</a></li>
+			<li><a href="#">
+				<img src="./img/icon1_3.png" alt="" title="특가 세트"/>
+				<p>리디캐시 충전</p>
+			</a></li>
+			<li><a href="#">
+				<img src="./img/icon1_4.png" alt="" title="특가 세트"/>
+				<p>제휴카드</p>
+			</a></li>
+			<li><a href="#">
+				<img src="./img/icon1_5.png" alt="" title="특가 세트"/>
+				<p>팝업 스토어</p>
+			</a></li>
+		</ul>
+	</div>
+	<div class="section3 cf">
+		<h3>금주의 신간</h3>
+		<ul>
+			<li><a href="#">
+				<img src="img/large1.jpg" alt=""/>
+				<p><strong>외과의사 비긴즈</strong>
+					<br>장항석</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large2.jpg" alt=""/>
+				<p><strong>서민 교수의 의학 세계사</strong>
+					<br>서민</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large3.jpg" alt=""/>
+				<p><strong>스마일리</strong>
+					<br>조앤 조지</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large4.jpg" alt=""/>
+				<p><strong>집사의 탄생</strong>
+					<br>박현철</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large5.jpg" alt=""/>
+				<p><strong>10배속 코어 그래머</strong>
+					<br>김대만,신민영 외 1명</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large6.jpg" alt=""/>
+				<p><strong>도덕적 인간과 비도덕적 사회</strong>
+					<br>라인홀드 니버</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large7.jpg" alt=""/>
+				<p><strong>심리학 프리즘</strong>
+					<br>최인철, 폴블룸 외 4명</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large8.jpg" alt=""/>
+				<p><strong>인재로 승리하라</strong>
+					<br>램 차란, 도미닉 바튼 외 1명</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large9.jpg" alt=""/>
+				<p><strong>이기는 부모</strong>
+					<br>김순선</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large10.jpg" alt=""/>
+				<p><strong>기획서 잘 쓰는 법</strong>
+					<br>임영균</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large11.jpg" alt=""/>
+				<p><strong>밤과 여름 사이의 맛</strong>
+					<br>박은영</p>
+			</a></li>
+			<li><a href="#">
+				<img src="img/large12.jpg" alt=""/>
+				<p><strong>참모로 산다는 것</strong>
+					<br>신병주</p>
+			</a></li>
+		</ul>
+	</div>
+	<div class="section4 cf">
+		<ul>
+			<li><a href="#">
+				<p>소설/에세이 대여</p>
+				<img src="./img/icon2_1.png" alt="" title="특가 세트"/>
+			</a></li>
+			<li><a href="#">
+				<p>인문 대여</p>
+				<img src="./img/icon2_2.png" alt="" title="특가 세트"/>
+			</a></li>
+			<li><a href="#">
+				<p>경영/경제 대여</p>
+				<img src="./img/icon2_3.png" alt="" title="특가 세트"/>
+			</a></li>
+			<li><a href="#">
+				<p>자기계발/취미 대여</p>
+				<img src="./img/icon2_4.png" alt="" title="특가 세트"/>
+			</a></li>
+		</ul>
+	</div>
+</section>
+<footer>
+	<div class="foot_cover">
+		<div class="foot_top">
+			<div class="top_left">
+				<h2>
+					<i class="fa fa-phone" aria-hidden="true"></i>
+					<span>1644-0331</span>
+				</h2>
+				<ul class="ul1">	
+					<li><a href="#">고객센터</a></li>
+					<li><a href="#">자주묻는질문</a></li>
+					<li><a href="#">1:1문의하기</a></li>
+				</ul>
+				<p>
+					리디 (주) / 대표 배기식 / 서울시 강남구 역삼동 702-28 어반벤치빌딩 10층 (테헤란로 325)<br>
+					사업자등록번호 120-87-27435 / 통신판매업신고 제 2009-서울강남 35-02139호
+				</p>
+				<ul class="ul2">
+					<li><a href="#">이용약관</a></li>
+					<li><a href="#"><strong>개인 정보 처리 방침</strong></a></li>
+					<li><a href="#">청소년 보호 정책</a></li>
+					<li><a href="#">사업자 정보 확인</a></li>
+				</ul>
+				<p>© RIDI Corp.</p>
+			</div>
+			<div class="top_right">
+				<ul>
+					About
+					<li><a href="#">회사 소개</a></li>
+					<li><a href="#">인사 채용</a></li>
+				</ul>
+				<ul>
+					서비스 이용
+					<li><a href="#">리디캐시 충전</a></li>
+					<li><a href="#">뷰어 다운로드</a></li>
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">고객센터</a></li>
+				</ul>
+				<ul>
+					파트너십
+					<li><a href="#">콘텐츠 제공 문의</a></li>
+					<li><a href="#">CP사이트</a></li>
+					<li><a href="#">사업 제휴 문의</a></li>
+				</ul>
+				<ul>
+					리디북스 소식
+					<li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> 뉴스레터</a></li>
+					<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></i > 페이스북</a></li>
+					<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i> 트위터</a></li>
+					<li><a href="#"><i class="fa fa-window-maximize" aria-hidden="true"></i> 블로그</a></li>
+					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> 인스타그램</a></li>
+				</ul>
+		</div>
+		</div>
+	<div class="foot_bottom">
+		<ul>
+			<li>
+				<a href="#"><img src="./img/first_brand.png" alt=""/></a>
+			</li>
+			<li class="txt">
+				<strong>퍼스트브랜드 대상</strong><br>
+				전자책 부문 4년 연속
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="#"><img src="./img/isms.png" alt=""/></a>
+			</li>
+			<li class="txt">
+				<strong>정보보호 관리체계</strong><br>
+				ISMS 인증 획득
+			</li>
+		</ul>
+	</div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+

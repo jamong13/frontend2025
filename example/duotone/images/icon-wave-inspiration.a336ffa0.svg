@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="360px" viewBox="0 0 360 360" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Sub1_inspiration</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Sub1_inspiration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Container-7">
+            <g id="Container-6">
+                <g id="Container-5">
+                    <g id="Container-4">
+                        <g id="Container-3">
+                            <g id="Container-2">
+                                <rect id="Container" x="0" y="0" width="360" height="360"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <path d="M140,180 C140,202.091555 157.908445,220 180,220 C202.092541,220 220,202.091555 220,180 C220,157.908445 202.092541,140 180,140 C157.908445,140 140,157.908445 140,180" id="Fill-1" fill="#FE6565"></path>
+        <path d="M180,56 L288,117.998977 L288,242.002024 L180,304 L72,242.002024 L72,117.998977 L180,56 Z M80,126.925 L80,237.499252 L176,292.7 L176,182.31 L80,126.925 Z M280,126.924 L184,182.309 L184,292.7 L280,237.498256 L280,126.924 Z M180,65 L84.176,120.099 L180,175.382 L275.823,120.099 L180,65 Z" id="Shape" fill="#202040" fill-rule="nonzero"></path>
+    </g>
+</svg>

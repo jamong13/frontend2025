@@ -1,0 +1,620 @@
+@media screen and (max-width:1600px){
+	footer>ul>li:first-child{
+		width:25%;
+	}
+}
+@media screen and (max-width:1500px){
+	header nav{
+		margin-left:15%;
+		margin-right:0;
+		float:left;
+	}
+}
+@media screen and (max-width:1400px){
+	footer>ul>li{
+		margin-left:6%;
+	}
+	.txt_box2 dl{
+		float:none;
+	}
+	.txt_box2 dd{
+		font-size:22.5px;
+	}
+	.con_inner{
+		margin-top:10px;
+	}
+}
+@media screen and (max-width:1340px){
+	header nav{
+		display:none;
+	}
+	header{
+		height:80px;
+	}
+	.logo{
+		position:static;
+		left:auto;
+		top:auto;
+		height:80px;
+		padding-left:20px;
+		padding-top:20px;
+		box-sizing:border-box;
+		/* background-color:#fff; */
+	}
+	.logo a{
+		height:35px;
+	}
+	.navigator{
+		width:40px;
+		height:40px;
+	}
+	.navigator a .line{
+		width:18px;
+		height:1px;
+	}
+}
+@media screen and (max-width:1280px){
+	.free_service h3{
+		font-size:40.25px;
+	}
+	.free_service .inner_con{
+		margin-top:55px !important;
+		width:94%;
+	}
+	.free_service .inner_con li .t_txt{
+		font-size:19.25px;
+	}
+	.free_service .inner_con li .b_txt{
+		font-size:14px;
+	}
+	.main_portfolio .category>li>a{
+		padding:0 20px;
+		font-size:14.7px;
+		font-weight:300;
+	}
+	footer>ul>li:nth-child(3) a{
+		width:150px;
+	}
+	.f_btn li a{
+		width:150px;
+	}
+	
+	.new_portfolio button{
+		width:50px;
+		height:50px;
+	}
+	.new_portfolio button.prev{
+		right:70px;
+	}
+}
+@media screen and (max-width:1100px){
+	.f_btn{
+		float:none;
+		clear:both;
+		padding-top:5%;
+	}
+	.f_btn li{
+		float:left;
+	}
+}
+@media screen and (min-width:1040px) and (max-width:1300px){
+	.bg .bg_title{
+		font-size:1.2em;
+	}
+	.bg .bg_contents{
+		font-size:0.8em;
+	}
+}
+@media screen and (min-width:977px) and (max-width:1039px){
+	.bg .bg_title{
+		font-size:1.1em;
+	}
+	.bg .bg_contents{
+		font-size:0.8em;
+	}
+	.mainClients .clients li img{
+		width:80%;
+		height:auto;
+		display:inline-block;
+	}
+}
+
+@media screen and (max-width:976px){
+	.main_about .b_txt li .num{
+		font-size:65px;
+	}
+	.main_about .b_txt li .tit{
+		font-size:16.25px;
+	}
+	.main_about .b_txt li span.under{
+		margin-left:-10px;
+	}
+	.main_service li{
+		width:50%;
+		height:40vw;
+	}	
+	.main_service .txt_box .title{
+		margin-bottom:10px;
+		font-size:22.75px;
+	}
+	.main_service .txt_box .contents{
+		font-size:14px;
+	}
+	.estimate{
+		font-size:0.9em;
+	}
+	.main_service li:nth-child(2) .estimate{
+		bottom:26px;
+		text-shadow:1px 1px 1px #000;
+	}
+	.main_about .t_txt_1{
+	font-size:35px;
+	line-height:1.4em;
+	}
+	.mf_list>ul>li{
+		width: calc(33% - 8px);
+	}
+	.bg .bg_title{
+		font-size:1.4em;
+		font-weight:700;
+	}
+	.bg .bg_contents{
+		font-size:0.9em;
+	}
+	.mainClients .clients li{
+		width:25%;
+	}
+	.mainClients .clients li img{
+		width:80%;
+		height:auto;
+	}
+	.con_inner li p{
+		letter-spacing:-0.08em;
+		color:#5c5c5c;
+		font-size:14px;
+	}
+	.contact_us h3,
+	.free_service h3,
+	.main_portfolio h3,
+	.webtro_news h3,
+	.new_portfolio .inner_title h3,
+	.mainClients h3 {
+		font-size:40.25px;
+	}
+	.mainClients p {
+		font-size:14px;
+	}
+	.main_about .t_txt_2 {
+		font-size:14px;
+	}
+	.new_portfolio .inner_title h3 span:nth-child(2) {
+		font-size:15.69px;
+	}
+	.news_inner .news{
+		width:100%;
+		border-right:1px solid #ddd;
+	}
+	.webtro_news.on .news1{
+		transition:all 0.8s 0.8s;
+	}
+	.webtro_news.on .news2{
+		transition:all 0.8s 1.2s;
+	}
+	
+	.news_inner .news1{
+		border-bottom:0;
+	}
+	.mvtxt_1 {
+		font-size:49px;
+	}
+	.mvtxt_2 {
+		font-size:25.2px;
+	}
+	.mvtxt_3 {
+		font-size:13.3px;
+	}
+	.free_service .inner_con {
+		margin-top:30px !important;
+	}
+	
+}
+@media screen and (min-width:768px) and (max-width:976px){
+	.bg .bg_title{
+		font-size:1.1em;
+		font-weight:700;
+	}
+}
+@media screen and (max-width:840px){
+	footer{
+		padding:7% 3%;
+	}
+	footer>ul>li:nth-child(2){
+		margin-left:0;
+	}
+		
+	footer>ul>li .txt_box{
+		margin:15px 0 5px;
+	}
+	.txt_box2 dl {
+		float:left;
+	}
+	
+	footer>ul>li:first-child{
+		width:100%;
+		margin-bottom:5%;
+	}
+	footer>ul>li:nth-child(3)>ul>li:nth-child(2){
+		font-size:17.5px;
+	}
+	footer>ul>li:nth-child(3) a{
+		margin-top:20px;
+	}
+	.f_btn li{
+	width: calc(25% - 4px);
+    margin-right: 4px;
+	margin-bottom:0;
+	}
+	.f_btn li:last-child{
+		margin-right:0;
+	}
+	
+	.f_btn li a{
+		width:100%;
+	}
+	
+}
+@media screen and (max-width:767px){
+	.main_about .t_txt_1{
+		font-size:32.5px;
+	}
+	.mf_list>ul>li{
+		width: calc(50% - 8px);
+	}
+	.quickBtn{
+		bottom:10px;
+		right:10px;
+	}
+	.kakao{
+		margin-bottom:5px;
+	}
+	.btnMap{
+		width:54px;
+		height:54px;
+	}
+	.free_service .inner_con li{
+		width:50%;
+		border:0;
+	}
+	.free_service .inner_con li .t_txt{
+		font-size:17.875px;		
+		margin:15px 0 5px;
+	}
+	.free_service .inner_con li .b_txt{
+		font-size:13px;
+	}
+	.main_portfolio .category>li>a {
+		font-size:13.65px;
+		padding: 7px 10px 5px;
+		line-height: 1.0em;
+	}
+	.all_btn {
+		font-size:13px;
+	}
+	.con_inner li{
+		width:100%;
+		margin:0;
+	}
+	.con_inner li img{
+		width:50%;
+		margin-bottom:0;
+	}
+	.con_inner li:nth-child(2) img{
+		float:right;
+	}
+	.con_inner li .txtbox{
+		width: calc(50% - 20px);
+		padding: 5% 3%;
+		box-sizing:border-box;
+	}
+	.con_inner li:nth-child(2) .txtbox{
+		float:left;
+	}
+	
+	.con_inner li span {
+		font-size:21.125px;
+	}
+	.con_inner li p {
+		font-size:13px;
+		line-height:1.5em;
+	}
+	.con_inner{
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+	}
+	.f_btn li a {
+		font-size:11.375px;
+	}
+	footer>ul>li:nth-child(3) a p {
+		font-size:11.375px
+	}
+	.contact_us {
+		padding:10% 0;
+	}
+	h1.logo {
+		left: 15px;	
+		top: 20px;
+	}
+	h1.logo a {
+		height: 30px;
+		line-height: 0;
+	}
+	.navigator {
+		width:30px;
+		height:30px;
+	}
+	.navigator a .line1 {
+		top:32%;
+	}
+	.navigator a .line3 {
+		top:68%;
+	}
+	.txt_box2 dl:nth-child(2) {
+		margin-right:0;
+	}
+	.txt_box2 dd{
+		font-size:19.2px;
+	}
+	footer>ul>li h4 {
+		font-size:14.625px;
+	}
+	footer>ul>li:nth-child(3)>ul>li:nth-child(1) {
+		font-size:11.375px;
+	}
+	footer>ul>li:nth-child(3)>ul>li:nth-child(2) {
+		font-size:16.25px;
+	}
+	footer>ul>li:nth-child(3)>p{
+		font-size:11.375px;
+	}
+	.contact_us h3,
+	.free_service h3,
+	.main_portfolio h3,
+	.webtro_news h3,
+	.new_portfolio .inner_title h3,
+	.mainClients h3 {
+		font-size:37.375px;
+	}
+	.new_portfolio .inner_title h3 span:nth-child(2) {
+		font-size:14.57px;
+	}
+	.mvtxt_1 {
+		font-size: 49px;
+	}
+	.mvtxt_2 {
+		font-size: 23.4px;
+	}
+	.mvtxt_3 {
+		font-size: 12.35px;
+	}
+	.main_service li{
+		width:50%;
+		height:60vw;
+	}	
+	.main_portfolio .category{
+		margin:33px 0;
+	}
+	.bg .bg_title{
+		font-size:18px;
+	}
+	.news_inner{
+		margin-top:33px;
+	}
+	.go_top {
+		bottom: 120px;
+		right: 14px;
+		width: 24px;
+		height: 24px;
+	}
+	.go_top:before{
+		line-height:24px;
+	}
+	.news>.news_tit h4{
+		font-size:17.4px;
+	}
+	.newslist li .news_tit span{
+		font-size:10px;
+	}
+	.newslist li .news_tit{
+		font-size:13px;
+	}
+	.newslist li .date span{
+		font-size:30.8px;
+	}
+	.free_service .inner_con li img{
+		max-width:25%;
+	}
+	.new_portfolio button{
+		top:-85px;
+		width:40px;
+		height:40px;
+	}
+	.new_portfolio button.prev{
+		right:60px;
+	}
+	.main_about .b_txt{
+		margin-top:39px;
+	}
+	.mainClients .clients{
+		margin-top:40px;
+	}
+	.mobile_menu .gnbHeader{
+		height:80px;
+	}
+	.workon_cover{
+		margin-top:40px;
+	}
+	.mobileGnb>li>a{
+		font-size:13px;
+		line-height:40px;
+	}
+	.mobileGnb>li>ul{
+		font-size:12px;
+		line-height:35px;
+	}
+	.free_service .inner_con {
+		margin-top:10px !important;
+	}
+}
+@media screen and (max-width:640px){
+	.txt_box2 dd{
+		font-size:17.2px;
+	}
+	footer>ul>li:nth-child(2) p {
+		font-size:10px;
+	}
+	.mvtxt_1{
+		font-size:35px;
+	}
+	.mvtxt_2{
+		font-size:22.7px;
+	}
+	.mvtxt_3{
+		font-size:12px;
+	}
+	.main_about .t_txt_1{
+		font-size:31.65px;
+	}
+	.main_about .t_txt_2{
+		font-size:12.66px;
+	}
+	.main_about .b_txt li span{
+		font-size:50.64px;
+	}
+	.main_about .b_txt li .tit{
+		font-size:15.8px;
+	}
+	.main_service .txt_box .title{
+		font-size:20.28px;
+	}
+	.main_service .txt_box .contents{
+		font-size:12.48px;
+	}
+	.estimate .number .em {
+		font-size:55px;
+	}
+	.estimate {
+		font-size:12.48px;
+	}
+	.main_service li:nth-child(2) .estimate{
+		bottom:23px;
+	}
+	.contact_us h3,
+	.free_service h3,
+	.main_portfolio h3,
+	.webtro_news h3,
+	.new_portfolio .inner_title h3,
+	.mainClients h3 {
+		font-size:35.88px;
+	}
+	.mainClients p{
+		font-size:13px;
+	}
+	.bg .bg_title {
+		padding-top:40px;
+	}
+	.main_about .t_txt_1{
+		font-size:31.5px;
+	}
+	.new_portfolio .inner_title h3 span:nth-child(2){
+		font-size:14px;
+		margin-left:5px;
+	}
+	.main_about .b_txt{
+		margin-top:20px;
+	}
+}
+
+@media screen and (max-width:615px){
+	.free_service .inner_con li .t_txt{
+		font-size:14.8px;
+	}
+	.free_service .inner_con li .b_txt {
+		font-size:10.7px;
+	}
+	
+}
+@media screen and (max-width:560px){
+	.txt_box2 dd {
+		font-size:15px;
+	}
+	footer>ul>li .txt_box {
+		font-size:0.7em;
+	}
+	.con_inner li .txtbox{
+		padding: 4.5% 1%;
+	}
+	.con_inner li p{
+		font-size:12px;
+	}
+	.con_inner li span {
+		font-size:19px;
+		margin-bottom:10px;
+	}
+	footer>ul>li:nth-child(3) a {
+		width:140px;
+	}
+	.contact_us h3,
+	.main_portfolio h3,
+	.webtro_news h3,
+	.new_portfolio .inner_title h3,
+	.mainClients h3 {
+		font-size:27px;
+	}
+	.new_portfolio .inner_title h3 span:nth-child(2){
+		font-size:13px;
+	}
+	.main_about .b_txt li span{
+		font-size:44px;
+	}
+	.main_about .b_txt li .tit{
+		font-size:13.75px;
+	}
+	.main_service .txt_box .title{
+		font-size:17.8px;
+		margin-bottom:0px;
+	}
+	.main_service .txt_box .contents{
+		font-size:11px;
+		letter-spacing:0;
+	}
+	.new_portfolio button{
+		width:30px;
+		height:30px;
+		font-size:20px;
+		top:-73px;
+	}
+	.new_portfolio button.prev{
+		right:50px;
+	}
+	.main_about .t_txt_1 {
+		font-size:28px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

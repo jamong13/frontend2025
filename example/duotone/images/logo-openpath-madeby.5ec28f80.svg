@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="290" height="60" viewBox="0 0 290 60">
+    <defs>
+        <path id="prefix__a" d="M0 0.294L39.543 0.294 39.543 40.134 0 40.134z"/>
+        <path id="prefix__c" d="M0.082 0.081L39.552 0.081 39.552 39.996 0.082 39.996z"/>
+        <path id="prefix__e" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+        <path id="prefix__g" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+        <path id="prefix__i" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+        <path id="prefix__k" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+        <path id="prefix__m" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+        <path id="prefix__o" d="M0.745 0.365L1.117 0.365 1.117 0.73 0.745 0.73z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(0 .01)">
+            <mask id="prefix__b" fill="#fff">
+                <use xlink:href="#prefix__a"/>
+            </mask>
+            <path fill="#FE6565" d="M39.543 20.103C39.503 9.122 30.633.253 19.734.293L0 .369l.147 39.766 19.735-.074-.073-19.883 19.734-.074z" mask="url(#prefix__b)"/>
+        </g>
+        <g transform="translate(19.8 19.957)">
+            <mask id="prefix__d" fill="#fff">
+                <use xlink:href="#prefix__c"/>
+            </mask>
+            <path fill="#FE6565" d="M19.743.155c.041 10.981-8.761 19.917-19.66 19.958l.073 19.883 19.735-.075-.074-19.883 19.735-.074L39.478.081 19.743.155z" mask="url(#prefix__d)"/>
+        </g>
+        <g stroke="#000046" stroke-linecap="square">
+            <path d="M38.463.556L.87 39.444M1.523 0L39.144 39.444" transform="translate(120 11)"/>
+        </g>
+        <g>
+            <path fill="#2399E2" d="M35.044 38.99L69.481 58.208 52.188 29.104z" transform="translate(220 1)"/>
+            <path fill="#4349FF" d="M34.815 0L17.785 29.23 28.681 35.354 35.044 38.989 52.188 29.103z" transform="translate(220 1)"/>
+            <path fill="#A9DF85" d="M0.745 58.46L22.448 46.053 35.044 38.99 28.701 35.354 17.785 29.23z" transform="translate(220 1)"/>
+            <g>
+                <g transform="translate(220 1) translate(0 38.024) translate(0 19.706)">
+                    <mask id="prefix__f" fill="#fff">
+                        <use xlink:href="#prefix__e"/>
+                    </mask>
+                </g>
+                <g transform="translate(220 1) translate(0 38.024) translate(0 19.706)">
+                    <mask id="prefix__h" fill="#fff">
+                        <use xlink:href="#prefix__g"/>
+                    </mask>
+                </g>
+                <g transform="translate(220 1) translate(0 38.024) translate(0 19.706)">
+                    <mask id="prefix__j" fill="#fff">
+                        <use xlink:href="#prefix__i"/>
+                    </mask>
+                </g>
+                <g transform="translate(220 1) translate(0 38.024) translate(0 19.706)">
+                    <mask id="prefix__l" fill="#fff">
+                        <use xlink:href="#prefix__k"/>
+                    </mask>
+                </g>
+            </g>
+            <path fill="#FFE900" d="M22.453 46.094L0.755 58.46 35.037 58.334 69.481 58.208 35.044 38.99z" transform="translate(220 1)"/>
+            <g transform="translate(220 1) translate(0 57.73)">
+                <mask id="prefix__n" fill="#fff">
+                    <use xlink:href="#prefix__m"/>
+                </mask>
+                <g>
+                    <mask id="prefix__p" fill="#fff">
+                        <use xlink:href="#prefix__o"/>
+                    </mask>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
