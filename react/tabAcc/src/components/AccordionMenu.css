@@ -1,0 +1,74 @@
+.accordion-menu-container {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-menu-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.accordion-menu {
+  width: 100%;
+}
+
+.accordion-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.accordion-item:last-child {
+  margin-bottom: 0;
+}
+.accordion-item:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+.accordion-header.active {
+  background: #007bff;
+  color: white;
+}
+
+.accordion-icon {
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  min-width: 24px;
+  text-align: center;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: white;
+}
+.accordion-content.open {
+  max-height: 500px;
+}
+.accordion-content-inner {
+  padding: 20px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}

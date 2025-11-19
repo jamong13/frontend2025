@@ -404,3 +404,332 @@ section {
 .s02_wrap a.next:hover {
   background-position: 100% 100%;
 }
+
+/* >>>>>>>>>>>>>>>> section03 ======================= */
+#section03 {
+  width: 100%;
+  height: 790px;
+  background: url(/img/bg_content.gif) repeat 0 0;
+}
+.s03_wrap {
+  width: 1300px;
+  height: 790px;
+  margin: 0 auto;
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+.content {
+  width: 100%;
+  height: 300px;
+}
+.cont_01 {
+  float: left;
+  width: 400px;
+  height: 100%;
+  background: url(/img/bg_utilization.png) no-repeat 0 0;
+  margin-left: 55px;
+  position: relative;
+}
+.cont_02 {
+  float: right;
+  width: 825px;
+  height: 100%;
+  background: url(/img/img_subway_history.png) no-repeat 0 0;
+  position: relative;
+}
+
+.con_top h3 {
+  height: 80px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 40px;
+  letter-spacing: -0.03em;
+}
+.cont_01 h3 {
+  position: absolute;
+  left: 39px;
+  top: 38px;
+}
+.cont_02 h3 {
+  position: absolute;
+  left: 410px;
+  top: 38px;
+}
+
+.con_top a {
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 8px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+.cont_01 a {
+  position: absolute;
+  left: 41px;
+  bottom: 42px;
+}
+.cont_02 a {
+  position: absolute;
+  left: 410px;
+  bottom: 42px;
+}
+
+.con_bott {
+  margin-top: 30px;
+}
+.cont_03 {
+  float: left;
+  width: 870px;
+  height: 100%;
+  background-color: #fff;
+  margin-left: 55px;
+  position: relative;
+  border-radius: 30px 0 30px 0;
+}
+.cont_03 h2 {
+  color: #292929;
+  font-size: 30px;
+  font-weight: bold;
+  background: url(/img/bul_tit.png) 0 0 no-repeat;
+  min-height: 60px;
+  padding: 17px 0 0 25px;
+  margin-bottom: 1px;
+}
+.cont_03 .new {
+  float: left;
+  margin-top: 75px;
+  margin-left: 60px;
+}
+.cont_03 .new p {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+}
+
+.cont_03 ul {
+  float: left;
+  margin-top: 76px;
+  margin-left: 100px;
+}
+.cont_03 ul li:first-child a {
+  margin-top: 0;
+}
+.cont_03 ul li a {
+  display: inline-block;
+  font-size: 16px;
+  color: #292929;
+  letter-spacing: -0.04em;
+  margin-top: 21px;
+  font-weight: bold;
+}
+.cont_03 ul li a:hover {
+  color: #009223;
+  text-decoration: underline;
+}
+.cont_03 ul li.more a {
+  color: #999;
+  font-size: 15px;
+  padding: 33px 0 8px;
+  margin-top: 0;
+  text-decoration: none;
+}
+
+.cont_04 {
+  float: left;
+  margin-left: 45px;
+  width: 270px;
+  height: 100%;
+  background: url(/img/subway_logo_bn_20200602031229667.png) no-repeat center;
+  position: relative;
+  border-radius: 0 30px 0 30px;
+}
+.cont_04:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 10px;
+  background-color: #ffc300;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: 30px;
+  transition-duration: 0.3s;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* >>>>>>>>>>>>>> section04 ==================== */
+/* display : flex;로도 가능 */
+#section04 ul {
+  width: 1200px;
+  height: 150px;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+#section04 ul li {
+  margin-left: 80px;
+  float: left;
+  padding-top: 1px;
+}
+#section04 ul li a {
+  height: 70px;
+  display: block;
+}
+#section04 ul li a div {
+  width: 70px;
+  height: 70px;
+  float: left;
+}
+#section04 ul li a .icon1 {
+  background: url(/img/icon_quickmenu.png) no-repeat 0 0;
+}
+#section04 ul li a .icon2 {
+  background: url(/img/icon_quickmenu.png) no-repeat -70px 0;
+}
+#section04 ul li a .icon3 {
+  background: url(/img/icon_quickmenu.png) no-repeat -140px 0;
+}
+#section04 ul li a .icon4 {
+  background: url(/img/icon_quickmenu.png) no-repeat -210px 0;
+}
+#section04 ul li a .tit {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.04em;
+  padding-left: 90px;
+  padding-top: 8px;
+}
+#section04 ul li a .txt {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 6px;
+  letter-spacing: -0.02em;
+  padding-left: 90px;
+}
+
+/* >>>>>>>>>>>>>>>>> footer =================== */
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: #292929;
+  padding: 22px 0;
+  position: relative;
+  box-sizing: border-box;
+}
+footer:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 59px;
+  width: 100%;
+  height: 1px;
+  background-color: #3b3b3b;
+}
+
+.footer_wrap {
+  width: 1200px;
+  margin: 0 auto 25px;
+}
+.footer_wrap li {
+  float: left;
+}
+.footer_wrap li a {
+  display: block;
+  color: #666;
+  margin-right: 29px;
+}
+.footer_wrap li a.sp {
+  font-weight: bold;
+  color: #bbb;
+}
+
+.copyright {
+  width: 1200px;
+  margin: 0 auto;
+  color: #666;
+  position: relative;
+}
+.copyright ul li {
+  position: relative;
+  display: inline-block;
+  margin-top: 19px;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  padding-left: 9px;
+  margin-left: 3px;
+}
+.copyright ul li:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 2px;
+  height: 10px;
+  background-color: #666666;
+}
+.copyright ul li:first-child {
+  padding-left: 0;
+  margin-left: 0;
+}
+.copyright ul li:first-child:after {
+  display: none;
+}
+
+.copyright div {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.copyright div.instar {
+  right: 70px;
+  bottom: 5px;
+  background: url(/img/icon_sns_instar.png) no-repeat 0 0;
+}
+
+.copyright div.instar:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s;
+  overflow: hidden;
+  background: url(/img/icon_sns_instar.png) no-repeat -50px 0;
+  opacity: 0;
+}
+.copyright div.instar:hover:after {
+  opacity: 1;
+}
+
+.copyright div.facebook {
+  right: 0;
+  bottom: 3px;
+  background: url(/img/icon_sns_facebook.png) no-repeat 0 0;
+}
+.copyright div.facebook:after {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s;
+  overflow: hidden;
+  background: url(/img/icon_sns_facebook.png) no-repeat -50px 0;
+  opacity: 0;
+}
+.copyright div.facebook:hover:after {
+  opacity: 1;
+}

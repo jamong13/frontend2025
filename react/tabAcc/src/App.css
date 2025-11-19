@@ -1,0 +1,18 @@
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-container h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 32px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

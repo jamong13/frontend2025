@@ -1,0 +1,41 @@
+:root {
+  font-family: "Noto Sans KR", "Pretendard", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #e6e3d5;
+  background-color: #1b2336;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --main-background: #1b2336;
+  --sub-background: #456882;
+  --main-text: #e6e3d5;
+  --sub-text: #9da2b3;
+  --main-highlight: #f2d36b;
+  --sub-highlight: #8c9274;
+  --nav-hoaver-highlight: #696c5c;
+  --container-width: min(1120px, 92vw);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,127 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slider-section {
+  background: white;
+  padding: 30px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-section.fontawesome-section {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.slider {
+  margin-bottom: 20px;
+}
+
+.slide {
+  outline: none;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.slide-content {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+/* 이미지 위 어두운 오버레이(텍스트 가독성 향상) */
+.slide-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.slide-content h3,
+.slide-content span {
+  position: relative;
+  z-index: 2;
+}
+
+.slide-content h3 {
+  font-size: 3em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.slide-content.multiple {
+  height: 200px;
+}
+
+.slide-content.multiple::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.slide-content.multiple h3 {
+  font-size: 2em;
+}
+
+.slide-content.thumbnail {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content.thumbnail span {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 기본 슬라이더 스타일 */
+.basic-slider .slick-prev,
+.basic-slider .slick-next {
+  z-index: 1;
+}
+
+.basic-slider .slick-prev {
+  left: 20px;
+}
+
+.basic-slider .slick-next {
+  right: 20px;
+}
