@@ -2,6 +2,11 @@
 
 .jersey-25-regular {
   font-family: "Jersey 25", sans-serif;
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }

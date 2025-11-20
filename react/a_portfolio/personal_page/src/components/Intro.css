@@ -1,0 +1,91 @@
+#intro {
+  background: var(--main-background);
+}
+
+#intro .intro-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+#intro .intro-txt {
+  font-weight: bold;
+  position: absolute;
+  z-index: 5;
+}
+
+#intro .intro-txt1 {
+  font-size: 3rem;
+  top: 20%;
+  left: 10%;
+  letter-spacing: -1px;
+}
+#intro .intro-txt2 {
+  font-size: 2rem;
+  top: 32%;
+  left: 30%;
+}
+#intro .intro-txt3 {
+  font-size: 4rem;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  letter-spacing: -1px;
+  color: var(--main-highlight);
+}
+#intro .intro-txt4 {
+  font-size: 50rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--sub-highlight);
+}
+#intro .intro-txt4 {
+  z-index: 0 !important;
+}
+
+#intro .intro-mark {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 60px;
+}
+#intro .intro-mark .circle-box {
+  border: 2px solid var(--sub-background);
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#intro .intro-mark .big-circle {
+  width: 36px;
+  height: 36px;
+}
+#intro .intro-mark .medium-circle {
+  width: 25px;
+  height: 25px;
+}
+#intro .intro-mark .small-circle {
+  width: 12px;
+  height: 12px;
+  background-color: var(--sub-background);
+}
+#intro .intro-mark .intro-mark-question {
+  position: absolute;
+  z-index: 10;
+  top: 60%;
+  left: 70%;
+  transition: all 0.6s;
+}
+#intro .intro-mark:hover .intro-mark-question {
+  top: 50%;
+  left: 50%;
+}
+#intro .intro-mark p {
+  color: var(--sub-text);
+}
