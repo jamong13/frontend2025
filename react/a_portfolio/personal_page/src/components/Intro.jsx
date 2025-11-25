@@ -3,9 +3,13 @@ import "./Intro.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowPointer } from "@fortawesome/free-solid-svg-icons";
 
-export default function Intro() {
+export default function Intro({ onFinished }) {
+  const handleClick = () => {
+    onFinished?.();
+  };
+
   return (
-    <div id="intro" className="jersey-25-regular">
+    <div id="intro" className="jersey-25-regular" onClick={handleClick}>
       <div className="container intro-container">
         <div className="intro-txt intro-txt1">
           <span>Who</span>
