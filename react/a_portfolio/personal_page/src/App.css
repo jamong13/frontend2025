@@ -10,3 +10,38 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+.section {
+  padding: 5rem 1rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.highlight {
+  color: var(--main-highlight);
+}
+.section-divider {
+  width: 5rem;
+  height: 0.25rem;
+  background: var(--main-highlight);
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  background: #2b2b2b;
+  padding: 10px;
+}

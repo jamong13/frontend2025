@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import "./Header.css";
 
@@ -15,10 +15,12 @@ export default function Header({ activeSection }) {
 
   return (
     <nav className="header">
-      <div className="header-container">
+      <div className="container header-container">
         <div className="header-content">
           <div className="header-logo">
-            <span className="logo-text">HS's Portfolio</span>
+            <span className="logo-text">
+              <Link to="/">HS's Portfolio</Link>
+            </span>
           </div>
 
           <div className="desktop-nav">
