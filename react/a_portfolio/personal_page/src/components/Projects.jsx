@@ -16,10 +16,10 @@ const projects = [
     date: "2025.11",
     number: "개인 프로젝트",
     content:
-      "React Router를 사용한 페이지 전환이 적용된 사이트, SNS 느낌의 자기소개와 grid 형식으로 배치한 스킬 목록, Swiper를 사용한 썸네일 슬라이드 형식의 프로젝트 목록, 경력 기술서를 정리한 사이트",
+      "React Router를 사용한 페이지 전환이 적용된 사이트, SNS 느낌의 자기소개와 grid 형식으로 배치한 스킬 목록, Swiper를 사용한 썸네일 슬라이드 형식의 프로젝트 목록, 경력기술서를 정리한 사이트",
     skills: "Html, CSS, JavaScript, React, Vite",
-    image: "",
-    thumb: "",
+    image: "/img/project1.JPG",
+    thumb: "/img/project1_thumb.jpg",
   },
   {
     id: "2",
@@ -28,8 +28,8 @@ const projects = [
     number: "개인 프로젝트",
     content: "더미1",
     skills: "더미1",
-    image: "",
-    thumb: "",
+    image: "/img/project.jpg",
+    thumb: "/img/project_thumb.jpg",
   },
   {
     id: "3",
@@ -38,8 +38,8 @@ const projects = [
     number: "개인 프로젝트",
     content: "더미2",
     skills: "더미2",
-    image: "",
-    thumb: "",
+    image: "/img/project.jpg",
+    thumb: "/img/project_thumb.jpg",
   },
   {
     id: "4",
@@ -48,8 +48,8 @@ const projects = [
     number: "개인 프로젝트",
     content: "더미3",
     skills: "더미3",
-    image: "",
-    thumb: "",
+    image: "/img/project.jpg",
+    thumb: "/img/project_thumb.jpg",
   },
 ];
 
@@ -66,37 +66,8 @@ export default function Projects() {
         </div>
         <section className="projects-section">
           <Swiper
-            modules={[Navigation, Thumbs]}
-            spaceBetween={10}
-            slidesPerView={1}
-            navigation
-            thumbs={{
-              swiper:
-                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-            }}
-            className="main-thumbnail-swiper"
-          >
-            {projects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <div className="slide-content">
-                  <img
-                    src={project.image}
-                    alt={`Main Slide ${project.id}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "8px",
-                    }}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <Swiper
             modules={[Thumbs]}
             onSwiper={setThumbsSwiper}
-            // 썸네일 슬라이더가 생성되면
             spaceBetween={10}
             slidesPerView={5}
             watchSlidesProgress
@@ -115,6 +86,49 @@ export default function Projects() {
                       borderRadius: "4px",
                     }}
                   />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <Swiper
+            modules={[Navigation, Thumbs]}
+            thumbs={{
+              swiper:
+                thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+            }}
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            className="main-thumbnail-swiper"
+            breakpoints={{
+              0: {
+                navigation: false,
+                thumbs: { swiper: null },
+              },
+              769: {
+                navigation: true,
+              },
+            }}
+          >
+            {projects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <div className="slide-content">
+                  <h2 className="project-title">{project.title}</h2>
+                  <img
+                    src={project.image}
+                    className="slide-image"
+                    alt={`Main Slide ${project.id}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <p className="project-date">{project.date}</p>
+                  <p className="project-number">{project.number}</p>
+                  <p className="project-content">{project.content}</p>
+                  <p className="project-skills">{project.skills}</p>
                 </div>
               </SwiperSlide>
             ))}

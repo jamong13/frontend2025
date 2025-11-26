@@ -1,0 +1,38 @@
+.resume-list {
+  padding: 20px;
+  border: 2px solid var(--sub-background);
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+.resume-list:last-child {
+  margin-bottom: 0;
+}
+.resume-list .resume-company {
+  color: var(--sub-highlight);
+}
+.resume-list .resume-period {
+  color: var(--sub-text);
+}
+.resume-list h3 {
+  margin-top: 20px;
+}
+.resume-list ul {
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .resume-list .resume-company {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 560px) {
+  .resume-list .resume-company {
+    font-size: 1.1rem;
+  }
+  .resume-list h3 {
+    font-size: 1rem;
+  }
+  .resume-list ul {
+    font-size: 0.9rem;
+  }
+}

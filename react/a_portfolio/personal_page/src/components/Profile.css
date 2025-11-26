@@ -3,7 +3,7 @@
   gap: 3rem;
   align-items: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .profile-grid {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -15,7 +15,7 @@
   color: #000;
   border: 2px solid #dedede;
   box-sizing: border-box;
-  padding-bottom: 50px;
+  padding-bottom: 5rem;
   border-radius: 10px;
   justify-self: center;
 }
@@ -163,7 +163,10 @@
   white-space: nowrap;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .profile-instar {
+    padding-bottom: 2rem;
+  }
   .profile-right {
     grid-template-columns: repeat(2, 1fr);
   }

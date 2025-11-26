@@ -7,6 +7,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Resume from "./components/Resume";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Profile />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </main>
       {!showIntro && <Footer />}
