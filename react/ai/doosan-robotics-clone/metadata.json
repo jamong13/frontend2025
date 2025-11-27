@@ -1,0 +1,5 @@
+{
+  "name": "Doosan Robotics Clone",
+  "description": "A responsive, high-fidelity clone of the Doosan Robotics landing page using React, TypeScript, and Tailwind CSS.",
+  "requestFramePermissions": []
+}

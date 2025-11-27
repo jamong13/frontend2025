@@ -1,0 +1,70 @@
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 기본: 보이지 않음 (visibility로 관리). transform만 전환 */
+.slide {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transform: translateX(100%);
+  transition: transform 700ms ease;
+  will-change: transform;
+  z-index: 0;
+  visibility: hidden; /* 기본 숨김 */
+  pointer-events: none;
+  background-color: transparent;
+}
+
+/* 현재 슬라이드: 가운데 보임(애니메이션으로 들어옴) */
+.slide--current {
+  transform: translateX(0);
+  z-index: 2;
+  visibility: visible; /* 애니메이션되는 동안만 보임 */
+  pointer-events: auto;
+}
+
+/* 이전 슬라이드는 즉시 숨김(보이지 않음) */
+.slide--prev {
+  transform: translateX(-100%);
+  z-index: 1;
+  visibility: hidden; /* 사라질 때 아예 보이지 않음 */
+  pointer-events: none;
+}
+
+/* 나머지는 보이지 않음 */
+.slide:not(.slide--current):not(.slide--prev) {
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 닷 네비게이션 */
+.hero-slider__dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dot--active {
+  background: #fff;
+}
