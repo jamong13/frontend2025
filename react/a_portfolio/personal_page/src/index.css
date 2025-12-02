@@ -9,6 +9,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --main-background: #1b2336;
+  --sub-background: #456882;
+  --main-text: #e6e3d5;
+  --sub-text: #9da2b3;
+  --main-highlight: #f2d36b;
+  --sub-highlight: #8c9274;
+  --nav-hoaver-highlight: #696c5c;
+  --container-width: min(1120px, 92vw);
 }
 * {
   margin: 0;
