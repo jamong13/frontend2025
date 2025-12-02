@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 혼자 사용하기 - 완벽 가이드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        
+        h2 {
+            color: white;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            font-size: 1.8em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            padding-left: 10px;
+            border-left: 4px solid #2980b9;
+        }
+        
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .workflow-step {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .code-block code {
+            color: #d4d4d4;
+        }
+        
+        .command {
+            color: #4ec9b0;
+        }
+        
+        .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+        }
+        
+        .danger {
+            background: #f8d7da;
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .toc {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border: none;
+            padding: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+        }
+        
+        .toc a {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .toc a:hover {
+            color: #667eea;
+        }
+        
+        .quick-ref {
+            background: #fff;
+            border: 2px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .quick-ref h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Git 혼자 사용하기 - 완벽 가이드</h1>
+        <p style="text-align: center; color: #7f8c8d; font-size: 1.1em; margin-bottom: 30px;">
+            개인 프로젝트를 위한 Git 기본 사용법
+        </p>
+        
+        <div class="toc">
+            <h3>📑 목차</h3>
+            <ul>
+                <li><a href="#setup">1. 초기 설정</a></li>
+                <li><a href="#github-repo">2. GitHub 저장소 만들고 Push하기</a></li>
+                <li><a href="#branch">3. 브랜치 만들기와 삭제</a></li>
+                <li><a href="#undo">4. 취소하기 (Undo)</a></li>
+                <li><a href="#daily">5. 일상적인 작업 흐름</a></li>
+                <li><a href="#quick-ref">6. 빠른 참조</a></li>
+            </ul>
+        </div>
+
+        <!-- 초기 설정 -->
+        <section id="setup">
+            <h2>⚙️ 1. 초기 설정</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>Git 설치 확인</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git --version</code>
+                </div>
+                <p>설치되어 있지 않다면: <a href="https://git-scm.com" target="_blank">https://git-scm.com</a> 에서 다운로드</p>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>Git 사용자 정보 설정 (처음 한 번만)</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git config --global user.name "내이름"</code><br>
+                    <code class="command">git config --global user.email "내이메일@example.com"</code>
+                </div>
+                <div class="info">
+                    <strong>💡 팁:</strong> GitHub 계정 이메일과 동일하게 설정하는 것을 권장합니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>설정 확인</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git config --global user.name</code><br>
+                    <code class="command">git config --global user.email</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub 저장소 만들고 Push -->
+        <section id="github-repo">
+            <h2>📦 2. GitHub 저장소 만들고 Push하기</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>GitHub에서 새 저장소 생성</h3>
+                </div>
+                <ol>
+                    <li>GitHub.com 로그인</li>
+                    <li>우측 상단 <strong>+</strong> 버튼 클릭 → <strong>New repository</strong></li>
+                    <li>저장소 이름 입력 (예: my-project)</li>
+                    <li><strong>Public</strong> 또는 <strong>Private</strong> 선택</li>
+                    <li><strong>Add a README file</strong> 체크 (선택사항)</li>
+                    <li><strong>Create repository</strong> 클릭</li>
+                </ol>
+                <div class="success">
+                    <strong>✅ 완료!</strong> GitHub에 저장소가 생성되었습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>방법 A: 로컬 프로젝트를 GitHub에 연결하기</h3>
+                </div>
+                <p><strong>이미 로컬에 프로젝트 폴더가 있는 경우</strong></p>
+                
+                <h4>2-1. 프로젝트 폴더에서 Git 초기화</h4>
+                <div class="code-block">
+                    <code class="comment"># 프로젝트 폴더로 이동</code><br>
+                    <code class="command">cd my-project</code><br><br>
+                    <code class="comment"># Git 초기화</code><br>
+                    <code class="command">git init</code>
+                </div>
+                
+                <h4>2-2. 파일 추가 및 첫 커밋</h4>
+                <div class="code-block">
+                    <code class="comment"># 모든 파일 추가</code><br>
+                    <code class="command">git add .</code><br><br>
+                    <code class="comment"># 첫 커밋</code><br>
+                    <code class="command">git commit -m "Initial commit"</code>
+                </div>
+                
+                <h4>2-3. GitHub 저장소 연결</h4>
+                <div class="code-block">
+                    <code class="comment"># 원격 저장소 추가 (GitHub에서 복사한 URL 사용)</code><br>
+                    <code class="command">git remote add origin https://github.com/사용자명/저장소명.git</code><br><br>
+                    <code class="comment"># 예시:</code><br>
+                    <code class="command">git remote add origin https://github.com/username/my-project.git</code>
+                </div>
+                
+                <h4>2-4. GitHub에 Push</h4>
+                <div class="code-block">
+                    <code class="comment"># main 브랜치를 origin에 푸시</code><br>
+                    <code class="command">git branch -M main</code> <code class="comment"># 브랜치 이름을 main으로 변경 (필요시)</code><br>
+                    <code class="command">git push -u origin main</code>
+                </div>
+                <div class="success">
+                    <strong>✅ 완료!</strong> 로컬 프로젝트가 GitHub에 업로드되었습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>방법 B: GitHub 저장소를 클론하기</h3>
+                </div>
+                <p><strong>GitHub에 이미 저장소를 만들었고, 로컬로 가져오고 싶은 경우</strong></p>
+                <div class="code-block">
+                    <code class="comment"># 저장소 클론</code><br>
+                    <code class="command">git clone https://github.com/사용자명/저장소명.git</code><br><br>
+                    <code class="comment"># 예시:</code><br>
+                    <code class="command">git clone https://github.com/username/my-project.git</code><br><br>
+                    <code class="comment"># 클론한 폴더로 이동</code><br>
+                    <code class="command">cd my-project</code>
+                </div>
+                <div class="success">
+                    <strong>✅ 완료!</strong> GitHub 저장소가 로컬에 복사되었습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">4</span>
+                    <h3>일상적인 Push 작업</h3>
+                </div>
+                <p>코드를 수정한 후 GitHub에 업로드하는 방법:</p>
+                <div class="code-block">
+                    <code class="comment"># 1. 변경사항 확인</code><br>
+                    <code class="command">git status</code><br><br>
+                    <code class="comment"># 2. 변경된 파일 추가</code><br>
+                    <code class="command">git add .</code><br>
+                    <code class="comment"># 또는 특정 파일만: git add 파일명</code><br><br>
+                    <code class="comment"># 3. 커밋 생성</code><br>
+                    <code class="command">git commit -m "변경사항 설명"</code><br><br>
+                    <code class="comment"># 4. GitHub에 푸시</code><br>
+                    <code class="command">git push</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 브랜치 만들기와 삭제 -->
+        <section id="branch">
+            <h2>🌿 3. 브랜치 만들기와 삭제</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>브랜치 목록 확인</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git branch</code>
+                </div>
+                <p>현재 브랜치는 <span class="highlight">*</span> 표시가 됩니다.</p>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>새 브랜치 만들기</h3>
+                </div>
+                
+                <h4>방법 A: 브랜치만 만들기 (현재 브랜치에 그대로 있음)</h4>
+                <div class="code-block">
+                    <code class="command">git branch feature/new-feature</code>
+                </div>
+                
+                <h4>방법 B: 브랜치 만들고 바로 이동하기 (권장)</h4>
+                <div class="code-block">
+                    <code class="command">git checkout -b feature/new-feature</code>
+                </div>
+                <div class="info">
+                    <strong>💡 브랜치 이름 규칙:</strong>
+                    <ul>
+                        <li><code>feature/기능명</code> - 새 기능 개발</li>
+                        <li><code>fix/버그명</code> - 버그 수정</li>
+                        <li><code>test/테스트명</code> - 테스트</li>
+                        <li><code>dev</code> - 개발용</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>브랜치 이동하기</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git checkout 브랜치명</code><br>
+                    <code class="comment"># 예시:</code><br>
+                    <code class="command">git checkout feature/new-feature</code><br><br>
+                    <code class="comment"># 또는 (최신 Git 버전)</code><br>
+                    <code class="command">git switch 브랜치명</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">4</span>
+                    <h3>브랜치에서 작업하고 Push하기</h3>
+                </div>
+                <div class="code-block">
+                    <code class="comment"># 1. 브랜치로 이동</code><br>
+                    <code class="command">git checkout feature/new-feature</code><br><br>
+                    <code class="comment"># 2. 파일 수정 및 작업</code><br>
+                    <code class="comment"># ... 코드 작성 ...</code><br><br>
+                    <code class="comment"># 3. 변경사항 커밋</code><br>
+                    <code class="command">git add .</code><br>
+                    <code class="command">git commit -m "새 기능 추가"</code><br><br>
+                    <code class="comment"># 4. GitHub에 푸시 (처음 푸시하는 경우)</code><br>
+                    <code class="command">git push -u origin feature/new-feature</code><br><br>
+                    <code class="comment"># 5. 이후 푸시는</code><br>
+                    <code class="command">git push</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">5</span>
+                    <h3>브랜치를 main에 병합하기</h3>
+                </div>
+                <div class="code-block">
+                    <code class="comment"># 1. main 브랜치로 이동</code><br>
+                    <code class="command">git checkout main</code><br><br>
+                    <code class="comment"># 2. 최신 상태로 업데이트</code><br>
+                    <code class="command">git pull</code><br><br>
+                    <code class="comment"># 3. 작업한 브랜치 병합</code><br>
+                    <code class="command">git merge feature/new-feature</code><br><br>
+                    <code class="comment"># 4. GitHub에 푸시</code><br>
+                    <code class="command">git push</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">6</span>
+                    <h3>로컬 브랜치 삭제하기</h3>
+                </div>
+                <h4>병합된 브랜치 삭제 (안전)</h4>
+                <div class="code-block">
+                    <code class="command">git branch -d feature/new-feature</code>
+                </div>
+                
+                <h4>병합되지 않은 브랜치 강제 삭제</h4>
+                <div class="code-block">
+                    <code class="command">git branch -D feature/new-feature</code>
+                </div>
+                <div class="warning">
+                    <strong>⚠️ 주의:</strong> <code>-D</code> 옵션은 강제 삭제입니다. 삭제된 브랜치의 커밋은 복구하기 어려울 수 있습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">7</span>
+                    <h3>원격(GitHub) 브랜치 삭제하기</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git push origin --delete feature/new-feature</code>
+                </div>
+                <div class="info">
+                    <strong>💡 팁:</strong> GitHub 웹사이트에서도 브랜치를 삭제할 수 있습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">8</span>
+                    <h3>원격에 있는 브랜치 목록 확인</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git branch -r</code> <code class="comment"># 원격 브랜치만</code><br>
+                    <code class="command">git branch -a</code> <code class="comment"># 로컬 + 원격 모두</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 취소하기 -->
+        <section id="undo">
+            <h2>↩️ 4. 취소하기 (Undo)</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>git add 취소하기 (Unstage)</h3>
+                </div>
+                <p><strong>상황:</strong> <code>git add</code>로 스테이징했지만 취소하고 싶을 때</p>
+                
+                <h4>모든 파일 unstage:</h4>
+                <div class="code-block">
+                    <code class="command">git reset</code>
+                </div>
+                
+                <h4>특정 파일만 unstage:</h4>
+                <div class="code-block">
+                    <code class="command">git reset 파일명</code><br>
+                    <code class="comment"># 예시:</code><br>
+                    <code class="command">git reset src/index.js</code>
+                </div>
+                
+                <div class="info">
+                    <strong>💡 참고:</strong> 파일 내용은 그대로 유지되고, 스테이징만 취소됩니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>파일 변경사항 취소하기 (작업 내용 되돌리기)</h3>
+                </div>
+                <p><strong>상황:</strong> 파일을 수정했지만 저장하기 전 상태로 되돌리고 싶을 때</p>
+                
+                <h4>특정 파일의 변경사항 취소:</h4>
+                <div class="code-block">
+                    <code class="command">git checkout -- 파일명</code><br>
+                    <code class="comment"># 예시:</code><br>
+                    <code class="command">git checkout -- src/index.js</code>
+                </div>
+                
+                <h4>모든 변경사항 취소:</h4>
+                <div class="code-block">
+                    <code class="command">git checkout -- .</code>
+                </div>
+                
+                <div class="danger">
+                    <strong>⚠️ 경고:</strong> 이 명령어는 저장되지 않은 모든 변경사항을 영구적으로 삭제합니다. 신중하게 사용하세요!
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>마지막 커밋 취소하기 (커밋만 취소, 파일은 유지)</h3>
+                </div>
+                <p><strong>상황:</strong> 커밋 메시지를 잘못 작성했거나, 커밋만 취소하고 파일은 그대로 두고 싶을 때</p>
+                
+                <div class="code-block">
+                    <code class="command">git reset --soft HEAD~1</code>
+                </div>
+                <p>결과: 커밋은 취소되지만, 파일 변경사항은 스테이징 영역에 그대로 남아있습니다.</p>
+                
+                <div class="info">
+                    <strong>💡 사용 예시:</strong>
+                    <ul>
+                        <li>커밋 메시지 수정 후 다시 커밋</li>
+                        <li>빠뜨린 파일 추가 후 다시 커밋</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">4</span>
+                    <h3>마지막 커밋 완전히 취소하기</h3>
+                </div>
+                <p><strong>상황:</strong> 커밋과 파일 변경사항을 모두 취소하고 싶을 때</p>
+                
+                <div class="code-block">
+                    <code class="command">git reset --hard HEAD~1</code>
+                </div>
+                <p>결과: 마지막 커밋과 모든 변경사항이 완전히 삭제됩니다.</p>
+                
+                <div class="danger">
+                    <strong>⚠️ 경고:</strong> 이 명령어는 되돌릴 수 없습니다! 신중하게 사용하세요.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">5</span>
+                    <h3>커밋 메시지만 수정하기</h3>
+                </div>
+                <p><strong>상황:</strong> 방금 커밋한 메시지에 오타가 있거나 수정하고 싶을 때</p>
+                
+                <div class="code-block">
+                    <code class="command">git commit --amend -m "새로운 커밋 메시지"</code>
+                </div>
+                
+                <h4>에디터로 수정하기:</h4>
+                <div class="code-block">
+                    <code class="command">git commit --amend</code>
+                </div>
+                <p>에디터가 열리면 메시지를 수정하고 저장하세요.</p>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">6</span>
+                    <h3>방금 전 push 취소하기</h3>
+                </div>
+                <p><strong>상황:</strong> GitHub에 푸시한 커밋을 취소하고 싶을 때</p>
+                
+                <div class="warning">
+                    <strong>⚠️ 중요:</strong> 이미 다른 사람이 pull 받았다면 문제가 될 수 있습니다. 혼자 사용하는 저장소에서만 사용하세요!
+                </div>
+                
+                <h4>방법 1: 마지막 커밋 취소 후 강제 푸시</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 마지막 커밋 취소 (로컬에서)</code><br>
+                    <code class="command">git reset --hard HEAD~1</code><br><br>
+                    <code class="comment"># 2. GitHub에도 반영 (강제 푸시)</code><br>
+                    <code class="command">git push origin main --force</code><br>
+                    <code class="comment"># 또는</code><br>
+                    <code class="command">git push origin main -f</code>
+                </div>
+                
+                <h4>방법 2: 특정 커밋으로 되돌리기</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 커밋 히스토리 확인</code><br>
+                    <code class="command">git log --oneline</code><br>
+                    <code class="comment"># 원하는 커밋 해시 복사 (예: abc1234)</code><br><br>
+                    <code class="comment"># 2. 해당 커밋으로 되돌리기</code><br>
+                    <code class="command">git reset --hard abc1234</code><br><br>
+                    <code class="comment"># 3. 강제 푸시</code><br>
+                    <code class="command">git push origin main --force</code>
+                </div>
+                
+                <div class="danger">
+                    <strong>⚠️ 주의사항:</strong>
+                    <ul>
+                        <li><code>--force</code>는 히스토리를 변경하므로 매우 신중하게 사용해야 합니다.</li>
+                        <li>협업 중인 저장소에서는 사용하지 마세요!</li>
+                        <li>혼자 사용하는 저장소에서만 사용하세요.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">7</span>
+                    <h3>여러 커밋 취소하기</h3>
+                </div>
+                <p><strong>상황:</strong> 최근 N개의 커밋을 취소하고 싶을 때</p>
+                
+                <div class="code-block">
+                    <code class="comment"># 최근 3개 커밋 취소</code><br>
+                    <code class="command">git reset --hard HEAD~3</code><br><br>
+                    <code class="comment"># 이미 푸시했다면</code><br>
+                    <code class="command">git push origin main --force</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">8</span>
+                    <h3>안전한 되돌리기: revert 사용</h3>
+                </div>
+                <p><strong>상황:</strong> 이미 푸시한 커밋을 안전하게 취소하고 싶을 때 (새 커밋으로 취소)</p>
+                
+                <div class="code-block">
+                    <code class="comment"># 마지막 커밋 취소 (새 커밋 생성)</code><br>
+                    <code class="command">git revert HEAD</code><br><br>
+                    <code class="comment"># 특정 커밋 취소</code><br>
+                    <code class="command">git revert 커밋해시</code><br><br>
+                    <code class="comment"># 푸시</code><br>
+                    <code class="command">git push</code>
+                </div>
+                
+                <div class="info">
+                    <strong>💡 revert vs reset:</strong>
+                    <ul>
+                        <li><strong>reset:</strong> 히스토리를 변경 (위험, 혼자 사용할 때만)</li>
+                        <li><strong>revert:</strong> 새 커밋으로 취소 (안전, 협업 시 권장)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 일상적인 작업 흐름 -->
+        <section id="daily">
+            <h2>📝 5. 일상적인 작업 흐름</h2>
+            
+            <div class="workflow-step">
+                <h3>기본 작업 흐름</h3>
+                <div class="code-block">
+                    <code class="comment"># 1. 현재 상태 확인</code><br>
+                    <code class="command">git status</code><br><br>
+                    <code class="comment"># 2. 파일 수정</code><br>
+                    <code class="comment"># ... VS Code에서 코드 작성 ...</code><br><br>
+                    <code class="comment"># 3. 변경사항 추가</code><br>
+                    <code class="command">git add .</code><br><br>
+                    <code class="comment"># 4. 커밋</code><br>
+                    <code class="command">git commit -m "작업 내용 설명"</code><br><br>
+                    <code class="comment"># 5. GitHub에 푸시</code><br>
+                    <code class="command">git push</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <h3>브랜치에서 작업하는 흐름</h3>
+                <div class="code-block">
+                    <code class="comment"># 1. 새 브랜치 생성 및 이동</code><br>
+                    <code class="command">git checkout -b feature/new-feature</code><br><br>
+                    <code class="comment"># 2. 작업 및 커밋</code><br>
+                    <code class="command">git add .</code><br>
+                    <code class="command">git commit -m "새 기능 추가"</code><br><br>
+                    <code class="comment"># 3. GitHub에 푸시</code><br>
+                    <code class="command">git push -u origin feature/new-feature</code><br><br>
+                    <code class="comment"># 4. 작업 완료 후 main에 병합</code><br>
+                    <code class="command">git checkout main</code><br>
+                    <code class="command">git merge feature/new-feature</code><br>
+                    <code class="command">git push</code><br><br>
+                    <code class="comment"># 5. 브랜치 삭제</code><br>
+                    <code class="command">git branch -d feature/new-feature</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 빠른 참조 -->
+        <section id="quick-ref">
+            <h2>⚡ 6. 빠른 참조</h2>
+            
+            <div class="quick-ref">
+                <h4>📌 기본 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git status</code></td>
+                        <td>현재 상태 확인</td>
+                    </tr>
+                    <tr>
+                        <td><code>git add .</code></td>
+                        <td>모든 변경사항 추가</td>
+                    </tr>
+                    <tr>
+                        <td><code>git commit -m "메시지"</code></td>
+                        <td>커밋 생성</td>
+                    </tr>
+                    <tr>
+                        <td><code>git push</code></td>
+                        <td>GitHub에 업로드</td>
+                    </tr>
+                    <tr>
+                        <td><code>git pull</code></td>
+                        <td>GitHub에서 가져오기</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🌿 브랜치 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git branch</code></td>
+                        <td>브랜치 목록</td>
+                    </tr>
+                    <tr>
+                        <td><code>git checkout -b 브랜치명</code></td>
+                        <td>브랜치 생성 및 이동</td>
+                    </tr>
+                    <tr>
+                        <td><code>git checkout 브랜치명</code></td>
+                        <td>브랜치 이동</td>
+                    </tr>
+                    <tr>
+                        <td><code>git branch -d 브랜치명</code></td>
+                        <td>로컬 브랜치 삭제</td>
+                    </tr>
+                    <tr>
+                        <td><code>git push origin --delete 브랜치명</code></td>
+                        <td>원격 브랜치 삭제</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>↩️ 취소 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git reset</code></td>
+                        <td>add 취소 (unstage)</td>
+                    </tr>
+                    <tr>
+                        <td><code>git checkout -- 파일명</code></td>
+                        <td>파일 변경사항 취소</td>
+                    </tr>
+                    <tr>
+                        <td><code>git reset --soft HEAD~1</code></td>
+                        <td>커밋 취소 (파일 유지)</td>
+                    </tr>
+                    <tr>
+                        <td><code>git reset --hard HEAD~1</code></td>
+                        <td>커밋 완전 취소</td>
+                    </tr>
+                    <tr>
+                        <td><code>git commit --amend</code></td>
+                        <td>커밋 메시지 수정</td>
+                    </tr>
+                    <tr>
+                        <td><code>git push --force</code></td>
+                        <td>푸시 취소 (주의!)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🔍 확인 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git log</code></td>
+                        <td>커밋 히스토리</td>
+                    </tr>
+                    <tr>
+                        <td><code>git log --oneline</code></td>
+                        <td>간단한 히스토리</td>
+                    </tr>
+                    <tr>
+                        <td><code>git diff</code></td>
+                        <td>변경사항 확인</td>
+                    </tr>
+                    <tr>
+                        <td><code>git remote -v</code></td>
+                        <td>원격 저장소 확인</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <h3>📚 추가 학습 자료</h3>
+            <p>
+                <a href="https://git-scm.com/doc" target="_blank">공식 Git 문서</a> | 
+                <a href="https://github.com" target="_blank">GitHub</a> | 
+                <a href="https://learngitbranching.js.org" target="_blank">Learn Git Branching</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                이 가이드는 혼자 사용하는 Git 저장소를 위한 실전 가이드입니다.<br>
+                협업 시에는 <code>--force</code> 사용을 피하고, 팀원들과 소통하세요! 💬
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

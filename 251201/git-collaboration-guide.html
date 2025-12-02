@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 협업 실전 가이드 - 단계별 따라하기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 1.8em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            padding-left: 10px;
+            border-left: 4px solid #2980b9;
+        }
+        
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .workflow-step {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .code-block code {
+            color: #d4d4d4;
+        }
+        
+        .command {
+            color: #4ec9b0;
+        }
+        
+        .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+        }
+        
+        .info {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+        }
+        
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .checklist li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            margin: 8px 0;
+        }
+        
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .toc {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border: none;
+            padding: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+        }
+        
+        .toc a {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .toc a:hover {
+            color: #667eea;
+        }
+        
+        .scenario-box {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 2px dashed #667eea;
+        }
+        
+        .quick-ref {
+            background: #fff;
+            border: 2px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .quick-ref h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid #ecf0f1;
+            text-align: center;
+            color: #7f8c8d;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Git 협업 실전 가이드</h1>
+        <p style="text-align: center; color: #7f8c8d; font-size: 1.1em; margin-bottom: 30px;">
+            초보자도 따라할 수 있는 단계별 협업 워크플로우
+        </p>
+        
+        <div class="toc">
+            <h3>📑 목차</h3>
+            <ul>
+                <li><a href="#phase1">Phase 1: 초기 설정 (처음 한 번만)</a></li>
+                <li><a href="#phase2">Phase 2: 프로젝트 시작하기</a></li>
+                <li><a href="#phase3">Phase 3: 일상적인 작업 흐름</a></li>
+                <li><a href="#phase4">Phase 4: 협업 시나리오별 대응</a></li>
+                <li><a href="#phase5">Phase 5: 문제 해결 가이드</a></li>
+                <li><a href="#quick-ref">빠른 참조</a></li>
+            </ul>
+        </div>
+
+        <!-- Phase 1: 초기 설정 -->
+        <section id="phase1">
+            <h2>📋 Phase 1: 초기 설정 (처음 한 번만)</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>필수 도구 설치 확인</h3>
+                </div>
+                <ul class="checklist">
+                    <li>Visual Studio Code 설치</li>
+                    <li>Git 설치 확인</li>
+                </ul>
+                <div class="code-block">
+                    <code class="command">git --version</code>
+                </div>
+                <p>설치되어 있지 않다면: <a href="https://git-scm.com" target="_blank">https://git-scm.com</a> 에서 다운로드</p>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>Git 사용자 정보 설정 (전역 설정)</h3>
+                </div>
+                <p>이 설정은 한 번만 하면 됩니다. 모든 프로젝트에 적용됩니다.</p>
+                <div class="code-block">
+                    <code class="command">git config --global user.name "홍길동"</code><br>
+                    <code class="command">git config --global user.email "hong@example.com"</code>
+                </div>
+                <div class="info">
+                    <strong>💡 팁:</strong> GitHub 이메일과 동일하게 설정하는 것을 권장합니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>VS Code 확장 프로그램 설치 (선택사항)</h3>
+                </div>
+                <ul class="checklist">
+                    <li><strong>GitLens</strong> - Git 히스토리 시각화</li>
+                    <li><strong>Git Graph</strong> - 브랜치 그래프 시각화</li>
+                    <li><strong>Gitmoji</strong> - 커밋 메시지에 이모지 추가</li>
+                    <li><strong>Live Share</strong> - 실시간 협업 코딩</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Phase 2: 프로젝트 시작하기 -->
+        <section id="phase2">
+            <h2>🎯 Phase 2: 프로젝트 시작하기</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>팀장: GitHub 저장소 생성 및 팀원 초대</h3>
+                </div>
+                <h4>GitHub Organization 생성 (권장)</h4>
+                <ol>
+                    <li>GitHub → 우측 상단 프로필 → <strong>Your organizations</strong></li>
+                    <li><strong>New organization</strong> → <strong>Free</strong> 선택</li>
+                    <li>조직 이름 입력 및 생성</li>
+                </ol>
+                
+                <h4>저장소 생성</h4>
+                <ol>
+                    <li>Organization 페이지 → <strong>New repository</strong></li>
+                    <li>저장소 이름 입력 (예: my-project)</li>
+                    <li><strong>Public</strong> 또는 <strong>Private</strong> 선택</li>
+                    <li><strong>Add a README file</strong> 체크</li>
+                    <li>생성 완료</li>
+                </ol>
+                
+                <h4>팀원 초대</h4>
+                <ol>
+                    <li>저장소 → <strong>Settings</strong> → <strong>Collaborators and teams</strong></li>
+                    <li><strong>Add people</strong> 클릭</li>
+                    <li>팀원 GitHub 사용자명 입력 및 초대</li>
+                </ol>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>팀원: 프로젝트 클론하기</h3>
+                </div>
+                <p>팀장이 만든 저장소를 내 컴퓨터로 가져오기</p>
+                <div class="code-block">
+                    <code class="comment"># 저장소 URL은 GitHub 저장소 페이지에서 복사</code><br>
+                    <code class="command">git clone https://github.com/your-org/your-repo.git</code><br>
+                    <code class="command">cd your-repo</code>
+                </div>
+                <div class="success">
+                    <strong>✅ 완료!</strong> 이제 프로젝트 폴더가 내 컴퓨터에 있습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>브랜치 전략 수립 (팀 회의)</h3>
+                </div>
+                <div class="info">
+                    <strong>권장 브랜치 전략:</strong>
+                    <ul>
+                        <li><strong>main</strong> (또는 master): 배포 가능한 안정 버전</li>
+                        <li><strong>develop</strong>: 개발 중인 버전 (선택사항)</li>
+                        <li><strong>feature/기능명</strong>: 각자 작업하는 기능 브랜치</li>
+                        <li><strong>hotfix/버그명</strong>: 긴급 버그 수정</li>
+                    </ul>
+                </div>
+                <p><strong>예시:</strong> 각자 담당 기능에 맞는 브랜치 생성</p>
+                <ul>
+                    <li>홍길동 → <code>feature/login</code></li>
+                    <li>김철수 → <code>feature/dashboard</code></li>
+                    <li>이영희 → <code>feature/api</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Phase 3: 일상적인 작업 흐름 -->
+        <section id="phase3">
+            <h2>💼 Phase 3: 일상적인 작업 흐름</h2>
+            
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">1</span>
+                    <h3>매일 아침: 최신 코드 받아오기</h3>
+                </div>
+                <p>작업 시작 전, 항상 최신 코드를 받아옵니다.</p>
+                <div class="code-block">
+                    <code class="comment"># main 브랜치로 이동</code><br>
+                    <code class="command">git checkout main</code><br><br>
+                    <code class="comment"># 원격 저장소에서 최신 코드 가져오기</code><br>
+                    <code class="command">git pull origin main</code>
+                </div>
+                <div class="warning">
+                    <strong>⚠️ 중요:</strong> 매일 작업 시작 전 반드시 실행하세요!
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">2</span>
+                    <h3>내 작업 브랜치로 이동 (또는 생성)</h3>
+                </div>
+                <h4>이미 브랜치가 있는 경우:</h4>
+                <div class="code-block">
+                    <code class="command">git checkout feature/login</code>
+                </div>
+                
+                <h4>새 브랜치를 만들어야 하는 경우:</h4>
+                <div class="code-block">
+                    <code class="comment"># main에서 새 브랜치 생성 및 이동</code><br>
+                    <code class="command">git checkout -b feature/login</code>
+                </div>
+                <div class="info">
+                    <strong>💡 브랜치 이름 규칙:</strong> <code>feature/기능명</code>, <code>fix/버그명</code>, <code>hotfix/긴급수정</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">3</span>
+                    <h3>코드 작성 및 수정</h3>
+                </div>
+                <p>VS Code에서 파일을 수정하고 저장합니다.</p>
+                <div class="info">
+                    <strong>작업 예시:</strong>
+                    <ul>
+                        <li>새 파일 생성</li>
+                        <li>기존 파일 수정</li>
+                        <li>버그 수정</li>
+                        <li>기능 추가</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">4</span>
+                    <h3>변경사항 확인</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git status</code>
+                </div>
+                <p>어떤 파일이 변경되었는지 확인합니다.</p>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">5</span>
+                    <h3>변경사항 스테이징 (Staging)</h3>
+                </div>
+                <h4>모든 변경사항 추가:</h4>
+                <div class="code-block">
+                    <code class="command">git add .</code>
+                </div>
+                
+                <h4>특정 파일만 추가:</h4>
+                <div class="code-block">
+                    <code class="command">git add src/login.js</code><br>
+                    <code class="command">git add src/login.css</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">6</span>
+                    <h3>커밋 (Commit) - 버전 저장</h3>
+                </div>
+                <div class="code-block">
+                    <code class="command">git commit -m "로그인 기능 추가"</code>
+                </div>
+                <div class="info">
+                    <strong>💡 좋은 커밋 메시지 예시:</strong>
+                    <ul>
+                        <li><code>"feat: 로그인 페이지 UI 구현"</code></li>
+                        <li><code>"fix: 로그인 버튼 클릭 오류 수정"</code></li>
+                        <li><code>"docs: README 파일 업데이트"</code></li>
+                        <li><code>"refactor: 코드 구조 개선"</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">7</span>
+                    <h3>원격 저장소에 푸시 (Push)</h3>
+                </div>
+                <h4>처음 푸시하는 브랜치인 경우:</h4>
+                <div class="code-block">
+                    <code class="command">git push -u origin feature/login</code>
+                </div>
+                
+                <h4>이미 푸시한 적이 있는 브랜치인 경우:</h4>
+                <div class="code-block">
+                    <code class="command">git push</code>
+                </div>
+                <div class="success">
+                    <strong>✅ 완료!</strong> GitHub에 코드가 업로드되었습니다.
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">8</span>
+                    <h3>Pull Request 생성</h3>
+                </div>
+                <ol>
+                    <li>GitHub 저장소 페이지 접속</li>
+                    <li><strong>Compare & pull request</strong> 버튼 클릭 (또는 <strong>Pull requests</strong> 탭 → <strong>New pull request</strong>)</li>
+                    <li>설정 확인:
+                        <ul>
+                            <li><strong>base:</strong> main (병합 대상)</li>
+                            <li><strong>compare:</strong> feature/login (내 브랜치)</li>
+                        </ul>
+                    </li>
+                    <li>제목과 설명 작성:
+                        <ul>
+                            <li>제목: <code>feat: 로그인 기능 추가</code></li>
+                            <li>설명: 변경 사항 요약, 관련 이슈 번호 등</li>
+                        </ul>
+                    </li>
+                    <li><strong>Create pull request</strong> 클릭</li>
+                </ol>
+                <div class="info">
+                    <strong>💡 PR 작성 팁:</strong>
+                    <ul>
+                        <li>무엇을 변경했는지 명확히 작성</li>
+                        <li>스크린샷 첨부 (UI 변경인 경우)</li>
+                        <li>테스트 방법 설명</li>
+                        <li>관련 이슈 번호 링크</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="step-header">
+                    <span class="step-number">9</span>
+                    <h3>코드 리뷰 및 Merge (팀장 또는 리뷰어)</h3>
+                </div>
+                <ol>
+                    <li>PR 페이지에서 코드 변경사항 확인</li>
+                    <li>코드 리뷰 작성 (필요시)</li>
+                    <li>수정 요청이 있으면 → 작성자가 수정 후 다시 푸시</li>
+                    <li>모든 리뷰 통과 후 → <strong>Merge pull request</strong> 클릭</li>
+                    <li>병합 완료 후 브랜치 삭제 (선택사항)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Phase 4: 협업 시나리오별 대응 -->
+        <section id="phase4">
+            <h2>🔄 Phase 4: 협업 시나리오별 대응</h2>
+            
+            <div class="scenario-box">
+                <h3>시나리오 1: 다른 팀원이 main에 먼저 푸시했을 때</h3>
+                <p><strong>상황:</strong> 내가 작업하는 동안 다른 팀원이 main에 코드를 먼저 올렸습니다.</p>
+                
+                <h4>해결 방법:</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 내 브랜치로 이동</code><br>
+                    <code class="command">git checkout feature/login</code><br><br>
+                    <code class="comment"># 2. 원격 저장소의 최신 정보 가져오기</code><br>
+                    <code class="command">git fetch origin</code><br><br>
+                    <code class="comment"># 3. main의 최신 변경사항을 내 브랜치에 병합</code><br>
+                    <code class="command">git merge origin/main</code>
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ 충돌 발생 시:</strong> VS Code에서 충돌 표시가 나타납니다. 충돌 부분을 수정한 후:
+                    <div class="code-block">
+                        <code class="command">git add .</code><br>
+                        <code class="command">git commit -m "충돌 해결"</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <h3>시나리오 2: 협업자가 만든 브랜치에서 작업해야 할 때</h3>
+                <p><strong>상황:</strong> 팀원이 <code>feature/dashboard</code> 브랜치를 만들었고, 나도 그 브랜치에서 작업해야 합니다.</p>
+                
+                <h4>해결 방법:</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 원격 브랜치 정보 가져오기</code><br>
+                    <code class="command">git fetch origin</code><br><br>
+                    <code class="comment"># 2. 원격 브랜치를 기반으로 로컬 브랜치 생성 및 이동</code><br>
+                    <code class="command">git checkout -b feature/dashboard origin/feature/dashboard</code>
+                </div>
+                <div class="success">
+                    <strong>✅ 완료!</strong> 이제 해당 브랜치에서 작업할 수 있습니다.
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <h3>시나리오 3: main에 잘못 커밋했을 때</h3>
+                <p><strong>상황:</strong> 실수로 main 브랜치에 직접 커밋했습니다. 이 커밋을 내 작업 브랜치로 옮기고 싶습니다.</p>
+                
+                <h4>해결 방법:</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 현재 상태 확인</code><br>
+                    <code class="command">git log --oneline -3</code><br>
+                    <code class="comment"># 최근 커밋 해시 확인 (예: a1b2c3d)</code><br><br>
+                    <code class="comment"># 2. 그 커밋으로 새 브랜치 생성 (아직 main 되돌리지 않음!)</code><br>
+                    <code class="command">git checkout -b feature/my-work</code><br><br>
+                    <code class="comment"># 3. main 브랜치로 돌아가기</code><br>
+                    <code class="command">git checkout main</code><br><br>
+                    <code class="comment"># 4. main을 이전 상태로 되돌리기</code><br>
+                    <code class="command">git reset --hard HEAD~1</code><br><br>
+                    <code class="comment"># 5. 원격 저장소에도 반영 (주의: 팀에 먼저 알리기!)</code><br>
+                    <code class="command">git push origin main --force</code><br><br>
+                    <code class="comment"># 6. 내 작업 브랜치로 돌아가서 푸시</code><br>
+                    <code class="command">git checkout feature/my-work</code><br>
+                    <code class="command">git push -u origin feature/my-work</code>
+                </div>
+                <div class="warning">
+                    <strong>⚠️ 주의:</strong> <code>--force</code>는 히스토리를 변경하므로 팀원들과 먼저 상의하세요!
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <h3>시나리오 4: 작업 중인데 급하게 다른 브랜치로 이동해야 할 때</h3>
+                <p><strong>상황:</strong> 작업 중인데 커밋하지 않은 변경사항이 있고, 다른 브랜치로 이동해야 합니다.</p>
+                
+                <h4>해결 방법: Stash 사용</h4>
+                <div class="code-block">
+                    <code class="comment"># 1. 현재 변경사항 임시 저장</code><br>
+                    <code class="command">git stash</code><br><br>
+                    <code class="comment"># 2. 다른 브랜치로 이동</code><br>
+                    <code class="command">git checkout main</code><br><br>
+                    <code class="comment"># 3. 작업 완료 후 다시 돌아와서 복원</code><br>
+                    <code class="command">git checkout feature/login</code><br>
+                    <code class="command">git stash pop</code>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <h3>시나리오 5: 커밋 메시지를 잘못 작성했을 때</h3>
+                <p><strong>상황:</strong> 방금 커밋한 메시지에 오타가 있거나 내용을 수정하고 싶습니다.</p>
+                
+                <h4>해결 방법: Amend 사용</h4>
+                <div class="code-block">
+                    <code class="comment"># 커밋 메시지 수정</code><br>
+                    <code class="command">git commit --amend -m "올바른 커밋 메시지"</code><br><br>
+                    <code class="comment"># 이미 푸시했다면 강제 푸시 필요 (주의!)</code><br>
+                    <code class="command">git push --force</code>
+                </div>
+                <div class="warning">
+                    <strong>⚠️ 주의:</strong> 이미 다른 사람이 pull 받았다면 문제가 될 수 있습니다. 팀 브랜치에서는 주의해서 사용하세요.
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 5: 문제 해결 가이드 -->
+        <section id="phase5">
+            <h2>🔧 Phase 5: 문제 해결 가이드</h2>
+            
+            <div class="workflow-step">
+                <h3>문제 1: 충돌(Conflict) 해결하기</h3>
+                <p><strong>증상:</strong> merge나 pull 시 충돌 메시지가 나타남</p>
+                
+                <h4>해결 방법:</h4>
+                <ol>
+                    <li>VS Code에서 충돌 파일 열기</li>
+                    <li>충돌 표시 확인:
+                        <div class="code-block">
+                            <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code><br>
+                            <code>내가 작성한 코드</code><br>
+                            <code>=======</code><br>
+                            <code>다른 사람이 작성한 코드</code><br>
+                            <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name</code>
+                        </div>
+                    </li>
+                    <li>VS Code에서 다음 중 선택:
+                        <ul>
+                            <li><strong>Accept Current Change</strong> - 내 코드 유지</li>
+                            <li><strong>Accept Incoming Change</strong> - 다른 사람 코드 유지</li>
+                            <li><strong>Accept Both Changes</strong> - 둘 다 유지</li>
+                            <li><strong>Compare Changes</strong> - 비교 후 수동 수정</li>
+                        </ul>
+                    </li>
+                    <li>충돌 해결 후:
+                        <div class="code-block">
+                            <code class="command">git add .</code><br>
+                            <code class="command">git commit -m "충돌 해결"</code>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="workflow-step">
+                <h3>문제 2: 브랜치 삭제하기</h3>
+                <h4>로컬 브랜치 삭제:</h4>
+                <div class="code-block">
+                    <code class="command">git branch -d feature/old-branch</code>
+                </div>
+                
+                <h4>원격 브랜치 삭제:</h4>
+                <div class="code-block">
+                    <code class="command">git push origin --delete feature/old-branch</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <h3>문제 3: 실수로 삭제한 브랜치 복구하기</h3>
+                <div class="code-block">
+                    <code class="comment"># 1. 삭제된 브랜치 찾기</code><br>
+                    <code class="command">git reflog</code><br><br>
+                    <code class="comment"># 2. 복구할 커밋 해시 확인 후 브랜치 복구</code><br>
+                    <code class="command">git checkout -b feature/recovered &lt;커밋해시&gt;</code>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <h3>문제 4: 원격 저장소 URL 확인/변경</h3>
+                <h4>현재 원격 저장소 확인:</h4>
+                <div class="code-block">
+                    <code class="command">git remote -v</code>
+                </div>
+                
+                <h4>원격 저장소 URL 변경:</h4>
+                <div class="code-block">
+                    <code class="command">git remote set-url origin https://github.com/new-org/new-repo.git</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- 빠른 참조 -->
+        <section id="quick-ref">
+            <h2>⚡ 빠른 참조</h2>
+            
+            <div class="quick-ref">
+                <h4>📌 기본 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git status</code></td>
+                        <td>현재 상태 확인</td>
+                    </tr>
+                    <tr>
+                        <td><code>git add .</code></td>
+                        <td>모든 변경사항 스테이징</td>
+                    </tr>
+                    <tr>
+                        <td><code>git commit -m "메시지"</code></td>
+                        <td>커밋 생성</td>
+                    </tr>
+                    <tr>
+                        <td><code>git push</code></td>
+                        <td>원격 저장소에 푸시</td>
+                    </tr>
+                    <tr>
+                        <td><code>git pull</code></td>
+                        <td>원격 저장소에서 가져오기</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🌿 브랜치 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git branch</code></td>
+                        <td>브랜치 목록 확인</td>
+                    </tr>
+                    <tr>
+                        <td><code>git checkout -b 브랜치명</code></td>
+                        <td>새 브랜치 생성 및 이동</td>
+                    </tr>
+                    <tr>
+                        <td><code>git checkout 브랜치명</code></td>
+                        <td>브랜치 이동</td>
+                    </tr>
+                    <tr>
+                        <td><code>git merge 브랜치명</code></td>
+                        <td>브랜치 병합</td>
+                    </tr>
+                    <tr>
+                        <td><code>git branch -d 브랜치명</code></td>
+                        <td>로컬 브랜치 삭제</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🔄 협업 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git fetch origin</code></td>
+                        <td>원격 정보만 가져오기 (병합 안 함)</td>
+                    </tr>
+                    <tr>
+                        <td><code>git pull origin main</code></td>
+                        <td>원격 main을 가져와서 병합</td>
+                    </tr>
+                    <tr>
+                        <td><code>git push -u origin 브랜치명</code></td>
+                        <td>새 브랜치를 원격에 푸시</td>
+                    </tr>
+                    <tr>
+                        <td><code>git merge origin/main</code></td>
+                        <td>원격 main을 현재 브랜치에 병합</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="quick-ref">
+                <h4>🛠️ 유용한 명령어</h4>
+                <table>
+                    <tr>
+                        <th>명령어</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td><code>git stash</code></td>
+                        <td>변경사항 임시 저장</td>
+                    </tr>
+                    <tr>
+                        <td><code>git stash pop</code></td>
+                        <td>임시 저장한 내용 복원</td>
+                    </tr>
+                    <tr>
+                        <td><code>git log --oneline</code></td>
+                        <td>커밋 히스토리 간단히 보기</td>
+                    </tr>
+                    <tr>
+                        <td><code>git diff</code></td>
+                        <td>변경사항 확인</td>
+                    </tr>
+                    <tr>
+                        <td><code>git commit --amend</code></td>
+                        <td>마지막 커밋 메시지 수정</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <h3>📚 추가 학습 자료</h3>
+            <p>
+                <a href="https://git-scm.com/doc" target="_blank">공식 Git 문서</a> | 
+                <a href="https://github.com" target="_blank">GitHub</a> | 
+                <a href="https://learngitbranching.js.org" target="_blank">Learn Git Branching (인터랙티브 튜토리얼)</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                이 가이드는 실전 협업을 위한 단계별 워크플로우를 제공합니다.<br>
+                궁금한 점이 있으면 팀원들과 소통하세요! 💬
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+.foodpage {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: white;
+  min-height: 100vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 제목 */
+.foodpage__title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.foodpage__title span {
+  color: #60a5fa;
+}
+
+/* 현재 지역 정보 */
+.foodpage__location {
+  text-align: center;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+/* ✅ 메인 레이아웃을 grid로 변경 */
+.foodpage__content {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 왼쪽 넓게(추천), 오른쪽 지도 */
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  align-items: start;
+}
+
+/* 왼쪽 추천 영역 */
+.foodpage__left {
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  height: fit-content;
+  min-height: 420px;
+}
+
+/* 입력창 */
+.foodpage__input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.foodpage__input-group input {
+  flex: 1;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: white;
+  padding: 0.8rem;
+}
+.foodpage__input-group button {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.foodpage__input-group button:hover {
+  background: #2563eb;
+}
+
+/* 셀렉트 박스 */
+.foodpage__left select {
+  width: 100%;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: white;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* 추천 버튼 */
+.recommend-btn {
+  width: 100%;
+  background: #22c55e;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 1rem;
+}
+.recommend-btn:hover {
+  background: #16a34a;
+}
+
+/* 로딩 / 에러 */
+.loading {
+  color: #60a5fa;
+}
+.error {
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* 맛집 리스트 */
+.foodpage__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #1e293b;
+}
+.foodpage__list::-webkit-scrollbar {
+  width: 6px;
+}
+.foodpage__list::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 3px;
+}
+.foodpage__list li {
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.foodpage__list li:hover {
+  background: #334155;
+}
+.foodpage__list li strong {
+  color: #60a5fa;
+  font-size: 1.1rem;
+}
+
+/* ✅ 오른쪽 지도 영역 */
+.foodpage__map {
+  background: #1e293b;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 420px; /* 고정 높이 (추천 카드와 맞춤) */
+}
+
+.foodpage__map div {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 🔁 반응형: 화면이 작아지면 세로로 */
+@media (max-width: 900px) {
+  .foodpage__content {
+    grid-template-columns: 1fr;
+  }
+  .foodpage__map {
+    height: 300px;
+  }
+}

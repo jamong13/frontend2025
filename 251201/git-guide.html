@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git 완전 가이드 - 되돌리기, 브랜치, 병합, 원격 저장소 관리</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            border-bottom: 4px solid #764ba2;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(90deg, #667eea15, #764ba215);
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #764ba2;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .command-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .command-box::before {
+            content: '$ ';
+            color: #50fa7b;
+        }
+        
+        .command {
+            color: #50fa7b;
+        }
+        
+        .comment {
+            color: #6272a4;
+            font-style: italic;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .danger-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 2px solid #667eea;
+        }
+        
+        .toc h3 {
+            color: #667eea;
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+        
+        .step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Git 완전 가이드</h1>
+        <p style="font-size: 1.1em; color: #666; margin-bottom: 30px;">
+            Git 되돌리기, 브랜치 관리, 병합, 원격 저장소 관리 등 모든 Git 작업을 자세히 설명합니다.
+        </p>
+        
+        <div class="toc">
+            <h3>📑 목차</h3>
+            <ul>
+                <li><a href="#basics">1. Git 기본 명령어</a></li>
+                <li><a href="#undo">2. Git 되돌리기 (Undo)</a></li>
+                <li><a href="#branch">3. 브랜치 만들기와 관리</a></li>
+                <li><a href="#merge">4. 브랜치 병합 (Merge)</a></li>
+                <li><a href="#remote">5. 원격 저장소 관리</a></li>
+                <li><a href="#force">6. 강제 푸시 (Force Push)</a></li>
+                <li><a href="#remote-undo">7. 원격 저장소 푸시 취소</a></li>
+                <li><a href="#advanced">8. 고급 명령어</a></li>
+            </ul>
+        </div>
+        
+        <!-- 1. Git 기본 명령어 -->
+        <div id="basics" class="section">
+            <h2>1. Git 기본 명령어</h2>
+            
+            <h3>저장소 초기화 및 설정</h3>
+            <div class="command-box">
+                <span class="command">git init</span>
+                <span class="comment"># 현재 디렉토리를 Git 저장소로 초기화</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git config --global user.name "Your Name"</span>
+                <span class="comment"># 전역 사용자 이름 설정</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git config --global user.email "your.email@example.com"</span>
+                <span class="comment"># 전역 이메일 설정</span>
+            </div>
+            
+            <h3>파일 추가 및 커밋</h3>
+            <div class="command-box">
+                <span class="command">git status</span>
+                <span class="comment"># 작업 디렉토리 상태 확인</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git add .</span>
+                <span class="comment"># 모든 변경사항 스테이징 영역에 추가</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git add filename.txt</span>
+                <span class="comment"># 특정 파일만 추가</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git commit -m "커밋 메시지"</span>
+                <span class="comment"># 변경사항 커밋</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git log</span>
+                <span class="comment"># 커밋 히스토리 확인</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git log --oneline</span>
+                <span class="comment"># 한 줄로 간단히 보기</span>
+            </div>
+            
+            <div class="command-box">
+                <span class="command">git log --graph --all</span>
+                <span class="comment"># 그래프로 모든 브랜치 보기</span>
+            </div>
+        </div>
+        
+        <!-- 2. Git 되돌리기 -->
+        <div id="undo" class="section">
+            <h2>2. Git 되돌리기 (Undo)</h2>
+            
+            <h3>2.1 작업 디렉토리 변경사항 취소</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>수정한 파일 되돌리기 (아직 add 하지 않은 경우)</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git restore filename.txt</span>
+                <span class="comment"># 특정 파일을 마지막 커밋 상태로 되돌림</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git restore .</span>
+                <span class="comment"># 모든 변경사항 되돌리기</span>
+            </div>
+            
+            <div class="info-box">
+                <strong>참고:</strong> Git 2.23 이전 버전에서는 <code>git checkout -- filename.txt</code> 또는 <code>git restore</code> 대신 <code>git reset --hard HEAD</code>를 사용합니다.
+            </div>
+            
+            <h3>2.2 스테이징 영역에서 제거 (Unstage)</h3>
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>add 했지만 아직 commit 하지 않은 경우</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git restore --staged filename.txt</span>
+                <span class="comment"># 스테이징 영역에서 제거 (파일은 수정된 상태 유지)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git restore --staged .</span>
+                <span class="comment"># 모든 파일을 스테이징 영역에서 제거</span>
+            </div>
+            
+            <div class="info-box">
+                <strong>참고:</strong> Git 2.23 이전 버전에서는 <code>git reset HEAD filename.txt</code>를 사용합니다.
+            </div>
+            
+            <h3>2.3 마지막 커밋 수정</h3>
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>커밋 메시지만 수정하거나 파일 추가/제거</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit --amend -m "새로운 메시지"</span>
+                <span class="comment"># 마지막 커밋 메시지 수정</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git add forgotten_file.txt</span>
+                <span class="comment"># 파일 추가 후</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit --amend --no-edit</span>
+                <span class="comment"># 마지막 커밋에 파일 추가 (메시지는 그대로)</span>
+            </div>
+            
+            <div class="warning-box">
+                <strong>⚠️ 주의:</strong> 이미 원격 저장소에 푸시한 커밋을 amend하면 force push가 필요합니다. 다른 사람과 공유하는 브랜치에서는 사용하지 마세요!
+            </div>
+            
+            <h3>2.4 커밋 되돌리기 (Reset)</h3>
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>커밋을 완전히 취소하는 방법</strong>
+            </div>
+            
+            <h4>Soft Reset (변경사항 유지, 스테이징 영역에 보관)</h4>
+            <div class="command-box">
+                <span class="command">git reset --soft HEAD~1</span>
+                <span class="comment"># 마지막 커밋 취소, 변경사항은 스테이징 영역에 유지</span>
+            </div>
+            
+            <h4>Mixed Reset (기본값, 변경사항은 작업 디렉토리에 유지)</h4>
+            <div class="command-box">
+                <span class="command">git reset HEAD~1</span>
+                <span class="comment"># 또는 git reset --mixed HEAD~1</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset HEAD~2</span>
+                <span class="comment"># 마지막 2개 커밋 취소</span>
+            </div>
+            
+            <h4>Hard Reset (모든 변경사항 완전 삭제)</h4>
+            <div class="danger-box">
+                <strong>⚠️ 위험:</strong> 이 명령어는 모든 변경사항을 영구적으로 삭제합니다. 신중하게 사용하세요!
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard HEAD~1</span>
+                <span class="comment"># 마지막 커밋과 모든 변경사항 완전 삭제</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard commit_hash</span>
+                <span class="comment"># 특정 커밋으로 되돌리기</span>
+            </div>
+            
+            <h3>2.5 특정 커밋으로 되돌리기</h3>
+            <div class="command-box">
+                <span class="command">git log --oneline</span>
+                <span class="comment"># 커밋 해시 확인</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard abc1234</span>
+                <span class="comment"># 특정 커밋 해시로 되돌리기</span>
+            </div>
+            
+            <h3>2.6 Revert (안전한 되돌리기)</h3>
+            <div class="info-box">
+                <strong>💡 Revert vs Reset:</strong> Revert는 새로운 커밋을 만들어서 변경사항을 취소합니다. 히스토리를 유지하므로 공유된 브랜치에서 안전합니다.
+            </div>
+            <div class="command-box">
+                <span class="command">git revert HEAD</span>
+                <span class="comment"># 마지막 커밋을 되돌리는 새 커밋 생성</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git revert commit_hash</span>
+                <span class="comment"># 특정 커밋을 되돌리는 새 커밋 생성</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git revert --no-commit HEAD</span>
+                <span class="comment"># 자동 커밋 없이 revert (여러 개 한번에 가능)</span>
+            </div>
+        </div>
+        
+        <!-- 3. 브랜치 만들기와 관리 -->
+        <div id="branch" class="section">
+            <h2>3. 브랜치 만들기와 관리</h2>
+            
+            <h3>3.1 브랜치 확인</h3>
+            <div class="command-box">
+                <span class="command">git branch</span>
+                <span class="comment"># 로컬 브랜치 목록 확인</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git branch -a</span>
+                <span class="comment"># 모든 브랜치 확인 (원격 포함)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git branch -r</span>
+                <span class="comment"># 원격 브랜치만 확인</span>
+            </div>
+            
+            <h3>3.2 브랜치 만들기</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>새 브랜치 생성</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git branch feature-branch</span>
+                <span class="comment"># 새 브랜치 생성 (현재 브랜치에 머물러 있음)</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>브랜치 생성하고 바로 이동</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git checkout -b feature-branch</span>
+                <span class="comment"># 브랜치 생성 후 이동</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git switch -c feature-branch</span>
+                <span class="comment"># Git 2.23+ 새로운 명령어 (더 직관적)</span>
+            </div>
+            
+            <h3>3.3 브랜치 이동 (Checkout/Switch)</h3>
+            <div class="command-box">
+                <span class="command">git checkout branch-name</span>
+                <span class="comment"># 브랜치로 이동</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git switch branch-name</span>
+                <span class="comment"># Git 2.23+ 새로운 명령어</span>
+            </div>
+            
+            <h3>3.4 브랜치 삭제</h3>
+            <div class="command-box">
+                <span class="command">git branch -d branch-name</span>
+                <span class="comment"># 병합된 브랜치 안전하게 삭제</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git branch -D branch-name</span>
+                <span class="comment"># 강제 삭제 (병합되지 않아도 삭제)</span>
+            </div>
+            
+            <h3>3.5 원격 브랜치 가져오기</h3>
+            <div class="command-box">
+                <span class="command">git fetch origin</span>
+                <span class="comment"># 원격 저장소의 모든 브랜치 정보 가져오기</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git checkout -b local-branch origin/remote-branch</span>
+                <span class="comment"># 원격 브랜치를 로컬로 가져와서 체크아웃</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git checkout --track origin/remote-branch</span>
+                <span class="comment"># 원격 브랜치 추적하면서 체크아웃</span>
+            </div>
+        </div>
+        
+        <!-- 4. 브랜치 병합 -->
+        <div id="merge" class="section">
+            <h2>4. 브랜치 병합 (Merge)</h2>
+            
+            <h3>4.1 기본 병합 방법</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>메인 브랜치로 이동</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git checkout main</span>
+                <span class="comment"># 또는 git checkout master</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>병합할 브랜치 가져오기</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git pull origin main</span>
+                <span class="comment"># 최신 상태로 업데이트</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>브랜치 병합</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git merge feature-branch</span>
+                <span class="comment"># feature-branch를 현재 브랜치에 병합</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>원격 저장소에 푸시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git push origin main</span>
+            </div>
+            
+            <h3>4.2 병합 타입</h3>
+            
+            <h4>Fast-forward 병합 (빨리 감기)</h4>
+            <div class="info-box">
+                메인 브랜치에 새로운 커밋이 없고, feature 브랜치만 앞서 있는 경우 자동으로 fast-forward 병합이 됩니다.
+            </div>
+            <div class="command-box">
+                <span class="command">git merge --ff feature-branch</span>
+                <span class="comment"># fast-forward 병합 (기본값)</span>
+            </div>
+            
+            <h4>No-fast-forward 병합 (병합 커밋 생성)</h4>
+            <div class="command-box">
+                <span class="command">git merge --no-ff feature-branch</span>
+                <span class="comment"># 항상 병합 커밋 생성 (히스토리 보존)</span>
+            </div>
+            
+            <h4>Squash 병합 (커밋 합치기)</h4>
+            <div class="command-box">
+                <span class="command">git merge --squash feature-branch</span>
+                <span class="comment"># 모든 커밋을 하나로 합쳐서 병합</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit -m "Feature 완료"</span>
+                <span class="comment"># squash 후 커밋 필요</span>
+            </div>
+            
+            <h3>4.3 병합 충돌 해결</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>충돌 발생 시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git merge feature-branch</span>
+                <span class="comment"># 충돌 발생하면 자동으로 멈춤</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>충돌 파일 확인</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git status</span>
+                <span class="comment"># 충돌한 파일 목록 확인</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>충돌 해결</strong>
+            </div>
+            <div class="info-box">
+                충돌 파일을 열어서 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 표시를 찾아 수동으로 수정합니다.
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>해결 후 커밋</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git add resolved-file.txt</span>
+                <span class="comment"># 해결한 파일 추가</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit</span>
+                <span class="comment"># 병합 커밋 완료</span>
+            </div>
+            
+            <h3>4.4 병합 취소</h3>
+            <div class="command-box">
+                <span class="command">git merge --abort</span>
+                <span class="comment"># 병합 시작 전 상태로 되돌리기</span>
+            </div>
+        </div>
+        
+        <!-- 5. 원격 저장소 관리 -->
+        <div id="remote" class="section">
+            <h2>5. 원격 저장소 관리</h2>
+            
+            <h3>5.1 원격 저장소 확인 및 추가</h3>
+            <div class="command-box">
+                <span class="command">git remote -v</span>
+                <span class="comment"># 원격 저장소 목록 확인</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git remote add origin https://github.com/user/repo.git</span>
+                <span class="comment"># 원격 저장소 추가</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git remote remove origin</span>
+                <span class="comment"># 원격 저장소 제거</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git remote set-url origin https://github.com/user/new-repo.git</span>
+                <span class="comment"># 원격 저장소 URL 변경</span>
+            </div>
+            
+            <h3>5.2 원격 저장소에서 가져오기</h3>
+            <div class="command-box">
+                <span class="command">git fetch origin</span>
+                <span class="comment"># 원격 저장소 정보만 가져오기 (병합 안함)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git fetch origin main</span>
+                <span class="comment"># 특정 브랜치만 가져오기</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git pull origin main</span>
+                <span class="comment"># 가져오고 자동으로 병합 (fetch + merge)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git pull --rebase origin main</span>
+                <span class="comment"># rebase 방식으로 가져오기</span>
+            </div>
+            
+            <h3>5.3 원격 저장소에 푸시</h3>
+            <div class="command-box">
+                <span class="command">git push origin main</span>
+                <span class="comment"># main 브랜치를 origin에 푸시</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push origin feature-branch</span>
+                <span class="comment"># 특정 브랜치 푸시</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push -u origin main</span>
+                <span class="comment"># 업스트림 설정하며 푸시 (이후 git push만으로 가능)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --all origin</span>
+                <span class="comment"># 모든 브랜치 푸시</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --tags origin</span>
+                <span class="comment"># 모든 태그 푸시</span>
+            </div>
+        </div>
+        
+        <!-- 6. 강제 푸시 -->
+        <div id="force" class="section">
+            <h2>6. 강제 푸시 (Force Push)</h2>
+            
+            <div class="danger-box">
+                <strong>⚠️ 매우 주의하세요!</strong> Force push는 원격 저장소의 히스토리를 덮어씁니다. 다른 사람과 공유하는 브랜치에서는 절대 사용하지 마세요!
+            </div>
+            
+            <h3>6.1 언제 사용하나요?</h3>
+            <ul>
+                <li>로컬에서 커밋을 수정했을 때 (amend, rebase 등)</li>
+                <li>커밋 히스토리를 정리했을 때</li>
+                <li>개인 브랜치에서만 작업할 때</li>
+                <li>실수로 잘못 푸시한 내용을 수정할 때</li>
+            </ul>
+            
+            <h3>6.2 Force Push 명령어</h3>
+            <div class="command-box">
+                <span class="command">git push --force origin main</span>
+                <span class="comment"># 강제 푸시 (위험)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push -f origin main</span>
+                <span class="comment"># --force의 짧은 형태</span>
+            </div>
+            
+            <h3>6.3 안전한 Force Push (Force with Lease)</h3>
+            <div class="success-box">
+                <strong>✅ 권장:</strong> --force-with-lease는 다른 사람이 먼저 푸시했는지 확인하고, 있다면 거부합니다. 더 안전합니다!
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+                <span class="comment"># 안전한 강제 푸시 (권장)</span>
+            </div>
+            
+            <h3>6.4 Force Push 예시 시나리오</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>커밋 메시지 수정 후 푸시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit --amend -m "수정된 메시지"</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Rebase 후 푸시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git rebase -i HEAD~3</span>
+                <span class="comment"># 최근 3개 커밋 수정</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+            </div>
+        </div>
+        
+        <!-- 7. 원격 저장소 푸시 취소 -->
+        <div id="remote-undo" class="section">
+            <h2>7. 원격 저장소 푸시 취소</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ 주의:</strong> 이미 원격 저장소에 푸시한 내용을 취소하는 것은 위험할 수 있습니다. 팀과 협의 후 진행하세요.
+            </div>
+            
+            <h3>7.1 마지막 커밋 취소 (로컬 + 원격)</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>로컬에서 커밋 취소</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard HEAD~1</span>
+                <span class="comment"># 마지막 커밋 삭제</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>원격 저장소에 강제 푸시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+                <span class="comment"># 원격 저장소에서도 커밋 제거</span>
+            </div>
+            
+            <h3>7.2 여러 커밋 취소</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>취소할 커밋 수 확인</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git log --oneline</span>
+                <span class="comment"># 커밋 히스토리 확인</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>N개 커밋 취소</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard HEAD~3</span>
+                <span class="comment"># 최근 3개 커밋 취소</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>원격 저장소에 반영</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+            </div>
+            
+            <h3>7.3 특정 커밋으로 되돌리기</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>커밋 해시 확인</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git log --oneline</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>특정 커밋으로 되돌리기</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git reset --hard abc1234</span>
+                <span class="comment"># abc1234 커밋으로 되돌리기</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>원격 저장소에 반영</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git push --force-with-lease origin main</span>
+            </div>
+            
+            <h3>7.4 안전한 방법: Revert 사용</h3>
+            <div class="success-box">
+                <strong>✅ 권장 방법:</strong> Revert는 새로운 커밋을 만들어서 변경사항을 취소합니다. 히스토리를 유지하므로 더 안전합니다.
+            </div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>마지막 커밋 되돌리기</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git revert HEAD</span>
+                <span class="comment"># 마지막 커밋을 취소하는 새 커밋 생성</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>일반 푸시 (force 불필요)</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git push origin main</span>
+                <span class="comment"># force 없이 안전하게 푸시</span>
+            </div>
+            
+            <h3>7.5 특정 파일만 되돌리기</h3>
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>특정 커밋의 파일만 가져오기</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git checkout commit_hash -- filename.txt</span>
+                <span class="comment"># 특정 커밋의 파일 버전 가져오기</span>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>커밋하고 푸시</strong>
+            </div>
+            <div class="command-box">
+                <span class="command">git commit -m "파일 되돌리기"</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push origin main</span>
+            </div>
+        </div>
+        
+        <!-- 8. 고급 명령어 -->
+        <div id="advanced" class="section">
+            <h2>8. 고급 명령어</h2>
+            
+            <h3>8.1 Rebase (히스토리 재작성)</h3>
+            <div class="command-box">
+                <span class="command">git rebase main</span>
+                <span class="comment"># 현재 브랜치를 main 위에 재배치</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git rebase -i HEAD~3</span>
+                <span class="comment"># 최근 3개 커밋 대화형 수정</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git rebase --abort</span>
+                <span class="comment"># rebase 취소</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git rebase --continue</span>
+                <span class="comment"># 충돌 해결 후 rebase 계속</span>
+            </div>
+            
+            <h3>8.2 Stash (임시 저장)</h3>
+            <div class="command-box">
+                <span class="command">git stash</span>
+                <span class="comment"># 작업 중인 변경사항 임시 저장</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git stash save "작업 메모"</span>
+                <span class="comment"># 메모와 함께 저장</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git stash list</span>
+                <span class="comment"># stash 목록 확인</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git stash pop</span>
+                <span class="comment"># 가장 최근 stash 적용하고 삭제</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git stash apply</span>
+                <span class="comment"># stash 적용 (삭제 안함)</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git stash drop</span>
+                <span class="comment"># stash 삭제</span>
+            </div>
+            
+            <h3>8.3 Cherry-pick (특정 커밋만 가져오기)</h3>
+            <div class="command-box">
+                <span class="command">git cherry-pick commit_hash</span>
+                <span class="comment"># 특정 커밋만 현재 브랜치에 적용</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git cherry-pick commit1 commit2</span>
+                <span class="comment"># 여러 커밋 한번에</span>
+            </div>
+            
+            <h3>8.4 Tag (태그)</h3>
+            <div class="command-box">
+                <span class="command">git tag v1.0.0</span>
+                <span class="comment"># 태그 생성</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git tag -a v1.0.0 -m "버전 1.0.0"</span>
+                <span class="comment"># 주석 있는 태그</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git tag</span>
+                <span class="comment"># 태그 목록</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git push origin v1.0.0</span>
+                <span class="comment"># 태그 푸시</span>
+            </div>
+            
+            <h3>8.5 Diff (차이점 확인)</h3>
+            <div class="command-box">
+                <span class="command">git diff</span>
+                <span class="comment"># 작업 디렉토리와 스테이징 영역 차이</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git diff --staged</span>
+                <span class="comment"># 스테이징 영역과 마지막 커밋 차이</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git diff HEAD</span>
+                <span class="comment"># 작업 디렉토리와 마지막 커밋 차이</span>
+            </div>
+            <div class="command-box">
+                <span class="command">git diff commit1 commit2</span>
+                <span class="comment"># 두 커밋 간 차이</span>
+            </div>
+        </div>
+        
+        <!-- 요약 테이블 -->
+        <div class="section">
+            <h2>📊 Git 명령어 요약표</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>작업</th>
+                            <th>명령어</th>
+                            <th>설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>되돌리기 (작업 디렉토리)</td>
+                            <td><code>git restore filename</code></td>
+                            <td>파일을 마지막 커밋 상태로 되돌림</td>
+                        </tr>
+                        <tr>
+                            <td>되돌리기 (스테이징)</td>
+                            <td><code>git restore --staged filename</code></td>
+                            <td>스테이징 영역에서 제거</td>
+                        </tr>
+                        <tr>
+                            <td>커밋 수정</td>
+                            <td><code>git commit --amend</code></td>
+                            <td>마지막 커밋 수정</td>
+                        </tr>
+                        <tr>
+                            <td>커밋 취소 (유지)</td>
+                            <td><code>git reset --soft HEAD~1</code></td>
+                            <td>커밋 취소, 변경사항 유지</td>
+                        </tr>
+                        <tr>
+                            <td>커밋 취소 (삭제)</td>
+                            <td><code>git reset --hard HEAD~1</code></td>
+                            <td>커밋과 변경사항 완전 삭제</td>
+                        </tr>
+                        <tr>
+                            <td>안전한 되돌리기</td>
+                            <td><code>git revert HEAD</code></td>
+                            <td>새 커밋으로 변경사항 취소</td>
+                        </tr>
+                        <tr>
+                            <td>브랜치 생성</td>
+                            <td><code>git branch name</code></td>
+                            <td>새 브랜치 생성</td>
+                        </tr>
+                        <tr>
+                            <td>브랜치 생성+이동</td>
+                            <td><code>git checkout -b name</code></td>
+                            <td>브랜치 생성 후 이동</td>
+                        </tr>
+                        <tr>
+                            <td>브랜치 병합</td>
+                            <td><code>git merge branch</code></td>
+                            <td>브랜치 병합</td>
+                        </tr>
+                        <tr>
+                            <td>원격 푸시</td>
+                            <td><code>git push origin main</code></td>
+                            <td>원격 저장소에 푸시</td>
+                        </tr>
+                        <tr>
+                            <td>강제 푸시</td>
+                            <td><code>git push --force-with-lease</code></td>
+                            <td>안전한 강제 푸시</td>
+                        </tr>
+                        <tr>
+                            <td>원격 가져오기</td>
+                            <td><code>git pull origin main</code></td>
+                            <td>가져오고 병합</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- 주의사항 -->
+        <div class="section">
+            <h2>⚠️ 중요한 주의사항</h2>
+            <div class="danger-box">
+                <h3>절대 하지 말아야 할 것들:</h3>
+                <ul>
+                    <li><strong>공유 브랜치에서 force push 사용 금지</strong> - 다른 사람의 작업을 덮어쓸 수 있습니다</li>
+                    <li><strong>이미 푸시한 커밋을 rebase 하지 말기</strong> - 히스토리가 꼬일 수 있습니다</li>
+                    <li><strong>main/master 브랜치에서 직접 작업하지 말기</strong> - 항상 브랜치를 만들어서 작업하세요</li>
+                    <li><strong>--force-with-lease 없이 --force 사용하지 말기</strong> - 안전장치가 없습니다</li>
+                </ul>
+            </div>
+            
+            <div class="success-box">
+                <h3>✅ 권장 사항:</h3>
+                <ul>
+                    <li>작업 전에 항상 <code>git status</code>로 상태 확인</li>
+                    <li>중요한 작업 전에 브랜치 백업 생성</li>
+                    <li>원격 저장소 작업 전에 <code>git fetch</code>로 최신 상태 확인</li>
+                    <li>팀과 협의 후 히스토리 수정 작업 진행</li>
+                    <li>되돌리기 전에 <code>git log</code>로 커밋 해시 확인</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <p style="color: #666; font-size: 0.9em;">
+                이 가이드는 Git의 주요 기능을 다룹니다. 더 자세한 정보는 <a href="https://git-scm.com/doc" target="_blank">공식 문서</a>를 참고하세요.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
